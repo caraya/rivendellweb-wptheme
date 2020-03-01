@@ -1,0 +1,25 @@
+a {
+	color: $color__link;
+	text-decoration: none;
+	text-decoration-skip-ink: auto;
+
+	&:visited {
+		color: $color__link-visited;
+		text-decoration: underline;
+		text-decoration-skip-ink: auto;
+		}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+		text-decoration: underline;
+		text-decoration-skip-ink: auto;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	// &:hover,
+	// &:active {
+	// 	outline: 0;
+	// }
+}

@@ -1,0 +1,76 @@
+article {
+  counter-reset: figure_count;
+}
+
+li code,
+p code {
+  display: inline;
+  border: 2px 3px;
+}
+
+video,
+object {
+  clear: both;
+  display: block;
+  margin: 1em auto;
+  max-width: 100% !important;
+	height: auto !important;
+}
+
+div.video iframe {
+  clear: both;
+  display: block;
+  margin: 1em auto;
+  max-width: inherit;
+  text-align: center
+}
+
+div.video p {
+  font-style: italic;
+  font-weight: 700;
+  margin-top: -.125em
+}
+
+iframe {
+  margin: 1.5em 0
+}
+
+table,
+th,
+tr,
+td {
+  border: 1px solid #000
+}
+
+tr td:first-child {
+  width: 38%
+}
+
+tr td:last-child {
+  width: 20%
+}
+
+/* Informational messages */
+.message {
+  border: 1px solid black;
+  border-radius: 10px;
+  display: block;
+  padding: .5em;
+}
+
+.message.info {
+  background-color: rgba(173, 216, 230,.15);
+}
+
+.message.warning {
+  background-color: rgba(255,255,224,.15);
+}
+
+.message.danger {
+  background-color: rgba(255, 85, 0, 0.15);
+}
+
+/* First Paragraph Lede */
+.entry-content p:first-child {
+	font-size: 150%;
+}

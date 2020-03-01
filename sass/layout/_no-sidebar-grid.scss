@@ -1,0 +1,22 @@
+/*
+First attempt at a grid layout in WordPress
+*/
+.site {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+  grid-auto-rows: minmax(200px, auto);
+  grid-gap: 1em 1em;
+}
+
+.site-header {
+  grid-column: 2/-2;
+}
+
+.site-content {
+  grid-column: 3/7;
+  width: 100%;
+}
+
+.site-footer {
+  grid-column: 3/8;
+}

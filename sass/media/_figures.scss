@@ -1,0 +1,21 @@
+figure {
+  margin: 2em auto;
+  max-width: 600px;
+  max-width: -moz-min-content;
+  max-width: -webkit-min-content;
+  max-width: min-content;
+
+  img {
+    max-width: inherit
+  }
+
+  figcaption {
+    color: $color__figure-text;
+    font-size: .8em;
+  }
+
+  figcaption::before {
+    counter-increment: figure_count;
+    content: "Figure " counter(figure_count) ": ";
+  }
+}
