@@ -1322,16 +1322,30 @@ First attempt at a grid layout in WordPress
 
 @media screen and (min-width: 43.75em) {
   .site-header {
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: center;
+  }
+  .custom-logo {
+    margin-right: 2em;
+    -webkit-margin-end: 2em;
+            margin-inline-end: 2em;
   }
   .site-branding {
     width: 40%;
+    margin: 0 1em;
   }
   .main-navigation {
-    align-self: center;
-    width: 50%;
+    width: 35%;
+  }
+  .main-navigation ul {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    align: end;
   }
   .nav-menu li {
     display: block;
@@ -1340,7 +1354,13 @@ First attempt at a grid layout in WordPress
 }
 
 .site-branding {
-  height: 185px;
+  margin-right: 3em;
+}
+
+.site-branding__text {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
 
 .site-title {
