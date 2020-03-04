@@ -1288,6 +1288,7 @@ First attempt at a grid layout in WordPress
   margin: 0;
   max-height: 65vh;
   max-width: 100vw;
+  overflow: hidden;
 }
 
 .header-image img {
@@ -1295,6 +1296,7 @@ First attempt at a grid layout in WordPress
   width: 100vw;
 }
 
+<<<<<<< HEAD
 .site-header {
   position: relative;
   padding: 1em;
@@ -1372,6 +1374,8 @@ First attempt at a grid layout in WordPress
   margin: 0;
 }
 
+=======
+>>>>>>> last known good image header
 .sticky {
   display: block;
 }
