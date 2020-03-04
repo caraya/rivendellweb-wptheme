@@ -22,22 +22,22 @@
   }
 }
 
-// .site-header {
-//   position: relative;
-//   padding: 1em;
-//   color: $color__text-main;
-//   background-color: $color__background-body;
+.site-header {
+  position: relative;
+  padding: 1em;
+  color: $color__text-main;
+  background-color: $color__background-body;
 
-//   @media screen and (max-width: 24.15em) {
-//     padding: 0 1em;
-//   }
+  @media screen and (max-width: 24.15em) {
+    padding: 0 1em;
+  }
 
-//   .nav-menu li {
-//     display: flex;
-//     flex-flow: row wrap;
-//     padding: .25em;
-//   }
-// }
+  .nav-menu li {
+    display: flex;
+    flex-flow: row wrap;
+    padding: .25em;
+  }
+}
 
 @media screen and (min-width: 43.75em) {
   .site-header {
@@ -67,7 +67,7 @@
   }
 
   .main-navigation {
-    width: 25%;
+    width: 40%;
 
     ul {
       width: fit-content;
@@ -75,7 +75,7 @@
     }
   }
 
-  ======= // @media screen and (min-width: 43.75em) {
+  // @media screen and (min-width: 43.75em) {
   //   .site-header {
   //     display: flex;
   //     justify-content: space-around;
@@ -90,13 +90,13 @@
   //     align-self: center;
   //     width: 50%;
   //   }
-  >>>>>>>last known good image header //   .nav-menu li {
+  //   .nav-menu li {
   //     display: block;
   //     padding: .5em;
   //   }
   // }
 
-  <<<<<<< HEAD .site-branding {
+  .site-branding {
     margin-right: 3em;
   }
 
