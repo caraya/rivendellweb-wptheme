@@ -1340,13 +1340,13 @@ First attempt at a grid layout in WordPress
     width: auto;
   }
   .site-branding {
-    width: 40%;
+    width: 35%;
     margin: 0 1em;
     display: flex;
     flex-flow: row;
   }
   .main-navigation {
-    width: 35%;
+    width: 25%;
   }
   .main-navigation ul {
     width: -webkit-fit-content;
