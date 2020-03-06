@@ -25,8 +25,6 @@
 .site-header {
   position: relative;
   padding: 1em;
-  color: $color__text-main;
-  background-color: $color__background-body;
 
   @media screen and (max-width: 24.15em) {
     padding: 0 1em;
@@ -59,7 +57,7 @@
   }
 
   .site-branding {
-    width: 35%;
+    width: 56%;
     margin: 0 1em;
 
     display: flex;
@@ -70,7 +68,6 @@
     width: 40%;
 
     ul {
-      width: fit-content;
       align: end;
     }
   }
@@ -105,3 +102,4 @@
     flex-flow: column;
     justify-content: center;
   }
+}
