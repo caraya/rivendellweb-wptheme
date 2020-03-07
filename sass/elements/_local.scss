@@ -14,7 +14,7 @@ object {
   display: block;
   margin: 1em auto;
   max-width: 100% !important;
-	height: auto !important;
+  height: auto !important;
 }
 
 div.video iframe {
@@ -35,20 +35,6 @@ iframe {
   margin: 1.5em 0
 }
 
-table,
-th,
-tr,
-td {
-  border: 1px solid #000
-}
-
-tr td:first-child {
-  width: 38%
-}
-
-tr td:last-child {
-  width: 20%
-}
 
 /* Informational messages */
 .message {
@@ -59,11 +45,11 @@ tr td:last-child {
 }
 
 .message.info {
-  background-color: rgba(173, 216, 230,.15);
+  background-color: rgba(173, 216, 230, .15);
 }
 
 .message.warning {
-  background-color: rgba(255,255,224,.15);
+  background-color: rgba(255, 255, 224, .15);
 }
 
 .message.danger {
@@ -72,5 +58,5 @@ tr td:last-child {
 
 /* First Paragraph Lede */
 .entry-content p:first-child {
-	font-size: 150%;
+  font-size: 150%;
 }
