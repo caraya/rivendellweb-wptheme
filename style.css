@@ -933,6 +933,67 @@ td {
   padding: .5em;
 }
 
+.message {
+  border: 1px solid black;
+  border-radius: 10px;
+  display: block;
+  padding: .5em;
+}
+
+.message .info {
+  background-color: rgba(173, 216, 230, 0.15);
+}
+
+.message .warning {
+  background-color: rgba(255, 255, 224, 0.15);
+}
+
+.message .danger {
+  background-color: rgba(255, 85, 0, 0.15);
+}
+
+article {
+  counter-reset: figure_count;
+}
+
+li code,
+p code {
+  display: inline;
+  border: 2px 3px;
+}
+
+video,
+object {
+  clear: both;
+  display: block;
+  margin: 1em auto;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+div.video iframe {
+  clear: both;
+  display: block;
+  margin: 1em auto;
+  max-width: inherit;
+  text-align: center;
+}
+
+div.video p {
+  font-style: italic;
+  font-weight: 700;
+  margin-top: -.125em;
+}
+
+iframe {
+  margin: 1.5em 0;
+}
+
+/* First Paragraph Lede */
+.entry-content p:first-child {
+  font-size: 150%;
+}
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -1169,7 +1230,7 @@ a:focus {
   padding-bottom: 1em;
 }
 
-.nav-previous a::before {
+.post-navigation .nav-previous a::before {
   content: "Previous Post: \A\A";
   font-size: 1.25em;
   font-weight: 700;
@@ -1178,7 +1239,7 @@ a:focus {
   color: #000;
 }
 
-.nav-next a::before {
+.post-navigation .nav-next a::before {
   content: "Next Post: \A\A";
   font-size: 1.25em;
   font-weight: 700;
@@ -1771,7 +1832,7 @@ figure {
 }
 
 figure img {
-  max-width: 100%;
+  width: 100%;
 }
 
 figure figcaption {

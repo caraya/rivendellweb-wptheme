@@ -35,27 +35,6 @@ iframe {
   margin: 1.5em 0
 }
 
-
-/* Informational messages */
-.message {
-  border: 1px solid black;
-  border-radius: 10px;
-  display: block;
-  padding: .5em;
-}
-
-.message.info {
-  background-color: rgba(173, 216, 230, .15);
-}
-
-.message.warning {
-  background-color: rgba(255, 255, 224, .15);
-}
-
-.message.danger {
-  background-color: rgba(255, 85, 0, 0.15);
-}
-
 /* First Paragraph Lede */
 .entry-content p:first-child {
   font-size: 150%;
