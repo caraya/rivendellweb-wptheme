@@ -1,0 +1,26 @@
+video,
+object {
+  clear: both;
+  display: block;
+  margin: 1em auto;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+div.video iframe {
+  clear: both;
+  display: block;
+  margin: 1em auto;
+  max-width: inherit;
+  text-align: center
+}
+
+div.video p {
+  font-style: italic;
+  font-weight: 700;
+  margin-top: -.125em
+}
+
+iframe {
+  margin: 1.5em 0
+}

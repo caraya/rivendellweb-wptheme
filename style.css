@@ -962,36 +962,15 @@ p code {
   border: 2px 3px;
 }
 
-video,
-object {
-  clear: both;
-  display: block;
-  margin: 1em auto;
-  max-width: 100% !important;
-  height: auto !important;
-}
-
-div.video iframe {
-  clear: both;
-  display: block;
-  margin: 1em auto;
-  max-width: inherit;
-  text-align: center;
-}
-
-div.video p {
-  font-style: italic;
-  font-weight: 700;
-  margin-top: -.125em;
-}
-
-iframe {
-  margin: 1.5em 0;
-}
-
 /* First Paragraph Lede */
-.entry-content p:first-child {
+.site-content p:first-of-type {
   font-size: 150%;
+}
+
+blockquote {
+  border-left: 4px solid navy;
+  padding-left: 1em;
+  font-size: 1em;
 }
 
 /*--------------------------------------------------------------
@@ -1496,10 +1475,11 @@ First attempt at a grid layout in WordPress
     align-content: center;
   }
   .custom-logo-link {
-    margin-right: 1em;
-    -webkit-margin-end: 1em;
-            margin-inline-end: 1em;
-    flex: 1 0 auto;
+    height: 100px;
+    width: 100px;
+    margin-right: 1rem;
+    -webkit-margin-end: 1rem;
+            margin-inline-end: 1rem;
   }
   .custom-logo-link img {
     height: 100px;
@@ -1507,29 +1487,35 @@ First attempt at a grid layout in WordPress
   }
   .site-branding {
     height: 100%;
-    width: 65%;
+    width: 60%;
     display: flex;
     flex-flow: row;
+    align-items: center;
   }
   .site-branding__text {
     margin: 0;
     padding: 0;
+    flex: 0 1 60%;
   }
   .site-branding__text .site-title {
-    font-size: 1.6em;
+    font-size: 2.1em;
+    font-size: calc(var(--h2-font-size-min) * 1em);
+    font-weight: calc(var(--recursive-weight) * var(--h2-vf-wght-multiplier-l));
+    line-height: var(--h2-line-height-min);
   }
   .site-branding__text .site-description {
     margin-top: 0;
   }
   .main-navigation {
-    width: 35%;
-    flex: 1 0 auto;
+    width: 40%;
+    flex: 1 1 auto;
+    align-self: center;
   }
   .main-navigation ul {
     align: end;
   }
   .site-branding {
-    margin-right: 3em;
+    margin-right: 1rem;
   }
   .site-branding__text {
     display: flex;
@@ -1539,7 +1525,7 @@ First attempt at a grid layout in WordPress
 }
 
 .main-navigation {
-  display: block;
+  display: flex;
   font-weight: 400;
 }
 
@@ -1843,6 +1829,36 @@ figure figcaption {
 figure figcaption::before {
   counter-increment: figure_count;
   content: "Figure " counter(figure_count) ": ";
+}
+
+/*--------------------------------------------------------------
+## Figures
+--------------------------------------------------------------*/
+video,
+object {
+  clear: both;
+  display: block;
+  margin: 1em auto;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+div.video iframe {
+  clear: both;
+  display: block;
+  margin: 1em auto;
+  max-width: inherit;
+  text-align: center;
+}
+
+div.video p {
+  font-style: italic;
+  font-weight: 700;
+  margin-top: -.125em;
+}
+
+iframe {
+  margin: 1.5em 0;
 }
 
 /*# sourceMappingURL=style.css.map */

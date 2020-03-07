@@ -8,34 +8,10 @@ p code {
   border: 2px 3px;
 }
 
-video,
-object {
-  clear: both;
-  display: block;
-  margin: 1em auto;
-  max-width: 100% !important;
-  height: auto !important;
-}
-
-div.video iframe {
-  clear: both;
-  display: block;
-  margin: 1em auto;
-  max-width: inherit;
-  text-align: center
-}
-
-div.video p {
-  font-style: italic;
-  font-weight: 700;
-  margin-top: -.125em
-}
-
-iframe {
-  margin: 1.5em 0
-}
 
 /* First Paragraph Lede */
-.entry-content p:first-child {
-  font-size: 150%;
+.site-content {
+  p:first-of-type {
+    font-size: 150%;
+  }
 }
