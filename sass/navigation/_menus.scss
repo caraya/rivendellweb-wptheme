@@ -1,7 +1,4 @@
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
 	width: 100%;
 
 	ul {
@@ -24,8 +21,9 @@
 			}
 
 			li {
-				&:hover > ul,
-				&.focus > ul {
+
+				&:hover>ul,
+				&.focus>ul {
 					left: 100%;
 				}
 			}
@@ -34,17 +32,15 @@
 				width: 200px;
 			}
 
-			:hover > a,
-			.focus > a {
-			}
+			:hover>a,
+			.focus>a {}
 
 			a:hover,
-			a.focus {
-			}
+			a.focus {}
 		}
 
-		li:hover > ul,
-		li.focus > ul {
+		li:hover>ul,
+		li.focus>ul {
 			left: auto;
 		}
 	}
@@ -53,9 +49,8 @@
 		float: left;
 		position: relative;
 
-		&:hover > a,
-		&.focus > a {
-		}
+		&:hover>a,
+		&.focus>a {}
 	}
 
 	a {
@@ -63,11 +58,10 @@
 		text-decoration: none;
 	}
 
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
+	.current_page_item>a,
+	.current-menu-item>a,
+	.current_page_ancestor>a,
+	.current-menu-ancestor>a {}
 }
 
 /* Small menu. */
@@ -80,10 +74,13 @@
 	.menu-toggle {
 		display: none;
 	}
+
 	.main-navigation ul {
 		display: block;
 	}
 }
+
+
 
 .comment-navigation,
 .posts-navigation,

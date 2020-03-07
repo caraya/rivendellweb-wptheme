@@ -4,10 +4,8 @@
 // --bp-xlarge: 75;
 
 .main-navigation {
-  display: flex;
-
+  display: block;
   font-weight: 400;
-  clear: left;
 
   ul {
     display: none;
