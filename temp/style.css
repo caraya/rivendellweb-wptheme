@@ -1164,7 +1164,6 @@ a:focus {
   text-decoration: none;
   padding: 1em;
   border: 1px solid black;
-  color: black;
 }
 
 .nav-links {
@@ -1174,6 +1173,24 @@ a:focus {
 
 .nav-previous {
   padding-bottom: 1em;
+}
+
+.nav-previous a::before {
+  content: "Previous Post: \A\A";
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-right: 1em;
+  white-space: pre;
+  color: #000;
+}
+
+.nav-next a::before {
+  content: "Next Post: \A\A";
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-right: 1em;
+  white-space: pre;
+  color: #000;
 }
 
 @media screen and (min-width: 43.75em) {
