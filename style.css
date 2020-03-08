@@ -940,15 +940,15 @@ td {
   padding: .5em;
 }
 
-.message .info {
+.info {
   background-color: rgba(173, 216, 230, 0.15);
 }
 
-.message .warning {
+.warning {
   background-color: rgba(255, 255, 224, 0.15);
 }
 
-.message .danger {
+.danger {
   background-color: rgba(255, 85, 0, 0.15);
 }
 
@@ -1402,13 +1402,275 @@ a:focus {
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
+.widget-area {
+  grid-column: 2/-2;
+  margin-top: 1.5em;
+}
+
+/* Footer widgets for archive pages */
+@media screen and (min-width: 43.75em) {
+  .archive-view.has-sidebar {
+    clear: both;
+    display: flow-root;
+  }
+  .archive-view.has-sidebar .footer-widgets {
+    width: 100%;
+  }
+}
+
 .widget {
-  margin: 0 0 1.5em;
+  margin: 0 0 2em;
+  padding: 0 0 2em;
   /* Make sure select elements fit in widgets. */
 }
 
+.widget ul,
+.widget ol {
+  padding: .7em 0 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.widget ul li,
+.widget ol li {
+  display: block;
+  line-height: 2em;
+}
+
+.widget ul li ul,
+.widget ul li ol,
+.widget ol li ul,
+.widget ol li ol {
+  margin-left: .5em;
+}
+
+@media screen and (min-width: 30em) {
+  .widget ul li ul,
+  .widget ul li ol,
+  .widget ol li ul,
+  .widget ol li ol {
+    margin-left: 1em;
+  }
+}
+
+.widget a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.widget a:hover, .widget a:focus {
+  border-bottom: 3px solid #cd2653;
+}
+
 .widget select {
-  max-width: 100%;
+  width: 100%;
+  height: 2.5em;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.widget {
+  list-style-type: none;
+}
+
+.widget .widgettitle {
+  margin-top: 0;
+  margin-bottom: .5em;
+  font-size: 1.4em;
+}
+
+/* Archive and Categories widgets */
+.widget_archive li {
+  color: #7D7D7D;
+}
+
+.widget_categories .children {
+  padding-top: 0;
+}
+
+/* Search widget. */
+.widget_search .search-submit {
+  display: none;
+}
+
+/* Pages and Menu widgets */
+.widget_pages .children,
+.widget_nav_menu .sub-menu {
+  padding-top: 0;
+  padding-bottom: .5em;
+}
+
+.widget_pages a,
+.widget_nav_menu a {
+  display: block;
+  padding: 1em 0;
+  text-decoration: none;
+  border-bottom: 1px dashed gray;
+}
+
+.widget_pages a:hover, .widget_pages a:focus,
+.widget_nav_menu a:hover,
+.widget_nav_menu a:focus {
+  text-decoration: none;
+  border-bottom: 1px dashed gray;
+}
+
+.widget_pages li,
+.widget_nav_menu li {
+  padding: 0;
+}
+
+/* Meta widget */
+.widget_meta li {
+  padding: 0;
+}
+
+/* Recent comments */
+.widget_recent_comments li {
+  line-height: 1.3em;
+  padding-bottom: .5em;
+}
+
+.widget_recent_comments a:hover,
+.widget_recent_comments a:focus {
+  padding-left: 0;
+}
+
+/* RSS widget */
+.widget_rss li {
+  margin-bottom: 1em;
+}
+
+.widget li a.rsswidget {
+  padding-right: .5em;
+  font-size: 1em;
+  line-height: 1.4em;
+}
+
+.rss-date,
+.widget_rss cite {
+  color: #333;
+  font-size: .8em;
+}
+
+.rssSummary {
+  padding: .5em 0;
+  font-size: .8em;
+  line-height: 1.4em;
+}
+
+/* Search widget */
+.widget_search input[type="search"] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: .5em 1em;
+  border: 1px solid #c3c3c3;
+  border-radius: 0;
+}
+
+/* Calendar widget */
+.widget_calendar {
+  font-weight: 400;
+}
+
+.widget_calendar caption {
+  padding: .5em 0;
+  font-size: 1em;
+  font-weight: 500;
+  text-align: left;
+}
+
+.widget_calendar thead {
+  background: transparent;
+  color: black;
+}
+
+.widget_calendar thead th {
+  border-bottom-width: 2px;
+}
+
+.widget_calendar td {
+  padding: .2em;
+  font-size: .8em;
+  text-align: center;
+  background: white;
+  border: 1px solid #cccccc;
+}
+
+.widget_calendar th {
+  border: none;
+  text-align: center;
+}
+
+.widget_calendar .pad {
+  background: #eaeaea;
+}
+
+.widget_calendar a {
+  font-weight: 900;
+  text-decoration: none;
+}
+
+/* Text widget */
+.textwidget {
+  font-size: 80%;
+  line-height: 1.3em;
+}
+
+/* Footer widget stylings */
+.footer-widgets {
+  margin: 2em 0 0;
+  padding: 1em 0;
+}
+
+@media screen and (min-width: 24.15em) {
+  .footer-widgets {
+    padding: 2em 1em;
+  }
+}
+
+.footer-widgets .widget {
+  flex: 1;
+  margin: 0 1em 2em;
+  padding-top: 1em;
+}
+
+.footer-widgets .widget .original-title {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-widgets .widget,
+.footer-widgets .widget-title,
+.footer-widgets .widget a,
+.footer-widgets .widget_calendar thead,
+.footer-widgets .rss-date,
+.footer-widgets .widget_rss cite,
+.footer-widgets .widget_calendar td,
+.footer-widgets .widget_calendar a {
+  color: black;
+}
+
+@media screen and (min-width: 43.75em) {
+  .footer-widgets {
+    /* Use flex to create a responsive layout */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* If only one widget is displayed, make it full width. */
+    /* If 2 or 3 widgets are displayed, make the second one twice as wide. */
+    /* If 4 or more widgets are displayed, show three across when available. */
+  }
+  .footer-widgets .widget:only-of-type {
+    width: 100%;
+  }
+  .footer-widgets .widget:nth-last-child(n+2):nth-last-child(-n+3):first-child ~ .widget:nth-child(2) {
+    flex: 2;
+  }
+  .footer-widgets .widget:nth-last-child(n+4),
+  .footer-widgets .widget:nth-last-child(n+4) ~ .widget {
+    width: 30%;
+    flex: 1 1 30%;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1495,13 +1757,16 @@ First attempt at a grid layout in WordPress
   .site-branding__text {
     margin: 0;
     padding: 0;
-    flex: 0 1 60%;
+    flex: 1 0 60%;
   }
   .site-branding__text .site-title {
+    --recursive-casual: 1;
+    --recursive-mono: 1;
     font-size: 2.1em;
     font-size: calc(var(--h2-font-size-min) * 1em);
     font-weight: calc(var(--recursive-weight) * var(--h2-vf-wght-multiplier-l));
     line-height: var(--h2-line-height-min);
+    margin-bottom: 0;
   }
   .site-branding__text .site-description {
     margin-top: 0;
@@ -1521,6 +1786,7 @@ First attempt at a grid layout in WordPress
     display: flex;
     flex-flow: column;
     justify-content: center;
+    margin-bottom: 0;
   }
 }
 

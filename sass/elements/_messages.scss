@@ -3,17 +3,16 @@
   border-radius: 10px;
   display: block;
   padding: .5em;
+}
 
-  .info {
-    background-color: rgba(173, 216, 230, .15);
-  }
+.info {
+  background-color: rgba(173, 216, 230, .15);
+}
 
-  .warning {
-    background-color: rgba(255, 255, 224, .15);
-  }
+.warning {
+  background-color: rgba(255, 255, 224, .15);
+}
 
-  .danger {
-    background-color: rgba(255, 85, 0, 0.15);
-  }
-
+.danger {
+  background-color: rgba(255, 85, 0, 0.15);
 }

@@ -58,13 +58,16 @@
   .site-branding__text {
     margin: 0;
     padding: 0;
-    flex: 0 1 60%;
+    flex: 1 0 60%;
 
     .site-title {
+      --recursive-casual: 1;
+      --recursive-mono: 1;
       font-size: 2.1em;
       font-size: calc(var(--h2-font-size-min) * 1em);
       font-weight: calc(var(--recursive-weight) * var(--h2-vf-wght-multiplier-l));
       line-height: var(--h2-line-height-min);
+      margin-bottom: 0;
     }
 
     .site-description {
@@ -92,5 +95,6 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
+    margin-bottom: 0;
   }
 }

@@ -103,17 +103,37 @@ add_action( 'after_setup_theme', 'rivendellweb_content_width', 0 );
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * @link https://kinsta.com/blog/wordpress-register-sidebar/
  */
 function rivendellweb_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'rivendellweb' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'rivendellweb' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+  $my_sidebars = array(
+    array(
+      'name'          => 'Header Widget Area',
+      'id'            => 'header-widget-area',
+      'description'   => 'Widgets shown in the header',
+    ),
+    array(
+      'name'          => 'Footer Widget Area',
+      'id'            => 'footer-1',
+      'description'   => 'Widgets shown in the footer',
+    ),
+  );
+
+  $defaults = array(
+    'name'          => 'Awesome Sidebar',
+    'id'            => 'awesome-sidebar',
+    'description'   => 'The Awesome Sidebar is shown on the left hand side of blog pages in this theme',
+    'class'         => '',
+    'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</li>',
+    'before_title'  => '<h2 class="widgettitle">',
+    'after_title'   => '</h2>'
+  );
+
+  foreach( $my_sidebars as $sidebar ) {
+    $args = wp_parse_args( $sidebar, $defaults );
+    register_sidebar( $args );
+  }
 }
 add_action( 'widgets_init', 'rivendellweb_widgets_init' );
 
