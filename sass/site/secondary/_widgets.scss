@@ -268,6 +268,7 @@
 		/* If 2 or 3 widgets are displayed, make the second one twice as wide. */
 		.widget:nth-last-child(n+2):first-child~.widget:nth-child(2),
 		.widget:nth-last-child(n+3):first-child~.widget:nth-child(3) {
+			width: 50%;
 			flex: 1 1 50%;
 		}
 

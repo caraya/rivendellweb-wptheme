@@ -1665,6 +1665,7 @@ a:focus {
   }
   .footer-widgets .widget:nth-last-child(n+2):first-child ~ .widget:nth-child(2),
   .footer-widgets .widget:nth-last-child(n+3):first-child ~ .widget:nth-child(3) {
+    width: 50%;
     flex: 1 1 50%;
   }
   .footer-widgets .widget:nth-last-child(n+4),

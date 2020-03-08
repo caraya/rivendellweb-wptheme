@@ -7,7 +7,8 @@ a {
 		color: $color__link-visited;
 		text-decoration: underline;
 		text-decoration-skip-ink: auto;
-		}
+	}
+
 	&:hover,
 	&:focus,
 	&:active {
@@ -15,11 +16,15 @@ a {
 		text-decoration: underline;
 		text-decoration-skip-ink: auto;
 	}
+
 	&:focus {
 		outline: thin dotted;
 	}
+
 	// &:hover,
 	// &:active {
 	// 	outline: 0;
 	// }
 }
+
+// .post-edit-link {}
