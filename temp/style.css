@@ -1657,8 +1657,9 @@ a:focus {
   .footer-widgets .widget:only-of-type {
     width: 100%;
   }
-  .footer-widgets .widget:nth-last-child(n+2):nth-last-child(-n+3):first-child ~ .widget:nth-child(2) {
-    flex: 2;
+  .footer-widgets .widget:nth-last-child(n+2):first-child ~ .widget:nth-child(2),
+  .footer-widgets .widget:nth-last-child(n+3):first-child ~ .widget:nth-child(3) {
+    flex: 1 1 50%;
   }
   .footer-widgets .widget:nth-last-child(n+4),
   .footer-widgets .widget:nth-last-child(n+4) ~ .widget {
