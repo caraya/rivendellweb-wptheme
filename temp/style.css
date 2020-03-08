@@ -1084,6 +1084,13 @@ a:focus {
   outline: thin dotted;
 }
 
+.post-edit-link::before {
+  content: '\270E';
+  height: auto;
+  width: 10px;
+  margin-right: 0.5em;
+}
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/

@@ -1,30 +1,35 @@
 a {
-	color: $color__link;
-	text-decoration: none;
-	text-decoration-skip-ink: auto;
+  color: $color__link;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
 
-	&:visited {
-		color: $color__link-visited;
-		text-decoration: underline;
-		text-decoration-skip-ink: auto;
-	}
+  &:visited {
+    color: $color__link-visited;
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
 
-	&:hover,
-	&:focus,
-	&:active {
-		color: $color__link-hover;
-		text-decoration: underline;
-		text-decoration-skip-ink: auto;
-	}
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color__link-hover;
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
 
-	&:focus {
-		outline: thin dotted;
-	}
+  &:focus {
+    outline: thin dotted;
+  }
 
-	// &:hover,
-	// &:active {
-	// 	outline: 0;
-	// }
+  // &:hover,
+  // &:active {
+  // 	outline: 0;
+  // }
 }
 
-// .post-edit-link {}
+.post-edit-link::before {
+  content: '\270E';
+  height: auto;
+  width: 10px;
+  margin-right: 0.5em;
+}
