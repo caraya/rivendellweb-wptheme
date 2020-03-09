@@ -222,10 +222,17 @@
 .footer-widgets-block-2 {
   display: flex;
   flex-flow: column;
-  margin: 2em 0 0;
+  // margin: 2em 0 0;
   padding: 1em 0;
 }
 
+.footer-widgets-block-1 {
+  flex: 1 1 30%;
+}
+
+// Keeping code below in case
+// I want too change it to a three column footer
+// in the future
 // .footer-widgets {
 //   margin: 2em 0 0;
 //   padding: 1em 0;

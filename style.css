@@ -1635,8 +1635,11 @@ a:focus {
 .footer-widgets-block-2 {
   display: flex;
   flex-flow: column;
-  margin: 2em 0 0;
   padding: 1em 0;
+}
+
+.footer-widgets-block-1 {
+  flex: 1 1 30%;
 }
 
 /*--------------------------------------------------------------
