@@ -1427,7 +1427,7 @@ a:focus {
 
 .widget ul,
 .widget ol {
-  padding: .7em 0 0;
+  padding: 0.7em 0 0;
   margin-bottom: 0;
   list-style-type: none;
 }
@@ -1442,7 +1442,7 @@ a:focus {
 .widget ul li ol,
 .widget ol li ul,
 .widget ol li ol {
-  margin-left: .5em;
+  margin-left: 0.5em;
 }
 
 @media screen and (min-width: 30em) {
@@ -1476,13 +1476,13 @@ a:focus {
 
 .widget .widgettitle {
   margin-top: 0;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   font-size: 1.4em;
 }
 
 /* Archive and Categories widgets */
 .widget_archive li {
-  color: #7D7D7D;
+  color: #7d7d7d;
 }
 
 .widget_categories .children {
@@ -1498,7 +1498,7 @@ a:focus {
 .widget_pages .children,
 .widget_nav_menu .sub-menu {
   padding-top: 0;
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
 }
 
 .widget_pages a,
@@ -1529,7 +1529,7 @@ a:focus {
 /* Recent comments */
 .widget_recent_comments li {
   line-height: 1.3em;
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
 }
 
 .widget_recent_comments a:hover,
@@ -1543,7 +1543,7 @@ a:focus {
 }
 
 .widget li a.rsswidget {
-  padding-right: .5em;
+  padding-right: 0.5em;
   font-size: 1em;
   line-height: 1.4em;
 }
@@ -1551,20 +1551,20 @@ a:focus {
 .rss-date,
 .widget_rss cite {
   color: #333;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .rssSummary {
-  padding: .5em 0;
-  font-size: .8em;
+  padding: 0.5em 0;
+  font-size: 0.8em;
   line-height: 1.4em;
 }
 
 /* Search widget */
-.widget_search input[type="search"] {
+.widget_search input[type='search'] {
   box-sizing: border-box;
   width: 100%;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   border: 1px solid #c3c3c3;
   border-radius: 0;
 }
@@ -1575,7 +1575,7 @@ a:focus {
 }
 
 .widget_calendar caption {
-  padding: .5em 0;
+  padding: 0.5em 0;
   font-size: 1em;
   font-weight: 500;
   text-align: left;
@@ -1591,8 +1591,8 @@ a:focus {
 }
 
 .widget_calendar td {
-  padding: .2em;
-  font-size: .8em;
+  padding: 0.2em;
+  font-size: 0.8em;
   text-align: center;
   background: white;
   border: 1px solid #cccccc;
@@ -1620,60 +1620,17 @@ a:focus {
 
 /* Footer widget stylings */
 .footer-widgets {
+  display: flex;
+  flex-flow: row;
+  gap: 4em;
+}
+
+.footer-widgets-block-1,
+.footer-widgets-block-2 {
+  display: flex;
+  flex-flow: column;
   margin: 2em 0 0;
   padding: 1em 0;
-}
-
-@media screen and (min-width: 24.15em) {
-  .footer-widgets {
-    padding: 2em 1em;
-  }
-}
-
-.footer-widgets .widget {
-  flex: 1;
-  margin: 0 1em 2em;
-  padding-top: 1em;
-}
-
-.footer-widgets .widget .original-title {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.footer-widgets .widget,
-.footer-widgets .widget-title,
-.footer-widgets .widget a,
-.footer-widgets .widget_calendar thead,
-.footer-widgets .rss-date,
-.footer-widgets .widget_rss cite,
-.footer-widgets .widget_calendar td,
-.footer-widgets .widget_calendar a {
-  color: black;
-}
-
-@media screen and (min-width: 43.75em) {
-  .footer-widgets {
-    /* Use flex to create a responsive layout */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    /* If only one widget is displayed, make it full width. */
-    /* If 2 or 3 widgets are displayed, make the second one twice as wide. */
-    /* If 4 or more widgets are displayed, show three across when available. */
-  }
-  .footer-widgets .widget:only-of-type {
-    width: 100%;
-  }
-  .footer-widgets .widget:nth-last-child(n+2):first-child ~ .widget:nth-child(2),
-  .footer-widgets .widget:nth-last-child(n+3):first-child ~ .widget:nth-child(3) {
-    width: 50%;
-    flex: 1 1 50%;
-  }
-  .footer-widgets .widget:nth-last-child(n+4),
-  .footer-widgets .widget:nth-last-child(n+4) ~ .widget {
-    width: 30%;
-    flex: 1 1 30%;
-  }
 }
 
 /*--------------------------------------------------------------

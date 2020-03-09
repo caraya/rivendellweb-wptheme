@@ -113,9 +113,14 @@ function rivendellweb_widgets_init() {
       'description'   => 'Widgets shown in the header',
     ),
     array(
-      'name'          => 'Footer Widget Area',
+      'name'          => 'Footer Widget Area 1',
       'id'            => 'footer-1',
-      'description'   => 'Widgets shown in the footer',
+      'description'   => 'Widgets shown in the first footer area',
+    ),
+    array(
+      'name'          => 'Footer Widget Area 2',
+      'id'            => 'footer-2',
+      'description'   => 'Widgets shown in the second footer area',
     ),
   );
 
