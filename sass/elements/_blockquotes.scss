@@ -3,3 +3,20 @@ blockquote {
   padding-left: 1em;
   font-size: 1em;
 }
+
+cite {
+  &:before {
+    content: '\2014 ';
+  }
+}
+
+.wp-block-pullquote:not(.has-background),
+.pullquote {
+  blockquote {
+    font-size: 150%;
+    border-left: 0px solid transparent;
+    border-top: 4px solid $color__link;
+    border-bottom: 4px solid $color__link;
+    padding-bottom: 1.5em;
+  }
+}

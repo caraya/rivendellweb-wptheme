@@ -972,6 +972,19 @@ blockquote {
   font-size: 1em;
 }
 
+cite:before {
+  content: '\2014 ';
+}
+
+.wp-block-pullquote:not(.has-background) blockquote,
+.pullquote blockquote {
+  font-size: 150%;
+  border-left: 0px solid transparent;
+  border-top: 4px solid #cd2653;
+  border-bottom: 4px solid #cd2653;
+  padding-bottom: 1.5em;
+}
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -1221,12 +1234,6 @@ a:focus {
   color: #000;
 }
 
-@media screen and (max-width: 24.15em) {
-  .post-navigation .nav-previous a::before {
-    font-size: 0.5em;
-  }
-}
-
 .post-navigation .nav-next a::before {
   content: 'Next Post: \A\A';
   font-size: 1.25em;
@@ -1234,12 +1241,6 @@ a:focus {
   margin-right: 1em;
   white-space: pre;
   color: #000;
-}
-
-@media screen and (max-width: 24.15em) {
-  .post-navigation .nav-next a::before {
-    font-size: 0.5em;
-  }
 }
 
 @media screen and (min-width: 43.75em) {
@@ -2063,12 +2064,16 @@ figure img {
 
 figure figcaption {
   color: #999;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 figure figcaption::before {
   counter-increment: figure_count;
   content: "Figure " counter(figure_count) ": ";
+}
+
+.blocks-gallery-item__caption:before {
+  content: '';
 }
 
 /*--------------------------------------------------------------

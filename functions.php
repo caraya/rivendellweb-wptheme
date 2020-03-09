@@ -66,8 +66,23 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 			'default-image' => '',
 		) ) );
 
-		// Add theme support for selective refresh for widgets.
+		/**
+		 * Add theme support for selective refresh for widgets.
+		 */
 		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		/**
+		 * Add theme support foor starter content
+		 *
+		 * @link
+		 * @link https://github.com/xwp/wordpress-develop/blob/master/src/wp-content/themes/twentyseventeen/functions.php#L117
+		 */
+		add_theme_support( 'starter-content', array(
+		'widgets' => array(
+			'footer-1' => array( 'search', 'archive', 'meta'),
+			'footer-2' => array( 'latest posts'),
+		),
+		) );
 
 		/**
 		 * Add support for core custom logo.

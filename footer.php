@@ -35,8 +35,8 @@
 			<?php } ?>
 
 			<div class="site-info">
-				<div><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'rivendellweb' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'rivendellweb' ), 'WordPress' ); ?></a></div>
-				<div><?php printf( esc_html__( 'Theme: %1$s by %2$s', 'rivendellweb' ), 'rivendellweb', '<a href="https://mor10.com/courses" rel="designer">Morten Rand-Hendriksen</a>' ); ?></div>
+				<div><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'rivendellweb' ) ); ?>"><?php printf( esc_html__( 'Powered by %s', 'rivendellweb' ), 'WordPress' ); ?></a></div>
+				<div><?php printf( esc_html__( 'Theme: %1$s by %2$s', 'rivendellweb' ), 'rivendellweb', '<a href="https://publishing-project.rivendellweb.net/" rel="designer">Carlos Araya</a>' ); ?></div>
 			</div><!-- .site-info -->
 		</div><!-- .site-footer__wrap -->
 	</footer><!-- #colophon -->
