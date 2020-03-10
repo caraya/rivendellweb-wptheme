@@ -1,11 +1,8 @@
-// --bp-small: 24.15;
-// --bp-medium: 43.75;
-// --bp-large: 60.25;
-// --bp-xlarge: 75;
-
 .main-navigation {
-  display: flex;
+  display: block;
+
   font-weight: 400;
+  clear: left;
 
   ul {
     display: none;
@@ -26,8 +23,8 @@
       li {
         padding-left: 1em;
 
-        &:hover>ul,
-        &.focus>ul {
+        &:hover > ul,
+        &.focus > ul {
           left: 100%;
         }
       }
@@ -37,8 +34,8 @@
       }
     }
 
-    li:hover>ul,
-    li.focus>ul {
+    li:hover > ul,
+    li.focus > ul {
       left: auto;
     }
   }
@@ -50,8 +47,9 @@
   a {
     display: inline-block;
     width: 100%;
-    padding: .5em 1em .5em 0;
+    padding: 0.5em 1em 0.5em 0;
     text-decoration: none;
+    color: $color__link;
   }
 
   a:hover,
@@ -59,18 +57,18 @@
     text-decoration: underline;
   }
 
-  .current_page_item>a,
-  .current-menu-item>a,
-  .current_page_ancestor>a,
-  .current-menu-ancestor>a {}
+  .current_page_item > a,
+  .current-menu-item > a,
+  .current_page_ancestor > a,
+  .current-menu-ancestor > a {
+  }
 
   .menu-item-has-children,
   .page_item_has_children {
     min-width: 218px;
   }
-
-  .menu-item-has-children>a,
-  .page_item_has_children>a {
+  .menu-item-has-children > a,
+  .page_item_has_children > a {
     padding-right: 2em;
   }
 }
@@ -79,9 +77,10 @@ button.dropdown-toggle {
   position: absolute;
   right: 0;
   border: none;
-  background: inherit;
+  background-color: $color__link;
+  color: white;
   line-height: 1.5em;
-  padding: .4em 1em .4em .5em;
+  padding: 0 0.25em;
 }
 
 .menu-toggle {
@@ -90,15 +89,15 @@ button.dropdown-toggle {
   right: 0;
   display: block;
   margin: 1.2em 1.2em 0 0;
-  padding: .6em .8em;
+  padding: 0.6em 0.8em;
   font-size: 80%;
   text-transform: uppercase;
-  border: 1px solid hsla(0, 0%, 100%, .3);
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
 }
 
 /* Toggle small menu and children on */
 .toggled-on ul,
-.sub-menu.toggled-on {
+.children.toggled-on {
   display: block;
 }
 
@@ -108,11 +107,10 @@ button.dropdown-toggle {
   }
 
   .main-navigation {
-
-    .menu-item-has-children>a,
-    .page_item_has_children>a {
+    .menu-item-has-children > a,
+    .page_item_has_children > a {
       padding-right: 2em;
-      background: hsla(0, 0%, 100%, .1);
+      background: hsla(0, 0%, 100%, 0.1);
     }
 
     ul {
@@ -122,7 +120,7 @@ button.dropdown-toggle {
 
       ul {
         flex-direction: column;
-        background: hsla(0, 0%, 100%, .1);
+        background: hsla(0, 0%, 100%, 0.1);
         margin-left: 0;
 
         li {
@@ -130,26 +128,21 @@ button.dropdown-toggle {
 
           a {
             width: 218px;
-            background: none;
           }
         }
       }
 
       li {
-
         a {
-          padding: .4em 1em;
+          padding: 0.4em 1em;
         }
       }
     }
-
   }
-
 }
 
 @media screen and (min-width: 43.75em) {
   .main-navigation {
-
     ul {
       justify-content: flex-end;
       padding-top: 0;
@@ -162,6 +155,5 @@ button.dropdown-toggle {
 			}
 			*/
     }
-
   }
 }

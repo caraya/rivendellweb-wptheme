@@ -1004,34 +1004,34 @@ cite:before {
 # Forms
 --------------------------------------------------------------*/
 button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
   border: 1px solid;
   border-color: #ccc #ccc #bbb;
   border-radius: 3px;
-  background: #e6e6e6;
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 12px;
-  font-size: 0.75rem;
+  background-color: #cd2653;
+  color: white;
+  font-size: 16px;
+  font-size: 1rem;
   line-height: 1;
-  padding: .6em 1em .4em;
+  padding: 0.5em 1em;
 }
 
 button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
+input[type='button']:hover,
+input[type='reset']:hover,
+input[type='submit']:hover {
   border-color: #ccc #bbb #aaa;
 }
 
 button:active, button:focus,
-input[type="button"]:active,
-input[type="button"]:focus,
-input[type="reset"]:active,
-input[type="reset"]:focus,
-input[type="submit"]:active,
-input[type="submit"]:focus {
+input[type='button']:active,
+input[type='button']:focus,
+input[type='reset']:active,
+input[type='reset']:focus,
+input[type='submit']:active,
+input[type='submit']:focus {
   border-color: #aaa #bbb #bbb;
 }
 
@@ -1123,28 +1123,31 @@ a:focus {
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
-  width: 100%;
+  display: block;
+  font-weight: 400;
+  clear: left;
 }
 
 .main-navigation ul {
   display: none;
   list-style: none;
   margin: 0;
+  padding-top: 1em;
   padding-left: 0;
 }
 
 .main-navigation ul ul {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  float: left;
-  position: absolute;
-  top: 100%;
-  left: -999em;
+  display: none;
+  top: 1.5em;
   z-index: 99999;
 }
 
 .main-navigation ul ul ul {
-  left: -999em;
   top: 0;
+}
+
+.main-navigation ul ul li {
+  padding-left: 1em;
 }
 
 .main-navigation ul ul li:hover > ul,
@@ -1162,50 +1165,102 @@ a:focus {
 }
 
 .main-navigation li {
-  float: left;
   position: relative;
 }
 
 .main-navigation a {
-  display: block;
+  display: inline-block;
+  width: 100%;
+  padding: 0.5em 1em 0.5em 0;
   text-decoration: none;
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
+.main-navigation a:hover,
+.main-navigation a:focus {
+  text-decoration: underline;
+}
+
+.main-navigation .menu-item-has-children,
+.main-navigation .page_item_has_children {
+  min-width: 218px;
+}
+
+.main-navigation .menu-item-has-children > a,
+.main-navigation .page_item_has_children > a {
+  padding-right: 2em;
+}
+
+button.dropdown-toggle {
+  position: absolute;
+  right: 0;
+  font-size: 1.1em;
+  border: none;
+  background: inherit;
+  line-height: 1.5em;
+  padding: 0.4em 1em 0.4em 0.5em;
+}
+
+.menu-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  margin: 1.2em 1.2em 0 0;
+  padding: 0.6em 0.8em;
+  text-transform: uppercase;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Toggle small menu and children on */
+.toggled-on ul,
+.sub-menu.toggled-on {
   display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 24.15em) {
   .menu-toggle {
     display: none;
   }
+  .main-navigation .menu-item-has-children > a,
+  .main-navigation .page_item_has_children > a {
+    padding-right: 2em;
+    background: rgba(255, 255, 255, 0.1);
+  }
   .main-navigation ul {
     display: block;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .main-navigation ul ul {
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.1);
+    margin-left: 0;
+  }
+  .main-navigation ul ul li {
+    padding-left: 0;
+  }
+  .main-navigation ul ul li a {
+    width: 218px;
+    background: none;
+  }
+  .main-navigation ul li a {
+    padding: 0.4em 1em;
   }
 }
 
-.site-main .comment-navigation, .site-main
-.posts-navigation, .site-main
-.post-navigation {
-  margin: 0 0 1.5em;
-  overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-  float: left;
-  width: 50%;
-}
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-  float: right;
-  text-align: right;
-  width: 50%;
+@media screen and (min-width: 43.75em) {
+  .main-navigation ul {
+    justify-content: flex-end;
+    padding-top: 0;
+    /* If you want dropdowns to open on hover, uncomment this: */
+    /*
+			li:hover > ul,
+				li:focus > ul {
+				display: block;
+			}
+			*/
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1781,8 +1836,9 @@ First attempt at a grid layout in WordPress
 }
 
 .main-navigation {
-  display: flex;
+  display: block;
   font-weight: 400;
+  clear: left;
 }
 
 .main-navigation ul {
@@ -1828,8 +1884,9 @@ First attempt at a grid layout in WordPress
 .main-navigation a {
   display: inline-block;
   width: 100%;
-  padding: .5em 1em .5em 0;
+  padding: 0.5em 1em 0.5em 0;
   text-decoration: none;
+  color: #cd2653;
 }
 
 .main-navigation a:hover,
@@ -1851,9 +1908,10 @@ button.dropdown-toggle {
   position: absolute;
   right: 0;
   border: none;
-  background: inherit;
+  background-color: #cd2653;
+  color: white;
   line-height: 1.5em;
-  padding: .4em 1em .4em .5em;
+  padding: 0 0.25em;
 }
 
 .menu-toggle {
@@ -1862,7 +1920,7 @@ button.dropdown-toggle {
   right: 0;
   display: block;
   margin: 1.2em 1.2em 0 0;
-  padding: .6em .8em;
+  padding: 0.6em 0.8em;
   font-size: 80%;
   text-transform: uppercase;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -1870,7 +1928,7 @@ button.dropdown-toggle {
 
 /* Toggle small menu and children on */
 .toggled-on ul,
-.sub-menu.toggled-on {
+.children.toggled-on {
   display: block;
 }
 
@@ -1898,10 +1956,9 @@ button.dropdown-toggle {
   }
   .main-navigation ul ul li a {
     width: 218px;
-    background: none;
   }
   .main-navigation ul li a {
-    padding: .4em 1em;
+    padding: 0.4em 1em;
   }
 }
 

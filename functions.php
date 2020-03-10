@@ -75,7 +75,7 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 		 * Add theme support foor starter content
 		 *
 		 * @link
-		 * @link https://github.com/xwp/wordpress-develop/blob/master/src/wp-content/themes/twentyseventeen/functions.php#L117
+		 * @link https://github.com/xwp/wordpress-develop/blob/master/src/wp-content/themes/rivendellweb/functions.php#L117
 		 */
 		add_theme_support( 'starter-content', array(
 		'widgets' => array(
@@ -168,7 +168,11 @@ add_action( 'widgets_init', 'rivendellweb_widgets_init' );
 function rivendellweb_scripts() {
 	wp_enqueue_style( 'rivendellweb-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'rivendellweb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'rivendellweb-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+	wp_localize_script( 'rivendellweb-navigation', 'rivendellwebScreenReaderText', array(
+		'expand' => __( 'Expand child menu', 'rivendellweb'),
+		'collapse' => __( 'Collapse child menu', 'rivendellweb'),
+		) );
 
 	wp_enqueue_script( 'rivendellweb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -205,6 +209,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * SVG icons functions and filters.
+ */
+if (file_exists( '/inc/icon-functions.php' )) {
+	require get_parent_theme_file_path( '/inc/icon-functions.php' );
+}
 /**
  * Loads scripts and stylesheets
  *

@@ -1,22 +1,22 @@
 button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, .8);
-	@include font-size(0.75);
-	line-height: 1;
-	padding: .6em 1em .4em;
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  border: 1px solid;
+  border-color: #ccc #ccc #bbb;
+  border-radius: 3px;
+  background-color: $color__link;
+  color: rgb(255, 255, 255);
+  @include font-size(1);
+  line-height: 1;
+  padding: 0.5em 1em;
 
-	&:hover {
-		border-color: $color__border-button-hover;
-	}
+  &:hover {
+    border-color: #ccc #bbb #aaa;
+  }
 
-	&:active,
-	&:focus {
-		border-color: $color__border-button-focus;
-	}
+  &:active,
+  &:focus {
+    border-color: #aaa #bbb #bbb;
+  }
 }

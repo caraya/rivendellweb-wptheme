@@ -43,10 +43,12 @@ const rimraf = require('gulp-rimraf');
  */
 gulp.task('sass', () => {
   return gulp.src('./sass/**/*.scss')
-  .pipe($.sourcemaps.init())
-  .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-  .pipe($.sourcemaps.write('.'))
-  .pipe(gulp.dest('./temp'));
+    .pipe($.sourcemaps.init())
+    .pipe(sass({
+      outputStyle: 'expanded'
+    }).on('error', sass.logError))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('./temp'));
 })
 
 /**
@@ -65,10 +67,10 @@ gulp.task('processCSS', () => {
   const plugins = [require('autoprefixer')];
 
   return gulp.src('./temp/**/*.css')
-  .pipe($.sourcemaps.init())
-  .pipe(postcss(plugins))
-  .pipe($.sourcemaps.write('.'))
-  .pipe(gulp.dest('./'));
+    .pipe($.sourcemaps.init())
+    .pipe(postcss(plugins))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('./'));
 })
 
 /**
@@ -137,7 +139,7 @@ gulp.task('generateCriticalCSS', () => {
 gulp.task('babel', () => {
   return gulp.src('src/scripts/**/*.js')
     .pipe($.sourcemaps.init())
-    .pipe($.babel({
+    .pipe(babel({
       presets: ['@babel/env'],
     }))
     .pipe($.sourcemaps.write('.'))
@@ -184,7 +186,7 @@ gulp.task('jsdoc', () => {
  * @see {@link generateResponsive}
  * @return {void}
  */
-gulp.task('processImages', () =>{
+gulp.task('processImages', () => {
   return gulp.src('src/images/originals/**')
     .pipe(imagemin([
         imagemin.gifsicle({
@@ -350,7 +352,7 @@ gulp.task('generateCSS',
   (done) => {
     console.log('Done generating CSS');
     done();
-})
+  })
 
 /**
  * @name watch
@@ -373,5 +375,5 @@ gulp.task('server', () => {
  */
 gulp.task('default',
   gulp.series('server'), () => {
-  console.log('Done with default task');
-})
+    console.log('Done with default task');
+  })
