@@ -44,7 +44,7 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary', 'rivendellweb' ),
+			'header' => esc_html__( 'header', 'rivendellweb' ),
 			'social' => esc_html__( 'Social', 'rivendellweb')
 		) );
 
@@ -79,7 +79,7 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 		 */
 		add_theme_support( 'starter-content', array(
 		'widgets' => array(
-			'footer-1' => array( 'search', 'archive', 'meta'),
+			'footer-1' => array( 'search', 'archive'),
 			'footer-2' => array( 'latest posts'),
 		),
 		) );

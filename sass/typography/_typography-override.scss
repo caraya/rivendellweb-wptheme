@@ -326,15 +326,13 @@ Apply
     --h4-vf-wght-multiplier-l: 1.5;
   }
 
-  p,
-  li {
+  p {
     font-size: calc(var(--p-font-size-min) * 1rem);
     font-weight: var(--recursive-weight);
     line-height: var(--p-line-height-min);
   }
   @media screen and (min-width: 24.15em) {
-    p,
-    li {
+    p {
       line-height: calc(
         (var(--p-line-height-min) * 1em) +
           (var(--p-line-height-max) - var(--p-line-height-min)) *
@@ -346,8 +344,7 @@ Apply
     }
   }
   @media (min-width: 60.25em) {
-    p,
-    li {
+    p {
       font-size: calc(
         (var(--p-font-size-min) * 1em) +
           (var(--p-font-size-max) - var(--p-font-size-min)) *
@@ -360,8 +357,7 @@ Apply
     }
   }
   @media (min-width: 75em) {
-    p,
-    li {
+    p {
       font-size: calc(var(--p-font-size-max) * 1em);
     }
   }

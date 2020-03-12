@@ -54,7 +54,7 @@
 
   /* Make sure select elements fit in widgets. */
   select {
-    width: 100%;
+    width: 60%;
     height: 2.5em;
     padding: 10px;
     border: 1px solid #ccc;
@@ -156,7 +156,7 @@
 /* Search widget */
 .widget_search input[type='search'] {
   box-sizing: border-box;
-  width: 100%;
+  width: 60%;
   padding: 0.5em 1em;
   border: 1px solid #c3c3c3;
   border-radius: 0;
@@ -227,7 +227,11 @@
 }
 
 .footer-widgets-block-1 {
-  flex: 1 1 30%;
+  flex: 1 1 50%;
+}
+
+.footer-widgets-block-2 {
+  flex: 1 1 50%;
 }
 
 // Keeping code below in case
