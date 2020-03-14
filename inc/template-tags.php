@@ -81,20 +81,6 @@ if ( ! function_exists( 'rivendellweb_last_update' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rivendellweb_posted_by' ) ) :
-	// Prints HTML with meta information for the current author.
-	function rivendellweb_posted_by() {
-		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'rivendellweb' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-		);
-
-		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-
-	}
-endif;
-
 if ( ! function_exists( 'rivendellweb_show_categories' ) ):
 	function rivendellweb_show_categories($post) {
 		$show_categories = true;
@@ -104,7 +90,9 @@ if ( ! function_exists( 'rivendellweb_show_categories' ) ):
 			$show_categories = false;
 		endif;
 		if ( has_category( null, $post->ID ) && $show_categories ) :
+			echo __('<span class="cat-links">');
 			echo __('Filed under ', 'rivendellweb') . get_the_category_list(', ');
+			echo __('</span>');
 		endif;
 	}
 endif;
@@ -175,6 +163,12 @@ if ( ! function_exists( 'rivendellweb_edit_post' ) ):
 	}
 endif;
 
+// The next two below use the previous functions
+// to build the metadata section of the header and the
+// entry footer.
+//
+// Right now the footer only has the edit post link.
+
 if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
 	function rivendellweb_entry_metadata( $post ) { ?>
 	<div class="entry-meta">
@@ -189,6 +183,7 @@ if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
 
 	<?php }
 endif;
+
 if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
 	// Prints HTML with meta information for comments.
 	function rivendellweb_entry_footer() {

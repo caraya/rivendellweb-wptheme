@@ -1413,12 +1413,20 @@ button.dropdown-toggle {
 ## Metadata
 --------------------------------------------------------------*/
 .entry-meta__content {
-  font-size: 0.9em;
+  font-size: 0.8em;
   list-style-type: none;
-  margin-left: -2em;
+  margin-left: -2.25em;
   display: flex;
   flex-flow: row wrap;
   gap: 2em;
+}
+
+.entry-meta__content .entry-meta__item {
+  flex: 0 0 auto;
+}
+
+.entry-meta__content .entry-meta__item span {
+  font-weight: 700;
 }
 
 /*--------------------------------------------------------------
