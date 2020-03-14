@@ -25,8 +25,76 @@ dd {
   margin: 0 1.5em 1.5em;
 }
 
-ul {
-  ul {
-    font-size: 1rem;
+// TODO:  Evaluate if this is too agressive and
+//        we can dial it down some. It may be an
+//        artifact of WordPress so we'll have to see.
+/*
+  This prevents list items beyond the first level
+  from increasing in size.
+*/
+ul > li,
+ul li ul li,
+ul li ul li ul li,
+ol li,
+ol li ol li,
+ol li ol li ol li,
+ul li > ol li,
+ol li > ul li {
+  font-family: 'Recursive VF', Verdana, sans-serif;
+  font-size: calc(var(--p-font-size-min) * 1em);
+  font-weight: var(--recursive-weight);
+}
+@media screen and (min-width: 24.15em) {
+  ul > li,
+  // ul li ul li,
+  // ul li ul li ul li,
+  ol > li,
+  // ol li ol li,
+  // ol li ol li ol li,
+  // ul li > ol li,
+  // ol li > ul li
+ {
+    line-height: calc(
+      (var(--p-line-height-min) * 1em) +
+        (var(--p-line-height-max) - var(--p-line-height-min)) *
+        (
+          (100vw - (var(--bp-small) * 1em)) /
+            (var(--bp-large) - var(--bp-small))
+        )
+    );
+  }
+}
+@media (min-width: 60.25em) {
+  ul > li,
+  // ul li ul li,
+  // ul li ul li ul li,
+  ol > li,
+  // ol li ol li,
+  // ol li ol li ol li,
+  // ul li > ol li,
+  // ol li > ul li
+ {
+    font-size: calc(
+      (var(--p-font-size-min) * 1em) +
+        (var(--p-font-size-max) - var(--p-font-size-min)) *
+        (
+          (100vw - (var(--bp-large) * 1em)) /
+            (var(--bp-xlarge) - var(--bp-large))
+        )
+    );
+    line-height: var(--p-line-height-max);
+  }
+}
+@media (min-width: 75em) {
+  ul > li,
+  // ul li ul li,
+  // ul li ul li ul li,
+  ol > li,
+  // ol li ol li,
+  // ol li ol li ol li,
+  // ul li > ol li,
+  // ol li > ul li
+ {
+    font-size: calc(var(--p-font-size-max) * 1em);
   }
 }

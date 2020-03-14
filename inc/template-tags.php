@@ -2,9 +2,15 @@
 /**
  * Custom template tags for this theme
  *
- * Eventually, some of the functionality here could be replaced by core features.
+ * Rather than write blocks of text I've broken the blocks
+ * into individual functions so I can plug them into different
+ * places and repeat them in different places if needed/wanted
+ *
+ * Eventually, some of the functionality here could be
+ * replaced by core features.
  *
  * @package rivendellweb
+ * @since 1.0
  */
 
 if ( ! function_exists( 'rivendellweb_posted_by' ) ) :
@@ -15,7 +21,7 @@ if ( ! function_exists( 'rivendellweb_posted_by' ) ) :
 	function rivendellweb_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'Posted by %s', 'post author', 'rivendellweb' ),
+			esc_html_x( 'Posted by: %s', 'post author', 'rivendellweb' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -74,10 +80,9 @@ if ( ! function_exists( 'rivendellweb_last_update' ) ) :
 
 	}
 endif;
+
 if ( ! function_exists( 'rivendellweb_posted_by' ) ) :
-	/**
-	 * Prints HTML with meta information for the current author.
-	 */
+	// Prints HTML with meta information for the current author.
 	function rivendellweb_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
@@ -104,30 +109,6 @@ if ( ! function_exists( 'rivendellweb_show_categories' ) ):
 	}
 endif;
 
-if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function rivendellweb_entry_footer() {
-		edit_post_link(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'rivendellweb' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			),
-			'<span class="edit-link">',
-			'</span>'
-		);
-	}
-endif;
-
 if ( ! function_exists( 'rivendellweb_show_tags' ) ):
 	function rivendellweb_show_tags() {
 		// translators: used between list items, there is a space after the comma
@@ -140,12 +121,10 @@ if ( ! function_exists( 'rivendellweb_show_tags' ) ):
 endif;
 
 if ( ! function_exists( 'rivendellweb_post_thumbnail' ) ) :
-	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
-	 */
+	// Displays an optional post thumbnail.
+	//
+	// Wraps the post thumbnail in an anchor element on index views,
+	// or a figure element when on single views.
 	function rivendellweb_post_thumbnail() {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
@@ -154,9 +133,9 @@ if ( ! function_exists( 'rivendellweb_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
+			<figure class="post-thumbnail">
 				<?php the_post_thumbnail(); ?>
-			</div><!-- .post-thumbnail -->
+			</figure><!-- .post-thumbnail -->
 
 		<?php else : ?>
 
@@ -174,3 +153,48 @@ if ( ! function_exists( 'rivendellweb_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+
+if ( ! function_exists( 'rivendellweb_edit_post' ) ):
+	function rivendellweb_edit_post() {
+		edit_post_link( sprintf(
+			wp_kses(
+				// translators: %s: Name of current post.
+				// Only visible to screen readers
+				__( 'Edit <span class="screen-reader-text">%s</span>', 'rivendellweb' ),
+				array(
+					'span' => array(
+						'class' => array(),
+					),
+				)
+			),
+			get_the_title()
+			),
+			'<span class="edit-link">',
+			'</span>'
+		);
+	}
+endif;
+
+if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
+	function rivendellweb_entry_metadata( $post ) { ?>
+	<div class="entry-meta">
+		<ul class="entry-meta__content">
+			<li class="entry-meta__item"><?php rivendellweb_posted_by(); ?></li>
+			<li class="entry-meta__item"><?php rivendellweb_posted_on(); ?></li>
+			<li class="entry-meta__item"><?php rivendellweb_last_update(); ?></li>
+			<li class="entry-meta__item"><?php rivendellweb_show_categories($post); ?></li>
+			<li class="entry-meta__item"><?php rivendellweb_show_tags($post); ?></li>
+		</ul>
+	</div><!-- .entry-meta -->
+
+	<?php }
+endif;
+if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
+	// Prints HTML with meta information for comments.
+	function rivendellweb_entry_footer() {
+		rivendellweb_edit_post();
+	}
+endif;
+
+
+

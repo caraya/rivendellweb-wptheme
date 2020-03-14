@@ -19,15 +19,8 @@
 		endif;
 
 		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php rivendellweb_posted_by(); ?>
-				<?php rivendellweb_posted_on(); ?>
-				<?php rivendellweb_last_update(); ?>
-				<?php rivendellweb_show_categories($post); ?>
-				<?php rivendellweb_show_tags($post); ?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
+			rivendellweb_entry_metadata( $post );
+		endif; ?>
 	</header><!-- .entry-header -->
 
 	<?php rivendellweb_post_thumbnail(); ?>
