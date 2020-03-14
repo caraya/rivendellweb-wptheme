@@ -7,10 +7,24 @@
  * @package rivendellweb
  */
 
-if ( ! function_exists( 'rivendellweb_posted_on' ) ) :
+if ( ! function_exists( 'rivendellweb_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
+	// Prints HTML with meta information for the current author.
+	function rivendellweb_posted_by() {
+		$byline = sprintf(
+			/* translators: %s: post author. */
+			esc_html_x( 'Posted by %s', 'post author', 'rivendellweb' ),
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		);
+
+		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+
+	}
+endif;
+
+if ( ! function_exists( 'rivendellweb_posted_on' ) ) :
 	function rivendellweb_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -35,6 +49,31 @@ if ( ! function_exists( 'rivendellweb_posted_on' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'rivendellweb_last_update' ) ) :
+	// Outputs last update date
+	function rivendellweb_last_update() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		}
+
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( DATE_W3C ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( DATE_W3C ) ),
+			esc_html( get_the_modified_date() )
+		);
+
+		$last_update = sprintf(
+			/* translators: %s: last update date. */
+			esc_html_x( 'Last Updated: %s', 'Update date', 'rivendellweb' ),
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		);
+
+		echo '<span class="last-update">' . $last_update . '</span>'; // WPCS: XSS OK.
+
+	}
+endif;
 if ( ! function_exists( 'rivendellweb_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information for the current author.
@@ -51,19 +90,27 @@ if ( ! function_exists( 'rivendellweb_posted_by' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'rivendellweb_show_categories' ) ):
+	function rivendellweb_show_categories($post) {
+		if ( is_single() ) {
+			$show_categories = true;
+			$categories = wp_get_post_categories( $post->ID );
+			// We don't want to show the categories if there is a single category and it is "uncategorized"
+			if ( count( $categories ) == 1 && in_array( 1, $categories ) ) :
+				$show_categories = false;
+			endif;
+			if ( has_category( null, $post->ID ) && $show_categories ) :
+				echo __('Filed under ', 'rivendellweb') . get_the_category_list(', ');
+			endif;
+		}
+	}
+endif;
+
 if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function rivendellweb_entry_footer() {
-		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'rivendellweb' ) );
-			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'rivendellweb' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'rivendellweb' ) );
@@ -73,24 +120,6 @@ if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
 			}
 		}
 
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
-			comments_popup_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'rivendellweb' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				)
-			);
-			echo '</span>';
-		}
 
 		edit_post_link(
 			sprintf(
@@ -108,7 +137,6 @@ if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
 			'<span class="edit-link">',
 			'</span>'
 		);
-	}
 endif;
 
 if ( ! function_exists( 'rivendellweb_post_thumbnail' ) ) :

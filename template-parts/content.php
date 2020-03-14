@@ -21,10 +21,10 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
-				<?php
-				rivendellweb_posted_on();
-				rivendellweb_posted_by();
-				?>
+				<?php rivendellweb_posted_on(); ?>
+				<?php rivendellweb_posted_by(); ?>
+				<?php rivendellweb_last_update(); ?>
+				<?php rivendellweb_show_categories($post); ?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
