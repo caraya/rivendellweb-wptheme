@@ -92,17 +92,15 @@ endif;
 
 if ( ! function_exists( 'rivendellweb_show_categories' ) ):
 	function rivendellweb_show_categories($post) {
-		if ( is_single() ) {
-			$show_categories = true;
-			$categories = wp_get_post_categories( $post->ID );
-			// We don't want to show the categories if there is a single category and it is "uncategorized"
-			if ( count( $categories ) == 1 && in_array( 1, $categories ) ) :
-				$show_categories = false;
-			endif;
-			if ( has_category( null, $post->ID ) && $show_categories ) :
-				echo __('Filed under ', 'rivendellweb') . get_the_category_list(', ');
-			endif;
-		}
+		$show_categories = true;
+		$categories = wp_get_post_categories( $post->ID );
+		// We don't want to show the categories if there is a single category and it is "uncategorized"
+		if ( count( $categories ) == 1 && in_array( 1, $categories ) ) :
+			$show_categories = false;
+		endif;
+		if ( has_category( null, $post->ID ) && $show_categories ) :
+			echo __('Filed under ', 'rivendellweb') . get_the_category_list(', ');
+		endif;
 	}
 endif;
 
@@ -111,16 +109,6 @@ if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function rivendellweb_entry_footer() {
-
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'rivendellweb' ) );
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'rivendellweb' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-			}
-		}
-
-
 		edit_post_link(
 			sprintf(
 				wp_kses(
@@ -137,6 +125,18 @@ if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
 			'<span class="edit-link">',
 			'</span>'
 		);
+	}
+endif;
+
+if ( ! function_exists( 'rivendellweb_show_tags' ) ):
+	function rivendellweb_show_tags() {
+		// translators: used between list items, there is a space after the comma
+		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'rivendellweb' ) );
+		if ( $tags_list ) {
+			// translators: 1: list of tags.
+			printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'rivendellweb' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+		}
+	}
 endif;
 
 if ( ! function_exists( 'rivendellweb_post_thumbnail' ) ) :
