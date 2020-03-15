@@ -46,7 +46,6 @@
 		) );
 		?>
 	</div><!-- .entry-content -->
-
 	<footer class="entry-footer">
 		<?php rivendellweb_entry_footer(); ?>
 	</footer><!-- .entry-footer -->

@@ -44,7 +44,7 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'header' => esc_html__( 'header', 'rivendellweb' ),
+			'header' => esc_html__( 'Header', 'rivendellweb' ),
 			'social' => esc_html__( 'Social', 'rivendellweb')
 		) );
 
@@ -126,7 +126,17 @@ function rivendellweb_widgets_init() {
       'name'          => 'Header Widget Area',
       'id'            => 'header-widget-area',
       'description'   => 'Widgets shown in the header',
-    ),
+		),
+		array(
+      'name'          => 'Sidebar 1 widgets',
+      'id'            => 'sidebar-1',
+      'description'   => 'Widgets shown in the sidebar',
+		),
+		array(
+      'name'          => 'Sidebar 2 widgets',
+      'id'            => 'sidebar-2',
+      'description'   => 'Widgets shown in the sidebar',
+		),
     array(
       'name'          => 'Footer Widget Area 1',
       'id'            => 'footer-1',
@@ -142,7 +152,7 @@ function rivendellweb_widgets_init() {
   $defaults = array(
     'name'          => 'Awesome Sidebar',
     'id'            => 'awesome-sidebar',
-    'description'   => 'The Awesome Sidebar is shown on the left hand side of blog pages in this theme',
+    'description'   => 'Widget collections appear in different places',
     'class'         => '',
     'before_widget' => '<li id="%1$s" class="widget %2$s">',
     'after_widget'  => '</li>',

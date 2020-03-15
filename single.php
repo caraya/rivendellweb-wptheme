@@ -21,7 +21,10 @@ get_header();
 
 			// If comments are open or we have at least one comment
 			// load the comment template.
+			// TODO: 	This definitely needs more testing
 			if ( comments_open() || get_comments_number() ) :
+				// Change the name inside comments_template
+				// to use a custom comment template
 				comments_template('/comments.php');
 			endif;
 
@@ -34,5 +37,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+// get_sidebar( 'sidebar1');
 get_footer();

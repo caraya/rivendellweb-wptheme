@@ -173,9 +173,9 @@ if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
 	function rivendellweb_entry_metadata( $post ) { ?>
 	<div class="entry-meta">
 		<ul class="entry-meta__content">
-			<li class="entry-meta__item"><?php rivendellweb_posted_by(); ?></li>
-			<li class="entry-meta__item"><?php rivendellweb_posted_on(); ?></li>
-			<li class="entry-meta__item"><?php rivendellweb_last_update(); ?></li>
+			<li class="entry-meta__item"><?php rivendellweb_posted_by(); ?> | </li>
+			<li class="entry-meta__item"><?php rivendellweb_posted_on(); ?> | </li>
+			<li class="entry-meta__item"><?php rivendellweb_last_update(); ?> </li>
 			<li class="entry-meta__item"><?php rivendellweb_show_categories($post); ?></li>
 			<li class="entry-meta__item"><?php rivendellweb_show_tags($post); ?></li>
 		</ul>
@@ -185,9 +185,13 @@ if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
 endif;
 
 if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
-	// Prints HTML with meta information for comments.
+	// Currently only handles the edit link functionality
 	function rivendellweb_entry_footer() {
-		rivendellweb_edit_post();
+		// If we're shooowing a single page only then
+		// show the edit post link
+		if ( is_single() ) {
+			rivendellweb_edit_post();
+		}
 	}
 endif;
 
