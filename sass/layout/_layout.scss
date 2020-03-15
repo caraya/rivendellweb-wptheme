@@ -1,0 +1,106 @@
+// When there is no sidebar
+.has-sidebar {
+  .content-area {
+    margin: 0 (-$size__site-sidebar) 0 (-$size__site-sidebar);
+    width: $size__site-main;
+  }
+
+  .site-main {
+    margin: 0 0 0 $size__site-sidebar;
+  }
+
+  .site-content .sidebar1 {
+    float: left;
+    overflow: hidden;
+    width: $size__site-sidebar;
+  }
+
+  .site-content .sidebar2 {
+    float: right;
+    overflow: hidden;
+    width: $size__site-sidebar;
+  }
+
+  .site-footer {
+    clear: both;
+    width: $size__site-main;
+  }
+}
+
+.no-sidebar {
+  .content-area {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .site-main {
+    margin-right: 0;
+  }
+}
+
+@supports (display: grid) {
+  .no-sidebar {
+    .site {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+      grid-auto-rows: minmax(200px, auto);
+      grid-gap: 1em 1em;
+    }
+
+    .site-header {
+      grid-column: 2/-2;
+    }
+
+    .site-content {
+      grid-column: 3/7;
+      width: 100%;
+    }
+
+    .site-footer {
+      grid-column: 3/8;
+    }
+  }
+
+  // When there is a sidebar
+  .has-sidebar {
+    .site {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+      grid-auto-rows: minmax(200px, auto);
+      grid-gap: 1em 1em;
+    }
+
+    .site-header {
+      grid-column: 2/-2;
+      column: 2;
+    }
+
+    .sidebar {
+      overflow: hidden;
+    }
+
+    .sidebar1 {
+      grid-column: 1/1;
+      grid-row: 3;
+
+      width: 20%;
+    }
+
+    .site-content {
+      grid-column: 3/7;
+      grid-row: 3;
+    }
+
+    .sidebar2 {
+      grid-column: -2/-2;
+      grid-row: 3;
+
+      width: 20%;
+    }
+
+    .site-footer {
+      grid-column: 3/8;
+    }
+  }
+}

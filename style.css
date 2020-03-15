@@ -1827,19 +1827,18 @@ button.dropdown-toggle {
 }
 
 .has-sidebar .sidebar1 {
-  grid-column: 1/2;
+  grid-column: 1/1;
   grid-row: 3;
   width: 20%;
 }
 
 .has-sidebar .site-content {
   grid-column: 3/7;
-  width: 100%;
   grid-row: 3;
 }
 
 .has-sidebar .sidebar2 {
-  grid-column: -2/-1;
+  grid-column: -2/-2;
   grid-row: 3;
   width: 20%;
 }
