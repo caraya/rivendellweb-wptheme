@@ -2566,10 +2566,9 @@ figure figcaption::before {
 }
 
 .post-thumbnail {
-  width: 100vw;
-  max-width: 2000px;
-  max-height: 1500px;
-  margin: 0 0 0 -450px;
+  width: 100%;
+  height: auto;
+  margin: 0;
 }
 
 .post-thumbnail img {

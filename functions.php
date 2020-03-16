@@ -42,6 +42,15 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		/*
+		 * Adds one or more image sizes for images.
+		 * Currently we add full-bleed images = 2000px by 1500px
+		 *
+		 *
+		 * @link https://developer.wordpress.org/reference/functions/add_image_size/
+		 */
+		add_image_size( 'rivendellweb-full-bleed', 2000, 1500, true );
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'header' => esc_html__( 'Header', 'rivendellweb' ),
@@ -189,8 +198,36 @@ function rivendellweb_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Script and styles for Prism since no plugin seems to work
+	wp_enqueue_script( 'prism_script',
+			get_stylesheet_directory_uri() . '/js/prism.js' );
+	wp_enqueue_style( 'prism_styles',
+			get_stylesheet_directory_uri() . '/css/prism.css' );
+	// Enqueue Fontface Observer
+	wp_enqueue_script( 'ffo_script',
+			get_stylesheet_directory_uri() . '/js/fontfaceobserver.js');
+	// Note: The script that requires Fontface Observer is
+	// inlined in the add_action(wp_footer) hook
 }
 add_action( 'wp_enqueue_scripts', 'rivendellweb_scripts' );
+
+/**
+ * Sets the length of the excerpt to 100 characters.
+ *
+ * Note that there is no formatting applied to the
+ * excertpt like there is with the content.
+ * So all the prism highlighted code will be presented
+ * as is (butt ugly). Consider this when deciding if you
+ * want to use excerpt or cootnent
+ *
+ * We set the priority (second parameter) to 999 to make
+ * sure that it runs last
+ */
+function mytheme_custom_excerpt_length( $length ) {
+    return 100;
+}
+add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 999 );
 
 /**
  * Implement the Custom Header feature.
@@ -222,26 +259,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * SVG icons functions and filters.
  */
-if (file_exists( '/inc/icon-functions.php' )) {
+if ( file_exists( '/inc/icon-functions.php' ) ) {
 	require get_parent_theme_file_path( '/inc/icon-functions.php' );
 }
-/**
- * Loads scripts and stylesheets
- *
- */
-function rivendellweb_enqueue_local() {
-	// Script and styles for Prism since no plugin seems to work
-	wp_enqueue_script( 'prism_script',
-			get_stylesheet_directory_uri() . '/js/prism.js' );
-	wp_enqueue_style( 'prism_styles',
-			get_stylesheet_directory_uri() . '/css/prism.css' );
-	// Enqueue Fontface Observer
-	wp_enqueue_script( 'ffo_script',
-			get_stylesheet_directory_uri() . '/js/fontfaceobserver.js');
-	// Note: The script that requires Fontface Observer is
-	// inlined in the add_action(wp_footer) hook
-}
-add_action( 'wp_enqueue_scripts', 'rivendellweb_enqueue_local' );
 
 /**
  * Adds defer attribute to scripts in $scripts_to_include

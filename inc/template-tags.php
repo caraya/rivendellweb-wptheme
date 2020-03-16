@@ -168,15 +168,15 @@ endif;
 // to build the metadata section of the header and the
 // entry footer.
 //
-// Right now the footer only has the edit post link.
-
+// entry metadata contains posted_by, posted_on and last_update
+// and conditionally adds show_categories and show_tags
 if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
 	function rivendellweb_entry_metadata( $post ) { ?>
 	<div class="entry-meta">
 		<ul class="entry-meta__content">
 			<li class="entry-meta__item"><?php rivendellweb_posted_by(); ?> | </li>
 			<li class="entry-meta__item"><?php rivendellweb_posted_on(); ?> | </li>
-			<li class="entry-meta__item"><?php rivendellweb_last_update(); ?> </li>
+			<li class="entry-meta__item"><?php rivendellweb_last_update(); ?></li>
 			<li class="entry-meta__item"><?php rivendellweb_show_categories($post); ?></li>
 			<li class="entry-meta__item"><?php rivendellweb_show_tags($post); ?></li>
 		</ul>
@@ -185,6 +185,7 @@ if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
 	<?php }
 endif;
 
+// Right now the footer only has the edit post link.
 if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
 	// Currently only handles the edit link functionality
 	function rivendellweb_entry_footer() {
