@@ -19,10 +19,10 @@ get_header();
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			// If comments are open or we have at least one comment
-			// load the comment template.
+			// If we're in a single post and comments are open
+			// or we have at least one comment load the comment template.
 			// TODO: 	This definitely needs more testing
-			if ( comments_open() || get_comments_number() ) :
+			if ( is_single() && ( comments_open() || get_comments_number() ) ) :
 				// Change the name inside comments_template
 				// to use a custom comment template
 				comments_template('/comments.php');

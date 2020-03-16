@@ -17,9 +17,14 @@ function rivendellweb_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	// Adds a class of no-sidebar when sidebar-1
-	// is not active.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	// Adds a class of no-sidebar neither sidebar-1
+	// or sidebar-2 are active.
+	//
+	// This is where you can get creative with the test and
+	// add different classes based on which sidebar is active
+	// and style accordingly.
+	if ( ( ! is_active_sidebar( 'sidebar-1' ) ) ||
+		 	 ( ! is_active_sidebar( 'sidebar-2' ) ) ) {
 		$classes[] = 'no-sidebar';
 	} else {
 		// Otherwise add the has-sidebar class

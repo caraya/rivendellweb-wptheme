@@ -3,16 +3,16 @@
 --------------------------------------------------------------*/
 // @import "../layout/content-sidebar";
 // @import "../layout/sidebar-content";
-@import "../layout/no-sidebar-grid";
+@import '../layout/layout';
 
 /*--------------------------------------------------------------
 ## Header, posts and pages
 --------------------------------------------------------------*/
-@import "primary/header/header";
-@import "primary/header/header-menu";
-@import "primary/posts-and-pages";
+@import 'primary/header/header';
+@import 'primary/header/header-menu';
+@import 'primary/posts-and-pages';
 
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
-@import "primary/comments";
+@import 'primary/comments';
