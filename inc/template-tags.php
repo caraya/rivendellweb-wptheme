@@ -118,11 +118,12 @@ if ( ! function_exists( 'rivendellweb_post_thumbnail' ) ) :
 			return;
 		}
 
-		if ( is_singular() ) :
+		if ( is_singular() && has_post_thumbnail() ) :
 			?>
 
-			<figure class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+			<figure class="post-thumbnail full-bleed">
+				<?php
+					the_post_thumbnail( 'post-thumbnail' ); ?>
 			</figure><!-- .post-thumbnail -->
 
 		<?php else : ?>

@@ -88,7 +88,7 @@
     }
   }
 
-  @media screen and (min-width: $size__max-width) {
+  @media screen and (min-width: 75em) {
     .children {
       margin-left: 3em;
     }
@@ -142,7 +142,6 @@
   a {
     display: inline-block;
     padding: 0.5em 1.4em;
-    font-family: $font__sans;
     font-size: 85%;
     color: #000;
     line-height: 1.3em;
@@ -152,8 +151,8 @@
     &:hover,
     &:focus {
       color: #fff;
-      background: $color__interactive;
-      border-color: $color__interactive;
+      background: $color__link;
+      border-color: $color__link;
     }
   }
 }
@@ -170,7 +169,7 @@
 
 .bypostauthor .avatar {
   box-sizing: content-box;
-  border: 5px solid $color__interactive;
+  border: 5px solid $color__link;
   margin-top: -5px;
   margin-left: -5px;
 }
@@ -186,7 +185,6 @@
 }
 
 .comment-form {
-  font-family: $font__sans;
   line-height: 1.3em;
 
   a {
@@ -208,8 +206,8 @@
     &:hover,
     &:focus {
       color: #fff;
-      background: $color__interactive;
-      border-color: $color__interactive;
+      background: $color__link;
+      border-color: $color__link;
     }
   }
 
@@ -226,8 +224,6 @@
 }
 
 .pingback {
-  font-family: $font__sans;
-
   .comment-body {
     padding: 1em 0;
   }
