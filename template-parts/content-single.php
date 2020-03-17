@@ -23,8 +23,24 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
+	<?php
+	// Displays an optional post thumbnail.
+	//
+	// Wraps the post thumbnail in an anchor element on index views,
+	// or a figure element when on single views.
+	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+			return;
+		}
 
-	<?php rivendellweb_post_thumbnail(); ?>
+		if ( is_singular() && has_post_thumbnail() ) {
+	?>
+
+			<figure class="post-thumbnail full-bleed">
+				<?php
+					the_post_thumbnail( 'rivendellweb-full-bleed' ); ?>
+			</figure><!-- .post-thumbnail -->
+
+		<?php } ?> <!-- if is_single -->
 
 	<div class="entry-content">
 

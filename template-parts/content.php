@@ -10,14 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-		if ( has_post_thumbnail() ) { ?>
-			<figure class="featured-image index-image">
-				<a href="<?php esc_url( get_permalink() ) ?>" rel="bookmark">
-					<?php the_post_thumbnail(); ?>
-				</a>
-			</figure>
-	<?php } ?>
+
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -31,9 +24,6 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-
-	<?php rivendellweb_post_thumbnail(); ?>
-
 	<div class="entry-content">
 
 		<?php
@@ -46,7 +36,7 @@
 		 * @link https://developer.wordpress.org/reference/functions/the_content/
 		 * @link https://developer.wordpress.org/reference/hooks/excerpt_more/
 		 */
-		the_content();
+		the_excerpt();
 
 		?>
 
