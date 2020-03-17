@@ -2436,6 +2436,30 @@ button.dropdown-toggle {
 }
 
 /*--------------------------------------------------------------
+## Archives
+--------------------------------------------------------------*/
+/*
+Placeholder for Archive-specific styles
+*/
+.continue-reading {
+  text-align: right;
+  text-align: inline-end;
+}
+
+.continue-reading a {
+  display: block;
+  padding: 0.5em 1em;
+  font-size: 90%;
+  text-decoration: none;
+  background: #d9d9d9;
+}
+
+.continue-reading a:focus, .continue-reading a:hover {
+  color: white;
+  background: #cd2653;
+}
+
+/*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */

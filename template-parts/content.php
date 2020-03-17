@@ -28,28 +28,20 @@
 
 	<div class="entry-content">
 
-		<?php the_excerpt( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'rivendellweb' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+		<?php
+		/**
+		 * We can change to the_excerpt() to use excerpts instead of
+		 * full posts. This will automatically add continue reading
+		 * if the post content is more than 200 characters long
+		 *
+		 * @link https://developer.wordpress.org/reference/functions/the_excerpt/
+		 * @link https://developer.wordpress.org/reference/functions/the_content/
+		 * @link https://developer.wordpress.org/reference/hooks/excerpt_more/
+		 */
+		the_content();
 
-		// wp_link_pages( array(
-		// 	'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'rivendellweb' ),
-		// 	'after'  => '</div>',
-		// ) );
 		?>
 
-
 	</div><!-- .entry-content -->
-	<footer class="entry-footer">
-		<?php rivendellweb_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+ <!-- .continue-reading-->
 </article><!-- #post-<?php the_ID(); ?> -->

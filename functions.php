@@ -87,10 +87,10 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 		 * @link https://github.com/xwp/wordpress-develop/blob/master/src/wp-content/themes/rivendellweb/functions.php#L117
 		 */
 		add_theme_support( 'starter-content', array(
-		'widgets' => array(
+			'widgets' => array(
 			'footer-1' => array( 'search', 'archive'),
 			'footer-2' => array( 'latest posts'),
-		),
+			),
 		) );
 
 		/**
@@ -188,6 +188,7 @@ function rivendellweb_scripts() {
 	wp_enqueue_style( 'rivendellweb-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'rivendellweb-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+
 	wp_localize_script( 'rivendellweb-navigation', 'rivendellwebScreenReaderText', array(
 		'expand' => __( 'Expand child menu', 'rivendellweb'),
 		'collapse' => __( 'Collapse child menu', 'rivendellweb'),
@@ -270,8 +271,7 @@ if ( file_exists( '/inc/icon-functions.php' ) ) {
  * we can add both attributes to this function. Test your
  * code thoroughly when using async or defer. I had issues
  * with Fontface Observer loading later than the script it
- * was called from so it'd report an error
- *
+ * was called from so it'd report an error.
  */
 function rivendellweb_js_defer_attr($tag){
 	// List scripts to work with
@@ -291,9 +291,10 @@ add_filter( 'script_loader_tag', 'rivendellweb_js_defer_attr', 10 );
 
 /**
  * Adds the FontFace Observer code to the footer of every page
+ *
+ * @link https://developer.wordpress.org/reference/hooks/wp_footer/
 */
-function rivendell_add_ffo(){
-?>
+function rivendellweb_add_ffo(){?>
   <script>
     const recursive = new FontFaceObserver('Recursive VF');
     let html = document.documentElement;
@@ -318,6 +319,19 @@ function rivendell_add_ffo(){
 </script>
 <?php
 };
-add_action('wp_footer', 'rivendell_add_ffo');
+add_action('wp_footer', 'rivendellweb_add_ffo');
 
-
+/**
+ * Changes the pointer to read more from an Ellipsis to a
+ * link that also helps screen readers by pointing what
+ * post the read more link is for.
+ *
+ * @link https://developer.wordpress.org/reference/hooks/excerpt_more/
+ */
+function rivendellweb_excerpt_more( $more ) {
+	return sprintf( '<p><a href="%1$s" class="more-link">%2$s</a></p>',
+			esc_url( get_permalink( get_the_ID() ) ),
+			sprintf( __( 'Continue reading %s', 'rivendellweb' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
+	);
+}
+add_filter( 'excerpt_more', 'rivendellweb_excerpt_more' );
