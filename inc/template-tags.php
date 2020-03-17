@@ -108,6 +108,35 @@ if ( ! function_exists( 'rivendellweb_show_tags' ) ):
 	}
 endif;
 
+if ( ! function_exists( 'rivendellweb_featured_image') ) :
+	function rivendellweb_featured_image() {
+		// Displays an optional post thumbnail.
+		//
+		// If the post is password protected, is an attachment
+		// or doesn't have a featured image / post thumbnail
+		// then bail, nothing to do here
+		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+				return;
+			}
+
+		// If we're in a single post with a featured image
+		// wrap it in an image without link.
+		if ( is_single() && has_post_thumbnail() ) { ?>
+			<figure class="post-thumbnail full-bleed">
+				<?php the_post_thumbnail( 'rivendellweb-full-bleed' ); ?>
+			</figure>
+		<?php } else if ( ! is_single() ) {
+		// If we're in an archive page then
+		// wrap it in an image with a link ?>
+			<figure class="post-thumbnail full-bleed">
+				<a href="<?php esc_url( get_permalink() ) ?>" rel="bookmark">
+					<?php the_post_thumbnail(); ?>
+				</a>
+			</figure>
+		<?php }
+	}
+endif;
+
 if ( ! function_exists( 'rivendellweb_edit_post' ) ):
 	function rivendellweb_edit_post() {
 		edit_post_link( sprintf(

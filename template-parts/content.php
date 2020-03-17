@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
+	<?php rivendellweb_featured_image() ?>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -36,9 +36,17 @@
 		 * @link https://developer.wordpress.org/reference/functions/the_content/
 		 * @link https://developer.wordpress.org/reference/hooks/excerpt_more/
 		 */
-		the_excerpt();
+		the_content();
 
 		?>
-
+		<!-- Hide this if using the_content -->
+		<!-- <div class="continue-reading">
+		<?php
+		// $read_more_link = sprintf( __( 'Continue reading %s', 'rivendellweb' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' );
+		?>
+			<a href="<?php // echo esc_url( get_permalink() ) ?>" rel="bookmark">
+				<?php //echo $read_more_link ?>
+			</a>
+		<div> -->
 	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->
