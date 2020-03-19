@@ -40,13 +40,13 @@
 
 		?>
 		<!-- Hide this if using the_content -->
-		<!-- <div class="continue-reading">
+		<div class="continue-reading">
 		<?php
-		// $read_more_link = sprintf( __( 'Continue reading %s', 'rivendellweb' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' );
+		$read_more_link = sprintf( __( 'Continue reading %s', 'rivendellweb' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' );
 		?>
-			<a href="<?php // echo esc_url( get_permalink() ) ?>" rel="bookmark">
-				<?php //echo $read_more_link ?>
+			<a href=" <?php //echo esc_url( get_permalink() ) ?>" rel="bookmark">
+				 <?php echo $read_more_link ?>
 			</a>
-		<div> -->
+		<div>
 	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->

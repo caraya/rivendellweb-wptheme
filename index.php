@@ -52,8 +52,8 @@ get_header();
 		*/
 		the_posts_pagination( array(
 			'show_all'  => false,
-			'prev_text' => __( 'Newer', 'rivendellweb' ),
-			'next_text' => __( 'Older', 'rivendellweb' ),
+			'prev_text' => rivendellweb_get_svg( array( 'icon' => 'arrow-left' ) ) . __( 'Newer', 'rivendellweb' ),
+			'next_text' => __( 'Older', 'rivendellweb' ) . rivendellweb_get_svg( array( 'icon' => 'arrow-right' ) ),
 			'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'rivendellweb' ) . '</span>',
 			)
 		);

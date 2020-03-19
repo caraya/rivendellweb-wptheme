@@ -139,7 +139,7 @@ gulp.task('generateCriticalCSS', () => {
 gulp.task('babel', () => {
   return gulp.src('src/scripts/**/*.js')
     .pipe($.sourcemaps.init())
-    .pipe(babel({
+    .pipe($.babel({
       presets: ['@babel/env'],
     }))
     .pipe($.sourcemaps.write('.'))
@@ -364,7 +364,7 @@ gulp.task('server', () => {
     proxy: "localhost:8888/wordpress",
   });
 
-  gulp.watch('js/**/*.js', gulp.series('babel'));
+  // gulp.watch('js/**/*.js', gulp.series('babel'));
   gulp.watch('sass/**/*.scss', gulp.series('generateCSS'));
   gulp.watch('**/*').on('change', browsersync.reload);
 })

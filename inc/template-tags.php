@@ -82,10 +82,15 @@ if ( ! function_exists( 'rivendellweb_last_update' ) ) :
 endif;
 
 if ( ! function_exists( 'rivendellweb_show_categories' ) ):
+	// If the categories don't show, please make sure that
+	// the are enabled in the customizer.
+	// Don't be me and spend days trying to figure out why
+	// it's not working without checking the customizer
 	function rivendellweb_show_categories($post) {
 		$show_categories = true;
 		$categories = wp_get_post_categories( $post->ID );
-		// We don't want to show the categories if there is a single category and it is "uncategorized"
+		// We don't want to show the categories if there
+		// is a single category and it is "uncategorized"
 		if ( count( $categories ) == 1 && in_array( 1, $categories ) ) :
 			$show_categories = false;
 		endif;
@@ -166,17 +171,16 @@ endif;
 // and conditionally adds show_categories and show_tags
 if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
 	function rivendellweb_entry_metadata( $post ) { ?>
-	<div class="entry-meta">
-		<ul class="entry-meta__content">
-			<li class="entry-meta__item"><?php rivendellweb_posted_by(); ?> | </li>
-			<li class="entry-meta__item"><?php rivendellweb_posted_on(); ?> | </li>
-			<li class="entry-meta__item"><?php rivendellweb_last_update(); ?></li>
-			<li class="entry-meta__item"><?php rivendellweb_show_categories($post); ?></li>
-			<li class="entry-meta__item"><?php rivendellweb_show_tags($post); ?></li>
-		</ul>
-	</div><!-- .entry-meta -->
-
-	<?php }
+		<div class="entry-meta">
+			<ul class="entry-meta__content">
+				<li class="entry-meta__item"><?php rivendellweb_posted_by(); ?> | </li>
+				<li class="entry-meta__item"><?php rivendellweb_posted_on(); ?> | </li>
+				<li class="entry-meta__item"><?php rivendellweb_last_update(); ?></li>
+				<li class="entry-meta__item"><?php rivendellweb_show_categories($post); ?></li>
+				<li class="entry-meta__item"><?php rivendellweb_show_tags($post); ?></li>
+			</ul>
+		</div><!-- .entry-meta
+<?php }
 endif;
 
 // Right now the footer only has the edit post link.

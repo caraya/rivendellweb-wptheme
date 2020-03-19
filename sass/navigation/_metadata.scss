@@ -1,36 +1,16 @@
 .entry-meta__content {
-  font-size: 0.8em;
   list-style-type: none;
-  margin-left: -2.25em;
+  margin: 0;
+  width: 100%;
 
   display: flex;
   flex-flow: row wrap;
 
-  .entry-meta__item {
-    flex: 0 0 auto;
-
-    span {
-      font-weight: 700;
-    }
+  span {
+    font-weight: 700;
   }
-}
-
-@supports (gap: 2em) {
-  .entry-meta__content {
-    font-size: 0.8em;
-    list-style-type: none;
-    margin-left: -2.25em;
-
-    display: flex;
-    flex-flow: row wrap;
-    gap: 2em;
-
-    .entry-meta__item {
-      flex: 0 0 auto;
-
-      span {
-        font-weight: 700;
-      }
-    }
+  .entry-meta__item {
+    font-size: 0.9em;
+    flex: 1 0 auto;
   }
 }

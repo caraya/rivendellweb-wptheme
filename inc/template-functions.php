@@ -18,8 +18,8 @@ function rivendellweb_body_classes( $classes ) {
 		$classes[] = 'archive-view';
 	}
 
-	// Adds a class of no-sidebar neither sidebar-1
-	// or sidebar-2 are active.
+	// Adds a class of no-sidebar if sidebar-1 or sidebar-2
+	// are not active.
 	//
 	// This is where you can get creative with the test and
 	// add different classes based on which sidebar is active

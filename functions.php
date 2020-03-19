@@ -204,14 +204,16 @@ function rivendellweb_scripts() {
 
 	// Script and styles for Prism since no plugin seems to work
 	wp_enqueue_script( 'prism_script',
-			get_stylesheet_directory_uri() . '/js/prism.js' );
+			get_stylesheet_directory_uri() . '/js/prism.js', array(), '20151215', true );
 	wp_enqueue_style( 'prism_styles',
 			get_stylesheet_directory_uri() . '/css/prism.css' );
 	// Enqueue Fontface Observer
 	wp_enqueue_script( 'ffo_script',
-			get_stylesheet_directory_uri() . '/js/fontfaceobserver.js');
+			get_stylesheet_directory_uri() . '/js/fontfaceobserver.js', array(), '20151215', false );
 	// Note: The script that requires Fontface Observer is
 	// inlined in the add_action(wp_footer) hook
+
+	wp_enqueue_script( 'rivendellweb-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '20200317', false );
 }
 add_action( 'wp_enqueue_scripts', 'rivendellweb_scripts' );
 
@@ -267,7 +269,6 @@ function rivendellweb_add_ffo(){?>
 		}
 
   </script>
-</script>
 <?php
 };
 add_action('wp_footer', 'rivendellweb_add_ffo');
@@ -286,7 +287,7 @@ add_action('wp_footer', 'rivendellweb_add_ffo');
  * sure that it runs last
  */
 function mytheme_custom_excerpt_length( $length ) {
-    return 200;
+    return 100;
 }
 add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 999 );
 
@@ -404,6 +405,4 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * SVG icons functions and filters.
  */
-if ( file_exists( '/inc/icon-functions.php' ) ) {
-	require get_parent_theme_file_path( '/inc/icon-functions.php' );
-}
+require get_parent_theme_file_path( '/inc/icon-functions.php' );
