@@ -17,8 +17,7 @@
 	<?php get_sidebar( 'footer' ); ?>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-footer__wrap">
-
+		<div class="social-menu__wrap">
 			<?php
 			// Make sure there is a social menu to display.
 			if ( has_nav_menu( 'social' ) ) { ?>
@@ -34,7 +33,8 @@
 				?>
 			</nav><!-- .social-menu -->
 			<?php } ?>
-
+		</div>
+		<div class="site-footer__wrap">
 			<div class="site-info">
 				<div><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'rivendellweb' ) ); ?>"><?php printf( esc_html__( 'Powered by %s', 'rivendellweb' ), 'WordPress' ); ?></a></div>
 				<div><?php printf( esc_html__( 'Theme: %1$s by %2$s', 'rivendellweb' ), 'rivendellweb', '<a href="https://publishing-project.rivendellweb.net/" rel="designer">Carlos Araya</a>' ); ?></div>

@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /*!
 Theme Name: rivendellweb
-Theme URI: https://github.com/caraya/rivendellweb-theme
-Author: Underscores.me
+Theme URI: https://github.com/caraya/rivendellweb-wptheme
+Author: Carlos Araya
 Author URI: https://publishing-project.rivendellweb.net
 Description: Description
 Version: 1.0.0
@@ -19,29 +19,6 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Normalize
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-	## Posts and pages
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
-	## Figures
---------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -2724,6 +2701,22 @@ SVG Fallbacks
   position: relative !important;
   /* overrides previous !important styles */
   width: auto;
+}
+
+/*
+Moved this here because it wasn't working in _footer.scss
+*/
+.social-links-menu {
+  width: 50%;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-links-menu .icon {
+  fill: black;
+  height: 1.5em;
+  width: 1.5em;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,70 +1,53 @@
 .site-footer {
-	position: relative;
-	padding: 1em;
-	text-align: center;
+  position: relative;
+  padding: 1em;
+  text-align: center;
 
-	a {
-		font-weight: 700;
-		color: white;
-		text-decoration: none;
+  a {
+    font-weight: 700;
+    color: $color__link;
+    text-decoration: none;
 
-		&:hover,
-		&:focus {
-			text-decoration: underline;
-		}
-	}
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 
-	@media screen and (min-width: 24.15em) {
-		padding: 1em 2em;
-	}
-
+  @media screen and (min-width: 24.15em) {
+    padding: 1em 2em;
+  }
 }
 
 .site-footer__wrap {
-	max-width: 960px margin: 0 auto;
+  // max-width: $size__max-width;
+  margin: 0 auto;
 
-	@media screen and (min-width: 43.75em) {
-		display: flex;
-		justify-content: space-between;
-	}
-}
+  @media screen and (min-width: 43.75em) {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.site-info {
-	margin: 1em 0 1em auto;
-	align-self: center;
+  /*
+	NOTE:
+		this works when inlined on devtools or added
+		to custom CSS in the customizer but it doesn't
+		work here. I've movoed it to the root stylesheet
+		where it works
 
-	@media screen and (min-width: 43.75em) {
-		text-align: right;
+		Leaving it here while I research why it doesn't work
+		as designed
 
-		span {
-			display: block;
+  .social-links-menu {
+    width: 50%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
 
-		}
-	}
-}
-
-.social-menu {
-	margin: 1em 0;
-
-	ul {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-
-		a {
-			display: block;
-			padding: .5em 1em;
-			text-decoration: none;
-			opacity: .6;
-
-			&:hover,
-			&:focus {
-				text-decoration: underline;
-				opacity: 1;
-			}
-		}
-	}
+    .icon {
+      fill: black;
+      height: 2em;
+      width: 2em;
+    }
+  }*/
 }
