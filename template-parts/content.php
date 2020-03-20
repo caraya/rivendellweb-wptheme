@@ -26,7 +26,9 @@
 
 	<div class="entry-content">
 
-		<?php
+
+		<div class="entry-content">
+			<?php
 		/**
 		 * We can change to the_excerpt() to use excerpts instead of
 		 * full posts. This will automatically add continue reading
@@ -36,17 +38,16 @@
 		 * @link https://developer.wordpress.org/reference/functions/the_content/
 		 * @link https://developer.wordpress.org/reference/hooks/excerpt_more/
 		 */
-		the_content();
 
-		?>
-		<!-- Hide this if using the_content -->
-		<div class="continue-reading">
-		<?php
-		$read_more_link = sprintf( __( 'Continue reading %s', 'rivendellweb' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' );
-		?>
-			<a href=" <?php //echo esc_url( get_permalink() ) ?>" rel="bookmark">
-				 <?php echo $read_more_link ?>
-			</a>
-		<div>
+			$length_setting = get_theme_mod('length_setting');
+			if ( 'excerpt' === $length_setting ) {
+				the_excerpt();
+			} else {
+				the_content();
+			}
+			?>
+		</div><!-- .entry-content -->
+
+
 	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->
