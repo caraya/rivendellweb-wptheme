@@ -179,7 +179,7 @@ if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
 				<li class="entry-meta__item"><?php rivendellweb_show_categories($post); ?></li>
 				<li class="entry-meta__item"><?php rivendellweb_show_tags($post); ?></li>
 			</ul>
-		</div><!-- .entry-meta
+		</div><!-- .entry-meta -->
 <?php }
 endif;
 

@@ -38,14 +38,29 @@
 		 * @link https://developer.wordpress.org/reference/functions/the_content/
 		 * @link https://developer.wordpress.org/reference/hooks/excerpt_more/
 		 */
-
 			$length_setting = get_theme_mod('length_setting');
+
 			if ( 'excerpt' === $length_setting ) {
-				the_excerpt();
-			} else {
+				the_excerpt(); ?>
+
+
+				<div class="continue-reading">
+				<?php
+				$read_more_link = sprintf(
+					/* translators: %s: Name of current post. */
+					wp_kses( __( 'Continue reading %s', 'rivendellweb' ), array( 'span' => array( 'class' => array() ) ) ),
+					the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				);
+				?>
+
+				<a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark">
+					<?php echo $read_more_link; ?>
+				</a>
+			</div><!-- .continue-reading -->
+
+			<?php } else {
 				the_content();
-			}
-			?>
+			} ?>
 		</div><!-- .entry-content -->
 
 

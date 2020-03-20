@@ -1059,6 +1059,7 @@ article {
 
 li code,
 p code {
+  background-color: rgba(238, 238, 238, 0.4);
   display: inline;
   border: 2px 3px;
 }
@@ -2449,7 +2450,6 @@ button.dropdown-toggle {
 }
 
 .continue-reading {
-  display: none;
   position: absolute;
   right: 0;
   bottom: 0;

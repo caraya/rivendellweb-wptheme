@@ -132,6 +132,7 @@ if ( ! function_exists( 'rivendellweb_header_style' ) ) :
 function rivendellweb_header_style() {
 	$header_text_color = get_header_textcolor();
 	$header_bg_color = get_theme_mod( 'theme_bg_color' );
+	$interactive_color = get_theme_mod('interactive_color');
 
 	/*
 	 * If no custom options for text are set, let's bail.
@@ -195,5 +196,80 @@ function rivendellweb_header_style() {
 	<?php
 	}
 
+	/*
+	 * Do we have a custom interactive color?
+	 */
+	if ( '#b51c35' != $interactive_color ) { ?>
+		<style type="text/css">
+			a:hover,
+			a:focus,
+			a:active,
+			.page-content a:focus, .page-content a:hover,
+			.entry-content a:focus,
+			.entry-content a:hover,
+			.entry-summary a:focus,
+			.entry-summary a:hover,
+			.comment-content a:focus,
+			.comment-content a:hover,
+			.cat-links a {
+				color: <?php echo esc_attr( $interactive_color ); ?>;
+			}
+
+			.page-content a,
+			.entry-content a,
+			.entry-summary a,
+			.comment-content a,
+			.post-navigation .post-title,
+			.comment-navigation a:hover,
+			.comment-navigation a:focus,
+			.posts-navigation a:hover,
+			.posts-navigation a:focus,
+			.post-navigation a:hover,
+			.post-navigation a:focus,
+			.paging-navigation a:hover,
+			.paging-navigation a:focus,
+			.entry-title a:hover,
+			.entry-title a:focus,
+			.entry-meta a:focus,
+			.entry-meta a:hover,
+			.entry-footer a:focus,
+			.entry-footer a:hover,
+			.reply a:hover,
+			.reply a:focus,
+			.comment-form .form-submit input:hover,
+			.comment-form .form-submit input:focus,
+			.widget a:hover,
+			.widget a:focus {
+				border-color: <?php echo esc_attr( $interactive_color ); ?>;
+			}
+
+			.comment-navigation a:hover,
+			.comment-navigation a:focus,
+			.posts-navigation a:hover,
+			.posts-navigation a:focus,
+			.post-navigation a:hover,
+			.post-navigation a:focus,
+			.paging-navigation a:hover,
+			.paging-navigation a:focus,
+			.continue-reading a:focus,
+			.continue-reading a:hover,
+			.cat-links a:focus,
+			.cat-links a:hover,
+			.reply a:hover,
+			.reply a:focus,
+			.comment-form .form-submit input:hover,
+			.comment-form .form-submit input:focus {
+				background-color: <?php echo esc_attr( $interactive_color ); ?>;
+			}
+
+			@media screen and (min-width: 900px) {
+				.no-sidebar .post-content__wrap .entry-meta a:hover,
+				.no-sidebar .post-content__wrap .entry-meta a:focus {
+					border-color: <?php echo esc_attr( $interactive_color ); ?>;
+				}
+			}
+		</style>
+	<?php
+	}
 }
 endif;
