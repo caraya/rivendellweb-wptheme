@@ -60,47 +60,100 @@
     .site-footer {
       grid-column: 3/8;
     }
+
+    // When there is a sidebar
+    .has-sidebar {
+      .site {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+        grid-auto-rows: minmax(200px, auto);
+        grid-gap: 1em 1em;
+      }
+
+      .site-header {
+        grid-column: 2/-2;
+        column: 2;
+      }
+
+      .sidebar {
+        overflow: hidden;
+      }
+
+      .sidebar1 {
+        grid-column: 1/1;
+        grid-row: 3;
+
+        width: 20%;
+      }
+
+      .site-content {
+        grid-column: 3/7;
+        grid-row: 3;
+      }
+
+      .sidebar2 {
+        grid-column: -2/-2;
+        grid-row: 3;
+
+        width: 20%;
+      }
+
+      .site-footer {
+        grid-column: 3/8;
+      }
+    }
   }
 
-  // When there is a sidebar
-  .has-sidebar {
-    .site {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
-      grid-auto-rows: minmax(200px, auto);
-      grid-gap: 1em 1em;
+@media screen and (max-width: 800px) {
+  @supports (display: grid) {
+    .no-sidebar {
+      .site-header {
+        grid-column: 1/-1;
+        margin: 2em;
+      }
+
+      .site-content {
+        grid-column: 1/-1;
+        width: 80%;
+        margin: 2em;
+      }
+
+      .site-footer {
+        grid-column: 1/-1;
+      }
     }
 
-    .site-header {
-      grid-column: 2/-2;
-      column: 2;
-    }
+      .has-sidebar {
+      .site {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+        grid-auto-rows: minmax(200px, auto);
+        grid-gap: 1em 1em;
+      }
 
-    .sidebar {
-      overflow: hidden;
-    }
+      .site-header {
+        grid-column: 1/-1;
+      }
 
-    .sidebar1 {
-      grid-column: 1/1;
-      grid-row: 3;
+      .site-content {
+        grid-column: 1/-1;
+      }
 
-      width: 20%;
-    }
+      .sidebar {
+        overflow: hidden;
+      }
 
-    .site-content {
-      grid-column: 3/7;
-      grid-row: 3;
-    }
+      .sidebar1 {
+        grid-column: 1/-1;
+      }
 
-    .sidebar2 {
-      grid-column: -2/-2;
-      grid-row: 3;
+      .sidebar2 {
+        grid-column: 1/-1;
+      }
 
-      width: 20%;
-    }
-
-    .site-footer {
-      grid-column: 3/8;
+      .site-footer {
+        grid-column: 1/-1;
+      }
     }
   }
 }

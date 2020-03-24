@@ -1,0 +1,269 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: rivendellweb\n"
+"POT-Creation-Date: 2020-03-21 16:28-0700\n"
+"PO-Revision-Date: 2020-03-21 16:53-0700\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: es\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+
+#: 404.php:18
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "¡Vaya! Está página no se encuentra."
+
+#: 404.php:22
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+"Parece que no se encontró nada en este lugar. Tal vez pruebe uno de los "
+"siguientes enlaces o una búsqueda?"
+
+#: 404.php:31
+msgid "Most Used Categories"
+msgstr "Categorías más usadas"
+
+#. translators: %1$s: smiley
+#: 404.php:47
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Trate de buscar en los archivos mensuales. %1$s"
+
+#: archive.php:41 index.php:55 search.php:43
+msgid "Newer"
+msgstr "Más nuevos"
+
+#: archive.php:42 index.php:56 search.php:44
+msgid "Older"
+msgstr "Mas antiguos"
+
+#: archive.php:43 index.php:57 search.php:45
+msgid "Page "
+msgstr "Página "
+
+#. translators: 1: title.
+#: comments.php:35
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr "Un pensamiento en &ldquo;%1$s&rdquo;"
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:41
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s comentario en &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s comentarios sobre &ldquo;%2$s&rdquo;"
+
+#: comments.php:66
+msgid "Comments are closed."
+msgstr "Los comentarios están cerrados."
+
+#: footer.php:39
+msgid "https://wordpress.org/"
+msgstr "https://wordpress.org/"
+
+#: footer.php:39
+#, php-format
+msgid "Powered by %s"
+msgstr "Desarrollado por %s"
+
+#: footer.php:40
+#, php-format
+msgid "Theme: %1$s by %2$s"
+msgstr "Tema: %1$s by %2$s"
+
+#: functions.php:58
+msgid "Header"
+msgstr "Cabecera"
+
+#: functions.php:59
+msgid "Social"
+msgstr "Social"
+
+#: functions.php:195
+msgid "Expand child menu"
+msgstr "Abrir menú hijo"
+
+#: functions.php:196
+msgid "Collapse child menu"
+msgstr "Contraer menú hijo"
+
+#: header.php:25
+msgid "Skip to content"
+msgstr "Saltar al contenido"
+
+#: inc/customizer.php:36
+msgid "Header and footer background color"
+msgstr "Color de fondo del encabezado y del pie de página"
+
+#: inc/customizer.php:59
+msgid "Interactive color (links etc)"
+msgstr "Color interactivo (enlaces, etc.)"
+
+#: inc/customizer.php:69
+msgid "Theme Options"
+msgstr "Opciones del Tema"
+
+#: inc/customizer.php:72
+msgid "Change how much of a post is displayed on index and archive pages."
+msgstr "Cambiar cuanto de un artículo se ve en indices y archivos."
+
+#: inc/customizer.php:90
+msgid "Index/archive displays"
+msgstr "Visualizaciones de índice/archivo"
+
+#: inc/customizer.php:93
+msgid "Excerpt (default)"
+msgstr "Extracto (default)"
+
+#: inc/customizer.php:94
+msgid "Full content"
+msgstr "Contenido completo"
+
+#: inc/icon-functions.php:39
+msgid "Please define default parameters in the form of an array."
+msgstr "Por favor, define los parámetros por defecto en forma de array."
+
+#: inc/icon-functions.php:44
+msgid "Please define an SVG icon filename."
+msgstr "Por favor, define un nombre de archivo para los iconos SVG."
+
+#. translators: %s: post author.
+#: inc/template-tags.php:24
+#, php-format
+msgctxt "post author"
+msgid "Posted by: %s"
+msgstr "Publicado por: %s"
+
+#. translators: %s: post date.
+#: inc/template-tags.php:49
+#, php-format
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "Publicado el %s"
+
+#. translators: %s: last update date.
+#: inc/template-tags.php:75
+#, php-format
+msgctxt "Update date"
+msgid "Last Updated: %s"
+msgstr "Ultima actualización: %s"
+
+#: inc/template-tags.php:98
+msgid "<span class=\"cat-links\">"
+msgstr "<span class=\"cat-links\">"
+
+#: inc/template-tags.php:99
+msgid "Filed under "
+msgstr "Presentado bajo "
+
+#: inc/template-tags.php:100
+msgid "</span>"
+msgstr "</span>"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:108
+msgctxt "list item separator"
+msgid ", "
+msgstr ", "
+
+#. translators: 1: list of tags.
+#: inc/template-tags.php:111
+#, php-format
+msgid "Tagged: %1$s"
+msgstr "Etiquetado: %1$s"
+
+#. translators: %s: Name of current post.
+#. Only visible to screen readers
+#. translators: %s: Name of current post. Only visible to screen readers
+#: inc/template-tags.php:151 template-parts/content-page.php:37
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Editar <span class=\"screen-reader-text\">%s</span>"
+
+#. translators: %s: search query.
+#: search.php:22
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Resultados de búsqueda para: %s"
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "Nada Encontrado"
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content-none.php:24
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Listo para publicar su primer post? <a href=\"%1$s\"> Comienza aquí </a>."
+
+#: template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Lo sentimos, pero nada coincide con sus términos de búsqueda. Por favor, "
+"inténtelo de nuevo con algunas palabras clave diferentes."
+
+#: template-parts/content-none.php:44
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Parece que no podemos encontrar lo que estamos buscando. Tal vez la búsqueda "
+"puede ayudar."
+
+#: template-parts/content-page.php:24 template-parts/content-single.php:43
+msgid "Pages:"
+msgstr "Páginas:"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-single.php:32
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Continuar leyendo<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#. translators: %s: Name of current post.
+#: template-parts/content.php:51
+#, php-format
+msgid "Continue reading %s"
+msgstr "Continuar leyendo %s"
+
+#. Theme Name of the plugin/theme
+msgid "rivendellweb"
+msgstr "rivendellweb"
+
+#. Theme URI of the plugin/theme
+msgid "https://github.com/caraya/rivendellweb-wptheme"
+msgstr "https://github.com/caraya/rivendellweb-wptheme"
+
+#. Description of the plugin/theme
+msgid "Description"
+msgstr "Descripción"
+
+#. Author of the plugin/theme
+msgid "Carlos Araya"
+msgstr "Carlos Araya"
+
+#. Author URI of the plugin/theme
+msgid "https://publishing-project.rivendellweb.net"
+msgstr "https://publishing-project.rivendellweb.net"
