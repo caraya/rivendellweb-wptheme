@@ -34,7 +34,6 @@
 	<!-- Check all files in this directory and the directories below it. -->
 	<file>.</file>
 
-
 	<!--
 	#############################################################################
 	USE THE WordPress RULESET

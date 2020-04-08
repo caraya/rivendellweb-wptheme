@@ -106,6 +106,77 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		// GUTENBERG-RELATED THEME SUPPORT COMMANDS
+		/**
+		 * Add support for editor styles
+		 */
+		add_theme_support('editor-styles');
+
+		/**
+		 * Add support for default block styles
+		 */
+		add_theme_support( 'wp-block-styles' );
+		/**
+		 * Add custom font sizes for Gutenberg
+		 *
+		 */
+		add_theme_support(
+			'editor-font-sizes',
+			array(
+				array(
+						'name' => __( 'Small', 'rivendellweb-blocks' ),
+						'size' => 10,
+						'slug' => 'small'
+				),
+				array(
+						'name' => __( 'Regular', 'rivendellweb-blocks' ),
+						'size' => 16,
+						'slug' => 'regular'
+				),
+				array(
+						'name' => __( 'Large', 'rivendellweb-blocks' ),
+						'size' => 32,
+						'slug' => 'large'
+				),
+				array(
+						'name' => __( 'XLarge', 'rivendellweb-blocks'),
+						'size' => 48,
+						'slug' => 'xlarge'
+				),
+				array(
+						'name' => __( 'XXLarge', 'rivendellweb-blocks' ),
+						'size' => 60,
+						'slug' => 'xxlarge'
+				)
+			)
+		);
+
+		add_theme_support(
+			'editor-color-palette',
+			array(
+				array(
+						'name' => __( 'Magenta', 'rivendellweb-blocks' ),
+						'slug' => 'magenta',
+						'color' => '#a156b4',
+				),
+				array(
+						'name' => __( 'Light Magenta', 'rivendellweb-blocks' ),
+						'slug' => 'light-magenta',
+						'color' => '#d0a5db',
+				),
+				array(
+						'name' => __( 'Light gray', 'rivendellweb-blocks' ),
+						'slug' => 'light-gray',
+						'color' => '#eee',
+				),
+				array(
+						'name' => __( 'Dark gray', 'rivendellweb-blocks' ),
+						'slug' => 'dark-gray',
+						'color' => '#444',
+				),
+			)
+		);
 	}
 endif;
 add_action( 'after_setup_theme', 'rivendellweb_setup' );
