@@ -493,13 +493,12 @@ optgroup,
 textarea,
 li {
   color: #404040;
-  font-family: sans-serif;
-  font-size: 16px;
-  font-size: 1rem;
+  font-family: 'Recursive VF', sans-serif;
   line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Recursive', sans-serif;
   clear: both;
 }
 
@@ -508,7 +507,8 @@ p {
 }
 
 dfn, cite, em, i {
-  font-style: italic;
+  --recursive-italic: 1;
+  --recursive-slant: -15;
 }
 
 blockquote {
@@ -520,10 +520,9 @@ address {
 }
 
 pre {
+  --recursive-mono: 1;
   background: #eee;
-  font-family: "Courier 10 Pitch", Courier, monospace;
-  font-size: 15px;
-  font-size: 0.9375rem;
+  font-size: 1em;
   line-height: 1.6;
   margin-bottom: 1.6em;
   max-width: 100%;
@@ -532,9 +531,8 @@ pre {
 }
 
 code, kbd, tt, var {
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  font-size: 15px;
-  font-size: 0.9375rem;
+  --recursive-mono: 1;
+  font-size: 1em;
 }
 
 abbr, acronym {

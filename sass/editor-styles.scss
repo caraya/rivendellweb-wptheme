@@ -6,10 +6,12 @@ body {
   font-family: 'Recursive VF', sans-serif;
 }
 
-.wp-block .editor-post-title__block {
+// Setting the title to matching font with the front end
+textarea#post-title-0 {
   font-family: 'Recursive VF', sans-serif;
 }
 
+//BASIC BLOCK DEFINITIONS NO GRID
 // Main column width
 .wp-block {
   max-width: 720px;

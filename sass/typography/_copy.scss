@@ -3,7 +3,8 @@ p {
 }
 
 dfn, cite, em, i {
-	font-style: italic;
+	--recursive-italic: 1;
+	--recursive-slant: -15;
 }
 
 blockquote {
@@ -15,8 +16,8 @@ address {
 }
 
 pre {
+	--recursive-mono: 1;
 	background: $color__background-pre;
-	font-family: $font__pre;
 	font-size: 1em;
 	line-height: $font__line-height-pre;
 	margin-bottom: 1.6em;
@@ -26,8 +27,8 @@ pre {
 }
 
 code, kbd, tt, var {
-	font-family: $font__code;
-	@include font-size(0.9375);
+	--recursive-mono: 1;
+	font-size: 1em;
 }
 
 abbr, acronym {

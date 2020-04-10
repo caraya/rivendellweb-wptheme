@@ -1,4 +1,7 @@
-// When there is no sidebar
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
+
+// When there is no sidebar and no grid support
 .has-sidebar {
   .content-area {
     margin: 0 (-$size__site-sidebar) 0 (-$size__site-sidebar);

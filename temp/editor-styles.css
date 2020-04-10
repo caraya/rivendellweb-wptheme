@@ -1,3 +1,67 @@
+body,
+button,
+input,
+select,
+optgroup,
+textarea,
+li {
+  color: #404040;
+  font-family: 'Recursive VF', sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Recursive', sans-serif;
+  clear: both;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+dfn, cite, em, i {
+  --recursive-italic: 1;
+  --recursive-slant: -15;
+}
+
+blockquote {
+  margin: 0 1.5em;
+}
+
+address {
+  margin: 0 0 1.5em;
+}
+
+pre {
+  --recursive-mono: 1;
+  background: #eee;
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6em;
+}
+
+code, kbd, tt, var {
+  --recursive-mono: 1;
+  font-size: 1em;
+}
+
+abbr, acronym {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+}
+
+mark, ins {
+  background: #fff9c0;
+  text-decoration: none;
+}
+
+big {
+  font-size: 125%;
+}
+
 @font-face {
   font-family: 'Recursive VF';
   src: url("./fonts/recursive-subset.woff2") format("woff2 supports variations"), url("./fonts/recursive-subset.woff2") format("woff2-variations");
@@ -420,8 +484,170 @@
   }
 }
 
+.has-sidebar .content-area {
+  margin: 0 -25% 0 -25%;
+  width: 100%;
+}
+
+.has-sidebar .site-main {
+  margin: 0 0 0 25%;
+}
+
+.has-sidebar .site-content .sidebar1 {
+  float: left;
+  overflow: hidden;
+  width: 25%;
+}
+
+.has-sidebar .site-content .sidebar2 {
+  float: right;
+  overflow: hidden;
+  width: 25%;
+}
+
+.has-sidebar .site-footer {
+  clear: both;
+  width: 100%;
+}
+
+.no-sidebar .content-area {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no-sidebar .site-main {
+  margin-right: 0;
+}
+
+@supports (display: grid) {
+  .no-sidebar .site {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 1em 1em;
+  }
+  .no-sidebar .site-header {
+    grid-column: 2/-2;
+  }
+  .no-sidebar .site-content {
+    grid-column: 3/7;
+    width: 100%;
+  }
+  .no-sidebar .site-footer {
+    grid-column: 3/8;
+  }
+  .no-sidebar .has-sidebar .site {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 1em 1em;
+  }
+  .no-sidebar .has-sidebar .site-header {
+    grid-column: 2/-2;
+    column: 2;
+  }
+  .no-sidebar .has-sidebar .sidebar {
+    overflow: hidden;
+  }
+  .no-sidebar .has-sidebar .sidebar1 {
+    grid-column: 1/1;
+    grid-row: 3;
+    width: 20%;
+  }
+  .no-sidebar .has-sidebar .site-content {
+    grid-column: 3/7;
+    grid-row: 3;
+  }
+  .no-sidebar .has-sidebar .sidebar2 {
+    grid-column: -2/-2;
+    grid-row: 3;
+    width: 20%;
+  }
+  .no-sidebar .has-sidebar .site-footer {
+    grid-column: 3/8;
+  }
+  @media screen and (max-width: 800px) {
+    @supports (display: grid) {
+      .no-sidebar .site-header {
+        grid-column: 1/-1;
+        margin: 2em;
+      }
+      .no-sidebar .site-content {
+        grid-column: 1/-1;
+        width: 80%;
+        margin: 2em;
+      }
+      .no-sidebar .site-footer {
+        grid-column: 1/-1;
+      }
+      .has-sidebar .site {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+        grid-auto-rows: minmax(200px, auto);
+        grid-gap: 1em 1em;
+      }
+      .has-sidebar .site-header {
+        grid-column: 1/-1;
+      }
+      .has-sidebar .site-content {
+        grid-column: 1/-1;
+      }
+      .has-sidebar .sidebar {
+        overflow: hidden;
+      }
+      .has-sidebar .sidebar1 {
+        grid-column: 1/-1;
+      }
+      .has-sidebar .sidebar2 {
+        grid-column: 1/-1;
+      }
+      .has-sidebar .site-footer {
+        grid-column: 1/-1;
+      }
+    }
+  }
+}
+
 body {
-  font-family: 'Recursive', sans-serif;
+  font-family: 'Recursive VF', sans-serif;
+}
+
+textarea#post-title-0 {
+  font-family: 'Recursive VF', sans-serif;
+}
+
+.wp-block {
+  max-width: 720px;
+}
+
+.wp-block[data-align="wide"] {
+  max-width: 1080px;
+}
+
+.wp-block[data-align="full"] {
+  max-width: none;
+}
+
+@supports (display: grid) {
+  body {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 1em 1em;
+  }
+  /* Main column width */
+  .wp-block {
+    grid-column: 3/7;
+  }
+  /* Width of "wide" blocks */
+  .wp-block[data-align="wide"] {
+    grid-column: 2/8;
+  }
+  /* Width of "full-wide" blocks */
+  .wp-block[data-align="full"] {
+    grid-column: 1/-1;
+  }
 }
 
 /*# sourceMappingURL=editor-styles.css.map */
