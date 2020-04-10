@@ -109,9 +109,10 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 
 		// GUTENBERG-RELATED THEME SUPPORT COMMANDS
 		/**
-		 * Add support for editor styles
+		 * Add support for editor styles and enqueue the styles
 		 */
 		add_theme_support('editor-styles');
+		add_editor_style( '/editor-styles.css' );
 
 		/**
 		 * Add support for default block styles
@@ -291,8 +292,7 @@ add_action( 'wp_enqueue_scripts', 'rivendellweb_scripts' );
 /**
  * Adds defer attribute to scripts in $scripts_to_include
  *
- * We can either create a similar function to add async or
- * we can add both attributes to this function. Test your
+ * We can either create a similar function to add async. Test your
  * code thoroughly when using async or defer.
  *
  * @link https://developer.wordpress.org/reference/hooks/script_loader_tag/
@@ -303,7 +303,7 @@ function rivendellweb_js_defer_attr($tag){
 
 	foreach($scripts_to_include as $include_script){
 			if(true == strpos($tag, $include_script ))
-			// Add defer attribute
+			// replace src with defer src
 			return str_replace( ' src', ' defer src', $tag );
 	}
 

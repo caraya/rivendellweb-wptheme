@@ -1,0 +1,29 @@
+.wp-block-pullquote:not(.has-background) blockquote,
+.pullquote blockquote {
+  font-size: 150%;
+  border-left: 0px solid transparent;
+  border-top: 4px solid #cd2653;
+  border-bottom: 4px solid #cd2653;
+  padding-bottom: 1.5em;
+}
+
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+  margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+  text-align: center;
+}
+
+/*# sourceMappingURL=gutenberg.css.map */

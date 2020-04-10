@@ -1,0 +1,53 @@
+// Make sure we're using the same fonts in the editor
+@import 'typography/typography';
+@import 'layout/layout';
+body {
+  font-family: 'Recursive VF', sans-serif;
+}
+
+.wp-block .editor-post-title__block {
+  font-family: 'Recursive VF', sans-serif;
+}
+
+// Main column width
+.wp-block {
+  max-width: 720px;
+}
+
+// Width of "wide" blocks
+.wp-block[data-align="wide"] {
+  max-width: 1080px;
+}
+
+// Width of "full-wide" blocks
+.wp-block[data-align="full"] {
+  max-width: none;
+}
+
+
+
+@supports (display: grid) {
+  body {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 1em 1em;
+  }
+
+  /* Main column width */
+  .wp-block {
+    grid-column: 3/7;
+  }
+
+  /* Width of "wide" blocks */
+  .wp-block[data-align="wide"] {
+    grid-column: 2/8
+  }
+
+  /* Width of "full-wide" blocks */
+  .wp-block[data-align="full"] {
+    grid-column: 1/-1;
+  }
+}
+
+

@@ -1,3 +1,6 @@
+@import '../variables-site/colors';
+@import '../variables-site/typography';
+
 body,
 button,
 input,
@@ -6,8 +9,7 @@ optgroup,
 textarea,
 li {
 	color: $color__text-main;
-	font-family: $font__main;
-	@include font-size(1);
+	font-family: 'Recursive VF', sans-serif;
 	line-height: $font__line-height-body;
 }
 

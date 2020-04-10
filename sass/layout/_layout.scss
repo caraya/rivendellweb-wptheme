@@ -123,7 +123,7 @@
       }
     }
 
-      .has-sidebar {
+    .has-sidebar {
       .site {
         display: grid;
         grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
@@ -155,5 +155,6 @@
         grid-column: 1/-1;
       }
     }
+  }
   }
 }
