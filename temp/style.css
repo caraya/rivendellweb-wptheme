@@ -418,7 +418,7 @@ template {
   }
   .no-sidebar .has-sidebar .site-header {
     grid-column: 2/-2;
-    column: 2;
+    grid-row: 2;
   }
   .no-sidebar .has-sidebar .sidebar {
     overflow: hidden;
@@ -498,7 +498,7 @@ li {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Recursive', sans-serif;
+  font-family: 'Recursive VF', sans-serif;
   clear: both;
 }
 
@@ -1922,7 +1922,7 @@ button.dropdown-toggle {
   }
   .no-sidebar .has-sidebar .site-header {
     grid-column: 2/-2;
-    column: 2;
+    grid-row: 2;
   }
   .no-sidebar .has-sidebar .sidebar {
     overflow: hidden;

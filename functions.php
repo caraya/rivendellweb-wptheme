@@ -114,6 +114,18 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 		add_theme_support('editor-styles');
 		add_editor_style( '/editor-styles.css' );
 
+		// /**
+		//  * Disable custom colors in Gutenberg
+		//  * Uncomment the block to enable
+		//  */
+		// add_theme_support( 'disable-custom-colors' );
+
+		// /**
+		//  * Disable the Gutenberg color palette
+		//  * Uncomment the block to enable
+		//  */
+		// add_theme_support( 'editor-color-palette' );
+
 		/**
 		 * Add support for default block styles
 		 */
@@ -127,7 +139,7 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 			array(
 				array(
 						'name' => __( 'Small', 'rivendellweb-blocks' ),
-						'size' => 10,
+						'size' => 12,
 						'slug' => 'small'
 				),
 				array(
@@ -145,11 +157,6 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 						'size' => 48,
 						'slug' => 'xlarge'
 				),
-				array(
-						'name' => __( 'XXLarge', 'rivendellweb-blocks' ),
-						'size' => 60,
-						'slug' => 'xxlarge'
-				)
 			)
 		);
 
@@ -157,26 +164,50 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 			'editor-color-palette',
 			array(
 				array(
-						'name' => __( 'Magenta', 'rivendellweb-blocks' ),
+						'name' => __( 'White', 'rivendellweb' ),
+						'slug' => 'white',
+						'color' => '#ffffff'
+				),
+				array(
+						'name' => __( 'Black', 'rivendellweb' ),
+						'slut' => 'black',
+						'color' => '#000000'
+				),
+				array(
+						'name' => __( 'Magenta', 'rivendellweb' ),
 						'slug' => 'magenta',
 						'color' => '#a156b4',
 				),
 				array(
-						'name' => __( 'Light Magenta', 'rivendellweb-blocks' ),
+						'name' => __( 'Light Magenta', 'rivendellweb' ),
 						'slug' => 'light-magenta',
 						'color' => '#d0a5db',
 				),
 				array(
-						'name' => __( 'Light gray', 'rivendellweb-blocks' ),
+						'name' => __( 'Light gray', 'rivendellweb' ),
 						'slug' => 'light-gray',
 						'color' => '#eee',
 				),
 				array(
-						'name' => __( 'Dark gray', 'rivendellweb-blocks' ),
+						'name' => __( 'Dark Gray', 'rivendellweb'),
 						'slug' => 'dark-gray',
 						'color' => '#444',
 				),
-			)
+				array(
+					'name' => __( 'Red', 'rivendellweb'),
+					'slug' => 'red',
+					'color' => '#f00',
+				),
+				array(
+						'name' => __( 'Green', 'rivendellweb'),
+						'slug' => 'green',
+						'color' => '#0f0',
+				),
+				array(
+					'name' => __( 'Blue', 'rivendellweb'),
+					'slug' => 'blue',
+					'color' => '#00f',
+			) )
 		);
 	}
 endif;
@@ -357,11 +388,10 @@ add_action('wp_footer', 'rivendellweb_add_ffo');
  * We set the priority (second parameter) to 999 to make
  * sure that it runs last
  */
-function mytheme_custom_excerpt_length( $length ) {
+function rivendellweb_custom_excerpt_length( $length ) {
     return 100;
 }
-add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 999 );
-
+add_filter( 'excerpt_length', 'rivendellweb_custom_excerpt_length', 999 );
 
 /**
  * Changes the pointer to read more from an Ellipsis to a

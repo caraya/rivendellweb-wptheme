@@ -1,0 +1,26 @@
+// Gutenberg color options
+// -- see editor-color-palette in functions.php
+$colors:   ( white, #fff),
+( black, #000),
+( magenta, #a156b4),
+( light-magenta, #d0a5db),
+( light-gray,  #ddd),
+( dark-gray,  #444),
+( green, #0f0),
+( red, #f00),
+( blue, #00f),
+( rebeccapurple, #639);
+
+/* Color Options
+--------------------------------------------- */
+
+@each $name, $color in $colors {
+
+	.has-#{$name}-color {
+		color: $color;
+	}
+
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+}

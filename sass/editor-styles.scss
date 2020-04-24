@@ -1,14 +1,44 @@
-// Make sure we're using the same fonts in the editor
-@import 'typography/typography';
-@import 'layout/layout';
+// Color definitions and classes
+@import 'gutenberg/colors';
+@import 'typography/typography-override';
 
 body {
+  background: #f1f1f1;
+  color: #444;
+  line-height: 1.4em;
+  min-width: 600px;
   font-family: 'Recursive VF', sans-serif;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
+  grid-auto-rows: minmax(200px, auto);
+  grid-gap: 1em 1em;
+}
+
+/* Main column width */
+.block-editor__typewriter,
+.wp-block {
+  grid-column: 3/7;
+}
+
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+  grid-column: 2/8
+}
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+  grid-column: 1/-1;
 }
 
 // Setting the title to matching font with the front end
-textarea#post-title-0 {
-  font-family: 'Recursive VF', sans-serif;
+.editor-post-title__block,
+.editor-post-title__input {
+  font-family: 'Recursive VF', Verdana, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Recursive VF', Verdana, sans-serif;
 }
 
 //BASIC BLOCK DEFINITIONS NO GRID
@@ -26,31 +56,4 @@ textarea#post-title-0 {
 .wp-block[data-align="full"] {
   max-width: none;
 }
-
-
-
-@supports (display: grid) {
-  body {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
-    grid-auto-rows: minmax(200px, auto);
-    grid-gap: 1em 1em;
-  }
-
-  /* Main column width */
-  .wp-block {
-    grid-column: 3/7;
-  }
-
-  /* Width of "wide" blocks */
-  .wp-block[data-align="wide"] {
-    grid-column: 2/8
-  }
-
-  /* Width of "full-wide" blocks */
-  .wp-block[data-align="full"] {
-    grid-column: 1/-1;
-  }
-}
-
 
