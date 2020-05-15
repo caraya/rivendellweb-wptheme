@@ -89,6 +89,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 @import 'media/media';
 
+/*--------------------------------------------------------------
+# Gutenberg Related
+--------------------------------------------------------------*/
+@import 'gutenberg/colors';
+@import 'gutenberg/blocks';
+
 /*
 Moved this here because it wasn't working in _footer.scss
 */

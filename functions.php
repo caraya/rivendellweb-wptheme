@@ -311,6 +311,7 @@ function rivendellweb_scripts() {
 	wp_enqueue_style( 'prism_styles',
 			get_stylesheet_directory_uri() . '/css/prism.css' );
 	// Enqueue Fontface Observer
+
 	wp_enqueue_script( 'ffo_script',
 			get_stylesheet_directory_uri() . '/js/fontfaceobserver.js', array(), '20151215', false );
 	// Note: The script that requires Fontface Observer is
