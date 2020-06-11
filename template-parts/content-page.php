@@ -14,7 +14,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php rivendellweb_post_thumbnail(); ?>
+	<?php rivendellweb_featured_image(); ?>
 
 	<div class="entry-content">
 		<?php
