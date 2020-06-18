@@ -24,9 +24,6 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
-
-
 		<div class="entry-content">
 			<?php
 		/**
@@ -63,6 +60,4 @@
 			} ?>
 		</div><!-- .entry-content -->
 
-
-	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->

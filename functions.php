@@ -284,10 +284,12 @@ add_action( 'widgets_init', 'rivendellweb_widgets_init' );
 /**
  * Enqueue scripts and styles.
  *
- * TODO: Figure out a way to load local versions
- * if we're offline. Look at B5P way to load
- * jQuery for an example. Right now it fails on everything
- * if one script fails to load
+ * FontFaceObserver also enqueues an inline style to prevent
+ * FontFaceObserver not defined  errors
+ *
+ * @link https://developer.wordpress.org/reference/functions/wp_add_inline_script/
+ * @link https://make.wordpress.org/core/2016/03/08/enhanced-script-loader-in-wordpress-4-5/
+ *
  */
 function rivendellweb_scripts() {
 	wp_enqueue_style( 'rivendellweb-style', get_stylesheet_uri() );
@@ -310,14 +312,21 @@ function rivendellweb_scripts() {
 			get_stylesheet_directory_uri() . '/js/prism.js', array(), '20151215', true );
 	wp_enqueue_style( 'prism_styles',
 			get_stylesheet_directory_uri() . '/css/prism.css' );
-	// Enqueue Fontface Observer
-
-	wp_enqueue_script( 'ffo_script',
-			get_stylesheet_directory_uri() . '/js/fontfaceobserver.js', array(), '20151215', false );
-	// Note: The script that requires Fontface Observer is
-	// inlined in the add_action(wp_footer) hook
-
 	wp_enqueue_script( 'rivendellweb-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '20200317', false );
+
+	// Enqueues both ffo and the inline script needed to run it.
+	// Not 100% sure this is working.
+	wp_enqueue_script( 'ffo_script',
+	get_stylesheet_directory_uri() . '/js/fontfaceobserver.js', array(),'20151215', false );
+	wp_add_inline_script( 'ffo_script', 'const recursive = new FontFaceObserver("Recursive VF"); let html = document.documentElement;
+		Promise.all([recursive.load(),]).then(() => {
+			sessionStorage.fontsLoaded = true;console.log("Recursive has loaded.");
+		}).catch((err) => {sessionStorage.fontsLoaded = false; console.log("Recursive failed to load", err);
+		});
+
+		// Add a class based on whether the font loaded successfully
+		if (sessionStorage.fontsLoaded) {html.classList.add("fonts-loaded");} else { html.classList.add("fonts-failed");}'
+	);
 }
 add_action( 'wp_enqueue_scripts', 'rivendellweb_scripts' );
 
@@ -345,36 +354,6 @@ function rivendellweb_js_defer_attr($tag){
 }
 add_filter( 'script_loader_tag', 'rivendellweb_js_defer_attr', 10 );
 
-/**
- * Adds the FontFace Observer code to the footer of every page
- *
- * @link https://developer.wordpress.org/reference/hooks/wp_footer/
-*/
-function rivendellweb_add_ffo(){?>
-  <script>
-    const recursive = new FontFaceObserver('Recursive VF');
-    let html = document.documentElement;
-    Promise.all([
-      recursive.load(),
-    ]).then(() => {
-			sessionStorage.fontsLoaded = true;
-      console.log('Recursive has loaded.');
-    }).catch((err) => {
-			sessionStorage.fontsLoaded = false;
-      console.log('Recursive failed to load', err);
-    });
-
-		// Add a class based on whether the font loaded successfully
-		if (sessionStorage.fontsLoaded) {
-			html.classList.add('fonts-loaded');
-		} else {
-			html.classList.add('fonts-failed');
-		}
-
-  </script>
-<?php
-};
-add_action('wp_footer', 'rivendellweb_add_ffo');
 
 /**
  * Sets the length of the excerpt in archives and indexes.
@@ -508,3 +487,26 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+/**
+ * Filters the image HTML markup to send to the editor when inserting an image.
+ * It adds native lazy loading for new images.
+ *
+ * It also disables native loading in core.
+ *
+ * @link https://wpseek.com/hook/wp_lazy_loading_enabled/
+ * @link https://developer.wordpress.org/reference/hooks/image_send_to_editor/
+*/
+function html5_insert_image($html, $id, $caption, $title, $align, $url, $size, $alt) {
+  $src  = wp_get_attachment_image_src( $id, $size, false );
+  $html = get_image_tag($id, '', $title, $align, $size);
+  $html5 = "<figure>";
+  $html5 .= "  <img src='$url' alt='$alt' class='size-$size' loading='lazy' />";
+  if ($caption) {
+    $html5 .= "  <figcaption class='wp-caption-text'>$caption</figcaption>";
+  }
+  $html5 .= "</figure>";
+  return $html5;
+}
+add_filter( 'wp_lazy_loading_enabled', '__return_false' );
+add_filter( 'image_send_to_editor', 'html5_insert_image', 10, 9 );

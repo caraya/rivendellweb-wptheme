@@ -5,8 +5,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package rivendellweb
+ * @since 1.0.0
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -23,7 +23,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php rivendellweb_post_thumbnail(); ?>
+	<?php rivendellweb_featured_image(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>

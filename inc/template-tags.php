@@ -55,31 +55,31 @@ if ( ! function_exists( 'rivendellweb_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rivendellweb_last_update' ) ) :
-	// Outputs last update date
-	function rivendellweb_last_update() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
+// if ( ! function_exists( 'rivendellweb_last_update' ) ) :
+// 	// Outputs last update date
+// 	function rivendellweb_last_update() {
+// 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+// 		if ( get_the_time( 'U' ) <= get_the_modified_time( 'U' ) ) {
+// 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+// 		}
 
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
-		);
+// 		$time_string = sprintf( $time_string,
+// 			esc_attr( get_the_date( DATE_W3C ) ),
+// 			esc_html( get_the_date() ),
+// 			esc_attr( get_the_modified_date( DATE_W3C ) ),
+// 			esc_html( get_the_modified_date() )
+// 		);
 
-		$last_update = sprintf(
-			/* translators: %s: last update date. */
-			esc_html_x( 'Last Updated: %s', 'Update date', 'rivendellweb' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
+// 		$last_update = sprintf(
+// 			/* translators: %s: last update date. */
+// 			esc_html_x( 'Last Updated: %s', 'Update date', 'rivendellweb' ),
+// 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+// 		);
 
-		echo '<span class="last-update">' . $last_update . '</span>'; // WPCS: XSS OK.
+// 		echo '<span class="last-update">' . $last_update . '</span>'; // WPCS: XSS OK.
 
-	}
-endif;
+// 	}
+// endif;
 
 if ( ! function_exists( 'rivendellweb_show_categories' ) ):
 	// If the categories don't show, please make sure that
@@ -117,12 +117,17 @@ if ( ! function_exists( 'rivendellweb_featured_image') ) :
 	function rivendellweb_featured_image() {
 		// Displays an optional post thumbnail.
 		//
-		// If the post is password protected, is an attachment
-		// or doesn't have a featured image / post thumbnail
-		// then bail, nothing to do here
-		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
-				return;
-			}
+		// If the post is password protected, is a search page
+		// is an attachment or doesn't have a
+		// featured image / post thumbnail then bail, nothing to do here
+		if (
+			post_password_required() ||
+			is_search() ||
+			is_attachment() ||
+			! has_post_thumbnail()
+		) {
+			return;
+		}
 
 		// If we're in a single post with a featured image
 		// wrap it in an image without link.
@@ -173,9 +178,9 @@ if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
 	function rivendellweb_entry_metadata( $post ) { ?>
 		<div class="entry-meta">
 			<ul class="entry-meta__content">
-				<li class="entry-meta__item"><?php rivendellweb_posted_by(); ?> | </li>
-				<li class="entry-meta__item"><?php rivendellweb_posted_on(); ?> | </li>
-				<li class="entry-meta__item"><?php rivendellweb_last_update(); ?></li>
+				<li class="entry-meta__item"><?php rivendellweb_posted_by(); ?></li>
+				<li class="entry-meta__item"><?php rivendellweb_posted_on(); ?></li>
+				<!-- <li class="entry-meta__item"><?php //rivendellweb_last_update(); ?></li> -->
 				<li class="entry-meta__item"><?php rivendellweb_show_categories($post); ?></li>
 				<li class="entry-meta__item"><?php rivendellweb_show_tags($post); ?></li>
 			</ul>
@@ -187,7 +192,7 @@ endif;
 if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
 	// Currently only handles the edit link functionality
 	function rivendellweb_entry_footer() {
-		// If we're shooowing a single page only then
+		// If we're showing a single page only then
 		// show the edit post link
 		if ( is_single() ) {
 			rivendellweb_edit_post();

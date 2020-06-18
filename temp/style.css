@@ -442,6 +442,9 @@ template {
   }
   @media screen and (max-width: 800px) {
     @supports (display: grid) {
+      .html {
+        width: 100vw;
+      }
       .no-sidebar .site-header {
         grid-column: 1/-1;
         margin: 2em;
@@ -1079,15 +1082,15 @@ td {
 }
 
 .info {
-  background-color: rgba(173, 216, 230, 0.15);
+  background-color: rgba(173, 216, 230, 0.2);
 }
 
 .warning {
-  background-color: rgba(255, 255, 224, 0.15);
+  background-color: rgba(255, 255, 224, 0.2);
 }
 
 .danger {
-  background-color: rgba(255, 85, 0, 0.15);
+  background-color: rgba(255, 85, 0, 0.2);
 }
 
 article {
@@ -1946,6 +1949,9 @@ button.dropdown-toggle {
   }
   @media screen and (max-width: 800px) {
     @supports (display: grid) {
+      .html {
+        width: 100vw;
+      }
       .no-sidebar .site-header {
         grid-column: 1/-1;
         margin: 2em;
