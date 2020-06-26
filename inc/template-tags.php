@@ -17,7 +17,6 @@ if ( ! function_exists( 'rivendellweb_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	// Prints HTML with meta information for the current author.
 	function rivendellweb_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
@@ -31,6 +30,9 @@ if ( ! function_exists( 'rivendellweb_posted_by' ) ) :
 endif;
 
 if ( ! function_exists( 'rivendellweb_posted_on' ) ) :
+	/**
+	 * Prints posted_on data
+	 */
 	function rivendellweb_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -82,10 +84,11 @@ endif;
 // endif;
 
 if ( ! function_exists( 'rivendellweb_show_categories' ) ):
-	// If the categories don't show, please make sure that
-	// the are enabled in the customizer.
-	// Don't be me and spend days trying to figure out why
-	// it's not working without checking the customizer
+	/**
+	 * Prints a list of categories as long as there is a category other than "uncategorized" attached to the post.
+	 *
+	 * If the categories don't show, please make sure that the are enabled in the customizer.
+	*/
 	function rivendellweb_show_categories($post) {
 		$show_categories = true;
 		$categories = wp_get_post_categories( $post->ID );
@@ -103,6 +106,9 @@ if ( ! function_exists( 'rivendellweb_show_categories' ) ):
 endif;
 
 if ( ! function_exists( 'rivendellweb_show_tags' ) ):
+	/**
+	 * Shows tags if any have been added to the post
+	 */
 	function rivendellweb_show_tags() {
 		// translators: used between list items, there is a space after the comma
 		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'rivendellweb' ) );
@@ -114,12 +120,12 @@ if ( ! function_exists( 'rivendellweb_show_tags' ) ):
 endif;
 
 if ( ! function_exists( 'rivendellweb_featured_image') ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * If the post is password protected, is a search page is an attachment or doesn't have a featured image / post thumbnail then bail, nothing to do here
+	 */
 	function rivendellweb_featured_image() {
-		// Displays an optional post thumbnail.
-		//
-		// If the post is password protected, is a search page
-		// is an attachment or doesn't have a
-		// featured image / post thumbnail then bail, nothing to do here
 		if (
 			post_password_required() ||
 			is_search() ||
@@ -148,6 +154,9 @@ if ( ! function_exists( 'rivendellweb_featured_image') ) :
 endif;
 
 if ( ! function_exists( 'rivendellweb_edit_post' ) ):
+	/**
+	 * Adds edit post link
+	 */
 	function rivendellweb_edit_post() {
 		edit_post_link( sprintf(
 			wp_kses(
@@ -168,12 +177,9 @@ if ( ! function_exists( 'rivendellweb_edit_post' ) ):
 	}
 endif;
 
-// The next two below use the previous functions
-// to build the metadata section of the header and the
-// entry footer.
-//
-// entry metadata contains posted_by, posted_on and last_update
-// and conditionally adds show_categories and show_tags
+/*
+Entry metadata contains posted_by, posted_on and last_update and conditionally adds show_categories and show_tags
+*/
 if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
 	function rivendellweb_entry_metadata( $post ) { ?>
 		<div class="entry-meta">
@@ -190,7 +196,9 @@ endif;
 
 // Right now the footer only has the edit post link.
 if ( ! function_exists( 'rivendellweb_entry_footer' ) ) :
-	// Currently only handles the edit link functionality
+	/**
+	 * Adds Footer functionality
+	 */
 	function rivendellweb_entry_footer() {
 		// If we're showing a single page only then
 		// show the edit post link
