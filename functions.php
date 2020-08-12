@@ -8,208 +8,208 @@
  */
 
 if ( ! function_exists( 'rivendellweb_setup' ) ) :
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
-	function rivendellweb_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on rivendellweb, use a find and replace
-		 * to change 'rivendellweb' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'rivendellweb', get_template_directory() . '/languages' );
+  /**
+   * Sets up theme defaults and registers support for various WordPress features.
+   *
+   * Note that this function is hooked into the after_setup_theme hook, which
+   * runs before the init hook. The init hook is too late for some features, such
+   * as indicating support for post thumbnails.
+   */
+  function rivendellweb_setup() {
+    /*
+     * Make theme available for translation.
+     * Translations can be filed in the /languages/ directory.
+     * If you're building a theme based on rivendellweb, use a find and replace
+     * to change 'rivendellweb' to the name of your theme in all the template files.
+     */
+    load_theme_textdomain( 'rivendellweb', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+    // Add default posts and comments RSS feed links to head.
+    add_theme_support( 'automatic-feed-links' );
 
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
+    /*
+     * Let WordPress manage the document title.
+     * By adding theme support, we declare that this theme does not use a
+     * hard-coded <title> tag in the document head, and expect WordPress to
+     * provide it for us.
+     */
+    add_theme_support( 'title-tag' );
 
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
+    /*
+     * Enable support for Post Thumbnails on posts and pages.
+     *
+     * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+     */
+    add_theme_support( 'post-thumbnails' );
 
-		/*
-		 * Adds one or more image sizes for images.
-		 * Currently we add
-		 * 	full-bleed = 2000px by 1500px
-		 *	index-img = 1000xp by 550px
-		 *
-		 * @link https://developer.wordpress.org/reference/functions/add_image_size/
-		 */
-		add_image_size( 'rivendellweb-full-bleed', 2000, 1500, true );
-		add_image_size( 'rivendellweb-index-img', 1000, 550, true );
+    /*
+     * Adds one or more image sizes for images.
+     * Currently we add
+     * 	full-bleed = 2000px by 1500px
+     *	index-img = 1000xp by 550px
+     *
+     * @link https://developer.wordpress.org/reference/functions/add_image_size/
+     */
+    add_image_size( 'rivendellweb-full-bleed', 2000, 1500, true );
+    add_image_size( 'rivendellweb-index-img', 1000, 550, true );
 
-		// This theme uses wp_nav_menu() in two locations.
-		register_nav_menus( array(
-			'header' => esc_html__( 'Header', 'rivendellweb' ),
-			'social' => esc_html__( 'Social', 'rivendellweb')
-		) );
+    // This theme uses wp_nav_menu() in two locations.
+    register_nav_menus( array(
+      'header' => esc_html__( 'Header', 'rivendellweb' ),
+      'social' => esc_html__( 'Social', 'rivendellweb')
+    ) );
 
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
+    /*
+     * Switch default core markup for search form, comment form, and comments
+     * to output valid HTML5.
+     */
+    add_theme_support( 'html5', array(
+      'search-form',
+      'comment-form',
+      'comment-list',
+      'gallery',
+      'caption',
+    ) );
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'rivendellweb_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+    // Set up the WordPress core custom background feature.
+    add_theme_support( 'custom-background', apply_filters( 'rivendellweb_custom_background_args', array(
+      'default-color' => 'ffffff',
+      'default-image' => '',
+    ) ) );
 
-		/**
-		 * Add theme support for selective refresh for widgets.
-		 */
-		add_theme_support( 'customize-selective-refresh-widgets' );
+    /**
+     * Add theme support for selective refresh for widgets.
+     */
+    add_theme_support( 'customize-selective-refresh-widgets' );
 
-		/**
-		 * Add theme support foor starter content
-		 *
-		 * @link
-		 * @link https://github.com/xwp/wordpress-develop/blob/master/src/wp-content/themes/rivendellweb/functions.php#L117
-		 */
-		add_theme_support( 'starter-content', array(
-			'widgets' => array(
-			'footer-1' => array( 'search', 'archive'),
-			'footer-2' => array( 'latest posts'),
-			),
-		) );
+    /**
+     * Add theme support foor starter content
+     *
+     * @link
+     * @link https://github.com/xwp/wordpress-develop/blob/master/src/wp-content/themes/rivendellweb/functions.php#L117
+     */
+    add_theme_support( 'starter-content', array(
+      'widgets' => array(
+      'footer-1' => array( 'search', 'archive'),
+      'footer-2' => array( 'latest posts'),
+      ),
+    ) );
 
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
+    /**
+     * Add support for core custom logo.
+     *
+     * @link https://codex.wordpress.org/Theme_Logo
+     */
+    add_theme_support( 'custom-logo', array(
+      'height'      => 250,
+      'width'       => 250,
+      'flex-width'  => true,
+      'flex-height' => true,
+    ) );
 
-		// GUTENBERG-RELATED THEME SUPPORT COMMANDS
-		/**
-		 * Add support for editor styles and enqueue the styles
-		 */
-		add_theme_support('editor-styles');
-		add_editor_style( '/editor-styles.css' );
+    // GUTENBERG-RELATED THEME SUPPORT COMMANDS
+    /**
+     * Add support for editor styles and enqueue the styles
+     */
+    add_theme_support('editor-styles');
+    add_editor_style( '/editor-styles.css' );
 
-		// /**
-		//  * Disable custom colors in Gutenberg
-		//  * Uncomment the block to enable
-		//  */
-		// add_theme_support( 'disable-custom-colors' );
+    // /**
+    //  * Disable custom colors in Gutenberg
+    //  * Uncomment the block to enable
+    //  */
+    // add_theme_support( 'disable-custom-colors' );
 
-		// /**
-		//  * Disable the Gutenberg color palette
-		//  * Uncomment the block to enable
-		//  */
-		// add_theme_support( 'editor-color-palette' );
+    // /**
+    //  * Disable the Gutenberg color palette
+    //  * Uncomment the block to enable
+    //  */
+    // add_theme_support( 'editor-color-palette' );
 
-		/**
-		 * Add support for default block styles
-		 */
-		add_theme_support( 'wp-block-styles' );
-		/**
-		 * Add custom font sizes for Gutenberg
-		 *
-		 */
-		add_theme_support(
-			'editor-font-sizes',
-			array(
-				array(
-						'name' => __( 'Small', 'rivendellweb-blocks' ),
-						'size' => 12,
-						'slug' => 'small'
-				),
-				array(
-						'name' => __( 'Regular', 'rivendellweb-blocks' ),
-						'size' => 16,
-						'slug' => 'regular'
-				),
-				array(
-						'name' => __( 'Large', 'rivendellweb-blocks' ),
-						'size' => 32,
-						'slug' => 'large'
-				),
-				array(
-						'name' => __( 'XLarge', 'rivendellweb-blocks'),
-						'size' => 48,
-						'slug' => 'xlarge'
-				),
-			)
-		);
+    /**
+     * Add support for default block styles
+     */
+    add_theme_support( 'wp-block-styles' );
+    /**
+     * Add custom font sizes for Gutenberg
+     *
+     */
+    add_theme_support(
+      'editor-font-sizes',
+      array(
+        array(
+            'name' => __( 'Small', 'rivendellweb-blocks' ),
+            'size' => 12,
+            'slug' => 'small'
+        ),
+        array(
+            'name' => __( 'Regular', 'rivendellweb-blocks' ),
+            'size' => 16,
+            'slug' => 'regular'
+        ),
+        array(
+            'name' => __( 'Large', 'rivendellweb-blocks' ),
+            'size' => 32,
+            'slug' => 'large'
+        ),
+        array(
+            'name' => __( 'XLarge', 'rivendellweb-blocks'),
+            'size' => 48,
+            'slug' => 'xlarge'
+        ),
+      )
+    );
 
-		add_theme_support(
-			'editor-color-palette',
-			array(
-				array(
-						'name' => __( 'White', 'rivendellweb' ),
-						'slug' => 'white',
-						'color' => '#ffffff'
-				),
-				array(
-						'name' => __( 'Black', 'rivendellweb' ),
-						'slut' => 'black',
-						'color' => '#000000'
-				),
-				array(
-						'name' => __( 'Magenta', 'rivendellweb' ),
-						'slug' => 'magenta',
-						'color' => '#a156b4',
-				),
-				array(
-						'name' => __( 'Light Magenta', 'rivendellweb' ),
-						'slug' => 'light-magenta',
-						'color' => '#d0a5db',
-				),
-				array(
-						'name' => __( 'Light gray', 'rivendellweb' ),
-						'slug' => 'light-gray',
-						'color' => '#eee',
-				),
-				array(
-						'name' => __( 'Dark Gray', 'rivendellweb'),
-						'slug' => 'dark-gray',
-						'color' => '#444',
-				),
-				array(
-					'name' => __( 'Red', 'rivendellweb'),
-					'slug' => 'red',
-					'color' => '#f00',
-				),
-				array(
-						'name' => __( 'Green', 'rivendellweb'),
-						'slug' => 'green',
-						'color' => '#0f0',
-				),
-				array(
-					'name' => __( 'Blue', 'rivendellweb'),
-					'slug' => 'blue',
-					'color' => '#00f',
-			) )
-		);
-	}
+    add_theme_support(
+      'editor-color-palette',
+      array(
+        array(
+            'name' => __( 'White', 'rivendellweb' ),
+            'slug' => 'white',
+            'color' => '#ffffff'
+        ),
+        array(
+            'name' => __( 'Black', 'rivendellweb' ),
+            'slut' => 'black',
+            'color' => '#000000'
+        ),
+        array(
+            'name' => __( 'Magenta', 'rivendellweb' ),
+            'slug' => 'magenta',
+            'color' => '#a156b4',
+        ),
+        array(
+            'name' => __( 'Light Magenta', 'rivendellweb' ),
+            'slug' => 'light-magenta',
+            'color' => '#d0a5db',
+        ),
+        array(
+            'name' => __( 'Light gray', 'rivendellweb' ),
+            'slug' => 'light-gray',
+            'color' => '#eee',
+        ),
+        array(
+            'name' => __( 'Dark Gray', 'rivendellweb'),
+            'slug' => 'dark-gray',
+            'color' => '#444',
+        ),
+        array(
+          'name' => __( 'Red', 'rivendellweb'),
+          'slug' => 'red',
+          'color' => '#f00',
+        ),
+        array(
+            'name' => __( 'Green', 'rivendellweb'),
+            'slug' => 'green',
+            'color' => '#0f0',
+        ),
+        array(
+          'name' => __( 'Blue', 'rivendellweb'),
+          'slug' => 'blue',
+          'color' => '#00f',
+      ) )
+    );
+  }
 endif;
 add_action( 'after_setup_theme', 'rivendellweb_setup' );
 
@@ -221,10 +221,10 @@ add_action( 'after_setup_theme', 'rivendellweb_setup' );
  * @global int $content_width
  */
 function rivendellweb_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'rivendellweb_content_width', 960 );
+  // This variable is intended to be overruled from themes.
+  // Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+  $GLOBALS['content_width'] = apply_filters( 'rivendellweb_content_width', 960 );
 }
 add_action( 'after_setup_theme', 'rivendellweb_content_width', 0 );
 
@@ -240,17 +240,17 @@ function rivendellweb_widgets_init() {
       'name'          => 'Header Widget Area',
       'id'            => 'header-widget-area',
       'description'   => 'Widgets shown in the header',
-		),
-		array(
+    ),
+    array(
       'name'          => 'Sidebar 1 widgets',
       'id'            => 'sidebar-1',
       'description'   => 'Widgets shown in the sidebar',
-		),
-		array(
+    ),
+    array(
       'name'          => 'Sidebar 2 widgets',
       'id'            => 'sidebar-2',
       'description'   => 'Widgets shown in the sidebar',
-		),
+    ),
     array(
       'name'          => 'Footer Widget Area 1',
       'id'            => 'footer-1',
@@ -292,41 +292,41 @@ add_action( 'widgets_init', 'rivendellweb_widgets_init' );
  *
  */
 function rivendellweb_scripts() {
-	wp_enqueue_style( 'rivendellweb-style', get_stylesheet_uri() );
+  wp_enqueue_style( 'rivendellweb-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'rivendellweb-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+  wp_enqueue_script( 'rivendellweb-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
 
-	wp_localize_script( 'rivendellweb-navigation', 'rivendellwebScreenReaderText', array(
-		'expand' => __( 'Expand child menu', 'rivendellweb'),
-		'collapse' => __( 'Collapse child menu', 'rivendellweb'),
-		) );
+  wp_localize_script( 'rivendellweb-navigation', 'rivendellwebScreenReaderText', array(
+    'expand' => __( 'Expand child menu', 'rivendellweb'),
+    'collapse' => __( 'Collapse child menu', 'rivendellweb'),
+    ) );
 
-	wp_enqueue_script( 'rivendellweb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+  wp_enqueue_script( 'rivendellweb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    wp_enqueue_script( 'comment-reply' );
+  }
 
-	// Script and styles for Prism since no plugin seems to work
-	wp_enqueue_script( 'prism_script',
-			get_stylesheet_directory_uri() . '/js/prism.js', array(), '20151215', true );
-	wp_enqueue_style( 'prism_styles',
-			get_stylesheet_directory_uri() . '/css/prism.css' );
-	wp_enqueue_script( 'rivendellweb-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '20200317', false );
+  // Script and styles for Prism since no plugin seems to work
+  wp_enqueue_script( 'prism_script',
+      get_stylesheet_directory_uri() . '/js/prism.js', array(), '20151215', true );
+  wp_enqueue_style( 'prism_styles',
+      get_stylesheet_directory_uri() . '/css/prism.css' );
+  wp_enqueue_script( 'rivendellweb-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '20200317', false );
 
-	// Enqueues both ffo and the inline script needed to run it.
-	// Not 100% sure this is working.
-	wp_enqueue_script( 'ffo_script',
-	get_stylesheet_directory_uri() . '/js/fontfaceobserver.js', array(),'20151215', false );
-	wp_add_inline_script( 'ffo_script', 'const recursive = new FontFaceObserver("Recursive VF"); let html = document.documentElement;
-		Promise.all([recursive.load(),]).then(() => {
-			sessionStorage.fontsLoaded = true;console.log("Recursive has loaded.");
-		}).catch((err) => {sessionStorage.fontsLoaded = false; console.log("Recursive failed to load", err);
-		});
+  // Enqueues both ffo and the inline script needed to run it.
+  // Not 100% sure this is working.
+  wp_enqueue_script( 'ffo_script',
+  get_stylesheet_directory_uri() . '/js/fontfaceobserver.js', array(),'20151215', false );
+  wp_add_inline_script( 'ffo_script', 'const recursive = new FontFaceObserver("Recursive VF"); let html = document.documentElement;
+    Promise.all([recursive.load(),]).then(() => {
+      sessionStorage.fontsLoaded = true;console.log("Recursive has loaded.");
+    }).catch((err) => {sessionStorage.fontsLoaded = false; console.log("Recursive failed to load", err);
+    });
 
-		// Add a class based on whether the font loaded successfully
-		if (sessionStorage.fontsLoaded) {html.classList.add("fonts-loaded");} else { html.classList.add("fonts-failed");}'
-	);
+    // Add a class based on whether the font loaded successfully
+    if (sessionStorage.fontsLoaded) {html.classList.add("fonts-loaded");} else { html.classList.add("fonts-failed");}'
+  );
 }
 add_action( 'wp_enqueue_scripts', 'rivendellweb_scripts' );
 
@@ -339,17 +339,17 @@ add_action( 'wp_enqueue_scripts', 'rivendellweb_scripts' );
  * @link https://developer.wordpress.org/reference/hooks/script_loader_tag/
  */
 function rivendellweb_js_defer_attr($tag){
-	// List scripts to work with
-	$scripts_to_include = array( 'prism.js');
+  // List scripts to work with
+  $scripts_to_include = array( 'prism.js');
 
-	foreach($scripts_to_include as $include_script){
-			if(true == strpos($tag, $include_script ))
-			// replace src with defer src
-			return str_replace( ' src', ' defer src', $tag );
-	}
+  foreach($scripts_to_include as $include_script){
+      if(true == strpos($tag, $include_script ))
+      // replace src with defer src
+      return str_replace( ' src', ' defer src', $tag );
+  }
 
-	# Return original tag for all scripts not included
-	return $tag;
+  # Return original tag for all scripts not included
+  return $tag;
 
 }
 add_filter( 'script_loader_tag', 'rivendellweb_js_defer_attr', 10 );
@@ -381,7 +381,7 @@ add_filter( 'excerpt_length', 'rivendellweb_custom_excerpt_length', 999 );
  * @link https://developer.wordpress.org/reference/hooks/excerpt_more/
  */
 function rivendellweb_excerpt_more( $more ) {
-	return '';
+  return '';
 }
 add_filter( 'excerpt_more', 'rivendellweb_excerpt_more' );
 
@@ -397,18 +397,18 @@ add_filter( 'excerpt_more', 'rivendellweb_excerpt_more' );
  * @return string A source size value for use in a content image 'sizes' attribute.
  */
 function rivendellweb_content_image_sizes_attr( $sizes, $size ) {
-	$width = $size[0];
+  $width = $size[0];
 
-	if ( 900 <= $width ) {
-		$sizes = '(min-width: 900px) 700px, 900px';
-	}
+  if ( 900 <= $width ) {
+    $sizes = '(min-width: 900px) 700px, 900px';
+  }
 
   if (  is_active_sidebar( 'sidebar-1' ) ||
         is_active_sidebar( 'sidebar-2' ) ) {
-		$sizes = '(min-width: 900px) 600px, 900px';
-	}
+    $sizes = '(min-width: 900px) 600px, 900px';
+  }
 
-	return $sizes;
+  return $sizes;
 }
 add_filter( 'wp_calculate_image_sizes', 'rivendellweb_content_image_sizes_attr', 10, 2 );
 
@@ -423,10 +423,10 @@ add_filter( 'wp_calculate_image_sizes', 'rivendellweb_content_image_sizes_attr',
  * @return string The filtered header image HTML.
  */
 function rivendellweb_header_image_tag( $html, $header, $attr ) {
-	if ( isset( $attr['sizes'] ) ) {
-		$html = str_replace( $attr['sizes'], '100%', $html );
-	}
-	return $html;
+  if ( isset( $attr['sizes'] ) ) {
+    $html = str_replace( $attr['sizes'], '100%', $html );
+  }
+  return $html;
 }
 add_filter( 'get_header_image_tag', 'rivendellweb_header_image_tag', 10, 3 );
 
@@ -442,17 +442,17 @@ add_filter( 'get_header_image_tag', 'rivendellweb_header_image_tag', 10, 3 );
  * @return string	A source size value for use in a post thumbnail 'sizes' attribute.
  */
 function rivendellweb_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
-	if ( !is_singular() ) {
-		if ( is_active_sidebar( 'sidebar-1' ) ) {
-			$attr['sizes'] = '(max-width: 900px) 90vw, 800px';
-		} else {
-			$attr['sizes'] = '(max-width: 1000px) 90vw, 1000px';
-		}
-	} else {
-		$attr['sizes'] = '100vw';
-	}
+  if ( !is_singular() ) {
+    if ( is_active_sidebar( 'sidebar-1' ) ) {
+      $attr['sizes'] = '(max-width: 900px) 90vw, 800px';
+    } else {
+      $attr['sizes'] = '(max-width: 1000px) 90vw, 1000px';
+    }
+  } else {
+    $attr['sizes'] = '100vw';
+  }
 
-	return $attr;
+  return $attr;
 }
 add_filter( 'wp_get_attachment_image_attributes', 'rivendellweb_post_thumbnail_sizes_attr', 10, 3 );
 
@@ -480,7 +480,7 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+  require get_template_directory() . '/inc/jetpack.php';
 }
 
 /**
@@ -508,5 +508,92 @@ function html5_insert_image($html, $id, $caption, $title, $align, $url, $size, $
   $html5 .= "</figure>";
   return $html5;
 }
-add_filter( 'wp_lazy_loading_enabled', '__return_false' );
+add_filter( 'wp_lazy_loading_enabled', '__return_true' );
 add_filter( 'image_send_to_editor', 'html5_insert_image', 10, 9 );
+
+
+/**
+ * Enqueue newer versions of jquery so they won't trip security flags in Lighthouse and other security tools.
+ * This is a temporary solution until WordPress core updates the version of jQuery it loads by default
+ *
+ * @link https://core.trac.wordpress.org/ticket/45130
+ * @link https://core.trac.wordpress.org/ticket/37110
+ * @link https://github.com/Remzi1993/wp-jquery-manager/issues/2
+ * @link  https://github.com/WordPress/WordPress/blob/91da29d9afaa664eb84e1261ebb916b18a362aa9/wp-includes/script-loader.php#L226
+ */
+Function wp_jquery_manager_plugin_front_end_scripts() {
+  $wp_admin = is_admin();
+    $wp_customizer = is_customize_preview();
+
+    // jQuery
+    if ( $wp_admin || $wp_customizer ) {
+        // echo 'We are in the WP Admin or in the WP Customizer';
+        return;
+    }
+    else {
+        // Deregister WP core jQuery
+        wp_deregister_script( 'jquery' ); // the jquery handle is just an alias to load jquery-core with jquery-migrate
+        // Deregister WP jQuery
+        wp_deregister_script( 'jquery-core' );
+        // Deregister WP jQuery Migrate
+        wp_deregister_script( 'jquery-migrate' );
+
+        // Register jQuery in the head
+        wp_register_script( 'jquery-core', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), null, true );
+    // Register jQuery Migrate in the head
+    wp_register_script( 'jquery-migrate', 'https://code.jquery.com/jquery-migrate-3.3.1.min.js', array(), null, true );
+
+        /**
+         * Register jquery using jquery-core as a dependency, so other scripts could use the jquery handle
+         * @link https://wordpress.stackexchange.com/questions/283828/wp-register-script-multiple-identifiers
+         * @link https://wordpress.stackexchange.com/questions/82490/when-should-i-use-wp-register-script-with-wp-enqueue-script-vs-just-wp-enque
+         * @link https://stackoverflow.com/questions/39653993/what-is-diffrence-between-wp-enqueue-script-and-wp-register-script
+         */
+        wp_register_script( 'jquery', false, array( 'jquery-core' ), null, false );
+        wp_enqueue_script( 'jquery' );
+
+        wp_register_script( 'jquery-migrate', false, array(), null, false );
+        wp_enqueue_script( 'jquery-migrate' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'wp_jquery_manager_plugin_front_end_scripts' );
+
+
+function add_jquery_attributes( $tag, $handle ) {
+    if ( 'jquery-core' === $handle ) {
+        return str_replace( "></script>", "integrity='sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=' crossorigin='anonymous'></script>", $tag );
+    }
+    return $tag;
+}
+add_filter( 'script_loader_tag', 'add_jquery_attributes', 10, 2 );
+
+function add_jquery_migrate_attributes( $tag, $handle ) {
+    if ( 'jquery-migrate' === $handle ) {
+        return str_replace( "></script>", "integrity='sha256-APllMc0V4lf/Rb5Cz4idWUCYlBDG3b0EcN1Ushd3hpE=' crossorigin='anonymous'></script>", $tag );
+    }
+    return $tag;
+}
+add_filter( 'script_loader_tag', 'add_jquery_migrate_attributes', 10, 2 );
+
+/**
+ * Removes Gutenberg block CSS from front end since we're not using Gutenberg.
+ * If we change our minds later we must remove this code or it'll mess up the block styles
+ */
+function rivendellweb_remove_wp_block_library_css(){
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+    wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
+}
+add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_wp_block_library_css', 9999 );
+
+/**
+ * Removes CSS for admin toolbar from the front end
+ */
+function rivendellweb_hide_admin_bar_from_front_end(){
+  if ( is_blog_admin() ) {
+    return true;
+  }
+  remove_action( 'wp_head', '_admin_bar_bump_cb' );
+  return false;
+}
+add_filter( 'show_admin_bar', 'rivendellweb_hide_admin_bar_from_front_end' );
