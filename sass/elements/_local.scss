@@ -1,12 +1,14 @@
 article {
   counter-reset: figure_count;
+  content-visibility: auto;
 }
 
 li code,
 p code {
-  background-color: rgba(238, 238, 238, 0.4);
-  display: inline;
+  background-color: rgba(238, 238, 238, 0.6);
   border: 2px 3px;
+  display: inline;
+  font-size: .75em;
 }
 
 /* First Paragraph Lede */
