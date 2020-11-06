@@ -442,9 +442,6 @@ template {
   }
   @media screen and (max-width: 800px) {
     @supports (display: grid) {
-      .html {
-        width: 100vw;
-      }
       .no-sidebar .site-header {
         grid-column: 1/-1;
         margin: 2em;
@@ -1095,13 +1092,15 @@ td {
 
 article {
   counter-reset: figure_count;
+  content-visibility: auto;
 }
 
 li code,
 p code {
-  background-color: rgba(238, 238, 238, 0.4);
-  display: inline;
+  background-color: rgba(238, 238, 238, 0.6);
   border: 2px 3px;
+  display: inline;
+  font-size: .75em;
 }
 
 /* First Paragraph Lede */
@@ -1949,9 +1948,6 @@ button.dropdown-toggle {
   }
   @media screen and (max-width: 800px) {
     @supports (display: grid) {
-      .html {
-        width: 100vw;
-      }
       .no-sidebar .site-header {
         grid-column: 1/-1;
         margin: 2em;
@@ -2650,6 +2646,10 @@ object {
 /*--------------------------------------------------------------
 ## Figures
 --------------------------------------------------------------*/
+article .post {
+  counter-reset: figure_count;
+}
+
 figure {
   margin: 2em auto;
   max-width: 60vw;
@@ -2662,11 +2662,6 @@ figure img {
 figure figcaption {
   color: #999;
   font-size: 0.9em;
-}
-
-figure figcaption::before {
-  counter-increment: figure_count;
-  content: "Figure " counter(figure_count) ": ";
 }
 
 .blocks-gallery-item__caption:before {
