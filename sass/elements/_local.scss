@@ -17,3 +17,13 @@ p code {
 //     font-size: 150%;
 //   }
 // }
+
+.kbd, kbd {
+	font-size: .9em;
+	padding: .0625rem .5rem;
+	border-radius: .125rem;
+	border: 1px solid rgb(6,54,93);
+	box-shadow: 1px 1px 0 rgb(6,54,93), 2px 2px 0 rgb(6,54,93);
+	margin: 0 .25rem;
+	color: rgb(6,54,93);
+}

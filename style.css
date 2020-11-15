@@ -1105,6 +1105,16 @@ p code {
 }
 
 /* First Paragraph Lede */
+.kbd, kbd {
+  font-size: .9em;
+  padding: .0625rem .5rem;
+  border-radius: .125rem;
+  border: 1px solid #06365d;
+  box-shadow: 1px 1px 0 #06365d, 2px 2px 0 #06365d;
+  margin: 0 .25rem;
+  color: #06365d;
+}
+
 blockquote {
   border-left: 4px solid navy;
   padding-left: 1em;
@@ -2653,10 +2663,6 @@ object {
 /*--------------------------------------------------------------
 ## Figures
 --------------------------------------------------------------*/
-article .post {
-  counter-reset: figure_count;
-}
-
 figure {
   margin: 2em auto;
   max-width: 60vw;
@@ -2669,6 +2675,11 @@ figure img {
 figure figcaption {
   color: #999;
   font-size: 0.9em;
+}
+
+figure figcaption::before {
+  counter-increment: figure_count;
+  content: "Figure " counter(figure_count) ": ";
 }
 
 .blocks-gallery-item__caption:before {
