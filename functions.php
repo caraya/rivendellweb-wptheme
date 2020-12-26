@@ -597,3 +597,33 @@ function rivendellweb_hide_admin_bar_from_front_end(){
   return false;
 }
 add_filter( 'show_admin_bar', 'rivendellweb_hide_admin_bar_from_front_end' );
+
+/** 
+ * Shares category taxonomy with posts 
+ * 
+ * @return void 
+ */ 
+function rivendellweb_add_category_to_pages() { 
+  register_taxonomy_for_object_type( 'category', 'page' ); 
+} 
+  
+add_action( 'init', 'rivendellweb_add_category_to_pages' ); 
+
+/**
+ * Adds previous and next link to REST posts endpoint 
+ */
+function rivendellweb_add_navlinks_to_post_rest( $response, $post, $request ) {
+  global $post;
+  // Get the next post.
+  $next = get_adjacent_post( false, '', false );
+  // Get the previous post.
+  $previous = get_adjacent_post( false, '', true );
+  // Format them and only send the data we need 
+  // or null, if there is no next/previous post
+  $response->data['next'] = ( ( is_a( $next, 'WP_Post') ) && ( !empty( $next ) ) ) ? array( "title" => get_the_title( $next->ID ), "link" => get_the_permalink( $next->ID ) ) : array( "title" => "", "link" => "" );
+  $response->data['previous'] = ( ( is_a( $previous, 'WP_Post') ) && ( !empty( $previous ) ) ) ? array( "title" => get_the_title( $previous->ID ), "link" => get_the_permalink( $previous->ID ) ) : array( "title" => "", "link" => "" );
+
+  return $response;
+}
+
+add_filter( 'rest_prepare_post', 'rivendellweb_add_navlinks_to_post_rest', 10, 3 );
