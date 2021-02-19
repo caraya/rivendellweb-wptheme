@@ -512,11 +512,81 @@ add_filter( 'wp_lazy_loading_enabled', '__return_true' );
 add_filter( 'image_send_to_editor', 'html5_insert_image', 10, 9 );
 
 /**
- * Removed JQuery-related functions as this is not the way 
- * WordPress is supporting the migration
- * 
- * @link https://wordpress.org/plugins/enable-jquery-migrate-helper/
+ * Commented out JQuery-related functions as this is too much work
  */
+// /**
+//  * Enqueue newer versions of jquery so they won't trip security flags in Lighthouse and other security tools.
+//  * This is a temporary solution until WordPress core updates the version of jQuery it loads by default
+//  *
+//  * @link https://core.trac.wordpress.org/ticket/45130
+//  * @link https://core.trac.wordpress.org/ticket/37110
+//  * @link https://github.com/Remzi1993/wp-jquery-manager/issues/2
+//  * @link  https://github.com/WordPress/WordPress/blob/91da29d9afaa664eb84e1261ebb916b18a362aa9/wp-includes/script-loader.php#L226
+//  */
+// Function wp_jquery_manager_plugin_front_end_scripts() {
+//   $wp_admin = is_admin();
+//     $wp_customizer = is_customize_preview();
+
+//     // jQuery
+//     if ( $wp_admin || $wp_customizer ) {
+//         // echo 'We are in the WP Admin or in the WP Customizer';
+//         return;
+//     }
+//     else {
+//         // Deregister WP core jQuery
+//         wp_deregister_script( 'jquery' ); // the jquery handle is just an alias to load jquery-core with jquery-migrate
+//         // Deregister WP jQuery
+//         wp_deregister_script( 'jquery-core' );
+//         // Deregister WP jQuery Migrate
+//         wp_deregister_script( 'jquery-migrate' );
+
+//         // Register jQuery in the head
+//         wp_register_script( 'jquery-core', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), null, true );
+//     // Register jQuery Migrate in the head
+//     wp_register_script( 'jquery-migrate', 'https://code.jquery.com/jquery-migrate-3.3.1.min.js', array(), null, true );
+
+//         /**
+//          * Register jquery using jquery-core as a dependency, so other scripts could use the jquery handle
+//          * @link https://wordpress.stackexchange.com/questions/283828/wp-register-script-multiple-identifiers
+//          * @link https://wordpress.stackexchange.com/questions/82490/when-should-i-use-wp-register-script-with-wp-enqueue-script-vs-just-wp-enque
+//          * @link https://stackoverflow.com/questions/39653993/what-is-diffrence-between-wp-enqueue-script-and-wp-register-script
+//          */
+//         wp_register_script( 'jquery', false, array( 'jquery-core' ), null, false );
+//         wp_enqueue_script( 'jquery' );
+
+//         wp_register_script( 'jquery-migrate', false, array(), null, false );
+//         wp_enqueue_script( 'jquery-migrate' );
+//     }
+// }
+// add_action( 'wp_enqueue_scripts', 'wp_jquery_manager_plugin_front_end_scripts' );
+
+
+// function add_jquery_attributes( $tag, $handle ) {
+//     if ( 'jquery-core' === $handle ) {
+//         return str_replace( "></script>", "integrity='sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=' crossorigin='anonymous'></script>", $tag );
+//     }
+//     return $tag;
+// }
+// add_filter( 'script_loader_tag', 'add_jquery_attributes', 10, 2 );
+
+// function add_jquery_migrate_attributes( $tag, $handle ) {
+//     if ( 'jquery-migrate' === $handle ) {
+//         return str_replace( "></script>", "integrity='sha256-APllMc0V4lf/Rb5Cz4idWUCYlBDG3b0EcN1Ushd3hpE=' crossorigin='anonymous'></script>", $tag );
+//     }
+//     return $tag;
+// }
+// add_filter( 'script_loader_tag', 'add_jquery_migrate_attributes', 10, 2 );
+
+// /**
+//  * Removes Gutenberg block CSS from front end since we're not using Gutenberg.
+//  * If we change our minds later we must remove this code or it'll mess up the block styles
+//  */
+// function rivendellweb_remove_wp_block_library_css(){
+//     wp_dequeue_style( 'wp-block-library' );
+//     wp_dequeue_style( 'wp-block-library-theme' );
+//     wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
+// }
+// add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_wp_block_library_css', 9999 );
 
 /**
  * Removes CSS for admin toolbar from the front end

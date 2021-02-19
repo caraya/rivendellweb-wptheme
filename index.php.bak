@@ -10,7 +10,18 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package rivendellweb
- */		
+ */
+// Trying to create a custom loop to use 
+// both essays and posts in the main page
+
+// WP_Query arguments
+$args = array(
+	'post_type' => array( 'essay', 'post' ),
+);
+
+// The Query
+$myQuery = new WP_Query( $args );
+		
 get_header();
 ?>
 
@@ -18,7 +29,8 @@ get_header();
 		<main id="main" class="site-main">
 
 		<?php
-		if ( have_posts() ) :
+		if ( $myQuery->have_posts() ) :
+		// if ( have_posts() ) :
 			if ( is_home() && ! is_front_page() ) :
 				?>
 				<header>
@@ -28,7 +40,8 @@ get_header();
 			endif;
 
 			/* Start the Loop */
-			while ( have_posts() ) :	the_post();
+			while ( $myQuery->have_posts() ) : $myQuery->the_post();
+			// while ( have_posts() ) :	the_post();
 
 				/*
 				 * Include the Post-Type-specific template
