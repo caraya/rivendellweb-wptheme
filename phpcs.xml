@@ -23,5 +23,5 @@
 	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/> <!-- 8 -->
 	<rule ref="Generic.Commenting.Todo"/> <!-- 8 -->
 
-	<config name="minimum_supported_wp_version" value="4.9"/> <!-- 9 -->
+	<config name="minimum_supported_wp_version" value="5.6"/> <!-- 9 -->
 </ruleset>
