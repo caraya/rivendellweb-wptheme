@@ -35,7 +35,7 @@
 			<div class="site-branding__text">
 				<?php if ( is_front_page() && is_home() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
+					<?php
 			else :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -51,10 +51,12 @@
 
 		<nav id="site-navigation" class="main-navigation">
 		<?php
-			wp_nav_menu( array(
-				'theme_location' => 'header',
-				'menu_id'        => 'rivendellweb.menu',
-			) );
+			wp_nav_menu(
+				array(
+					'theme_location' => 'header',
+					'menu_id'        => 'rivendellweb.menu',
+				)
+			);
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

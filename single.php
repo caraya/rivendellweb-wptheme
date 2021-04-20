@@ -25,7 +25,7 @@ get_header();
 			if ( is_single() && ( comments_open() || get_comments_number() ) ) :
 				// Change the name inside comments_template
 				// to use a custom comment template
-				comments_template('/comments.php');
+				comments_template( '/comments.php' );
 			endif;
 
 			// add post navigation links

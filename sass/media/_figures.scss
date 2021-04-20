@@ -3,24 +3,24 @@ figure {
   max-width: 60vw;
 
   img {
-    width: 100%;
-    // object-fit: contain;
+	width: 100%;
+	// object-fit: contain;
   }
 
   figcaption {
-    color: $color__figure-text;
-    font-size: 0.9em;
+	color: $color__figure-text;
+	font-size: 0.9em;
   }
 
   figcaption::before {
-    counter-increment: figure_count;
-    content: 'Figure ' counter(figure_count) ': ';
+	counter-increment: figure_count;
+	content: 'Figure ' counter(figure_count) ': ';
   }
 }
 
 .blocks-gallery-item__caption {
   &:before {
-    content: '';
+	content: '';
   }
 }
 
@@ -30,7 +30,7 @@ figure {
   margin: 0;
 
   img {
-    width: 100%;
-    height: auto;
+	width: 100%;
+	height: auto;
   }
 }

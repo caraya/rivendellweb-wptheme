@@ -10,7 +10,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package rivendellweb
- */		
+ */
 get_header();
 ?>
 
@@ -28,7 +28,8 @@ get_header();
 			endif;
 
 			/* Start the Loop */
-			while ( have_posts() ) :	the_post();
+			while ( have_posts() ) :
+				the_post();
 
 				/*
 				 * Include the Post-Type-specific template
@@ -40,20 +41,23 @@ get_header();
 				 */
 				get_template_part( 'template-parts/content', get_post_type() );
 
-			endwhile; ?>
+			endwhile;
+			?>
 
 		<hr/>
-		<?php /**
-		 * This replaces the_posts_navigation() that only
-		 * provides previous/next navigation
-		*/
-		the_posts_pagination( array(
-			'show_all'  => false,
-			'prev_text' => rivendellweb_get_svg( array( 'icon' => 'arrow-left' ) ) . __( 'Newer', 'rivendellweb' ),
-			'next_text' => __( 'Older', 'rivendellweb' ) . rivendellweb_get_svg( array( 'icon' => 'arrow-right' ) ),
-			'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'rivendellweb' ) . '</span>',
-			)
-		);
+			<?php
+			/**
+			 * This replaces the_posts_navigation() that only
+			 * provides previous/next navigation
+			 */
+			the_posts_pagination(
+				array(
+					'show_all'           => false,
+					'prev_text'          => rivendellweb_get_svg( array( 'icon' => 'arrow-left' ) ) . __( 'Newer', 'rivendellweb' ),
+					'next_text'          => __( 'Older', 'rivendellweb' ) . rivendellweb_get_svg( array( 'icon' => 'arrow-right' ) ),
+					'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'rivendellweb' ) . '</span>',
+				)
+			);
 
 		else :
 

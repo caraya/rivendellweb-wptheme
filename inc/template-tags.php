@@ -39,7 +39,8 @@ if ( ! function_exists( 'rivendellweb_posted_on' ) ) :
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
@@ -58,54 +59,54 @@ if ( ! function_exists( 'rivendellweb_posted_on' ) ) :
 endif;
 
 // if ( ! function_exists( 'rivendellweb_last_update' ) ) :
-// 	// Outputs last update date
-// 	function rivendellweb_last_update() {
-// 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-// 		if ( get_the_time( 'U' ) <= get_the_modified_time( 'U' ) ) {
-// 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-// 		}
+// Outputs last update date
+// function rivendellweb_last_update() {
+// $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+// if ( get_the_time( 'U' ) <= get_the_modified_time( 'U' ) ) {
+// $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+// }
 
-// 		$time_string = sprintf( $time_string,
-// 			esc_attr( get_the_date( DATE_W3C ) ),
-// 			esc_html( get_the_date() ),
-// 			esc_attr( get_the_modified_date( DATE_W3C ) ),
-// 			esc_html( get_the_modified_date() )
-// 		);
+// $time_string = sprintf( $time_string,
+// esc_attr( get_the_date( DATE_W3C ) ),
+// esc_html( get_the_date() ),
+// esc_attr( get_the_modified_date( DATE_W3C ) ),
+// esc_html( get_the_modified_date() )
+// );
 
-// 		$last_update = sprintf(
-// 			/* translators: %s: last update date. */
-// 			esc_html_x( 'Last Updated: %s', 'Update date', 'rivendellweb' ),
-// 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-// 		);
+// $last_update = sprintf(
+// * translators: %s: last update date. */
+// esc_html_x( 'Last Updated: %s', 'Update date', 'rivendellweb' ),
+// '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+// );
 
-// 		echo '<span class="last-update">' . $last_update . '</span>'; // WPCS: XSS OK.
+// echo '<span class="last-update">' . $last_update . '</span>'; // WPCS: XSS OK.
 
-// 	}
+// }
 // endif;
 
-if ( ! function_exists( 'rivendellweb_show_categories' ) ):
+if ( ! function_exists( 'rivendellweb_show_categories' ) ) :
 	/**
 	 * Prints a list of categories as long as there is a category other than "uncategorized" attached to the post.
 	 *
 	 * If the categories don't show, please make sure that the are enabled in the customizer.
-	*/
-	function rivendellweb_show_categories($post) {
+	 */
+	function rivendellweb_show_categories( $post ) {
 		$show_categories = true;
-		$categories = wp_get_post_categories( $post->ID );
+		$categories      = wp_get_post_categories( $post->ID );
 		// We don't want to show the categories if there
 		// is a single category and it is "uncategorized"
 		if ( count( $categories ) == 1 && in_array( 1, $categories ) ) :
 			$show_categories = false;
 		endif;
 		if ( has_category( null, $post->ID ) && $show_categories ) :
-			echo __('<span class="cat-links">');
-			echo __('Filed under ', 'rivendellweb') . get_the_category_list(', ');
-			echo __('</span>');
+			echo __( '<span class="cat-links">' );
+			echo __( 'Filed under ', 'rivendellweb' ) . get_the_category_list( ', ' );
+			echo __( '</span>' );
 		endif;
 	}
 endif;
 
-if ( ! function_exists( 'rivendellweb_show_tags' ) ):
+if ( ! function_exists( 'rivendellweb_show_tags' ) ) :
 	/**
 	 * Shows tags if any have been added to the post
 	 */
@@ -119,7 +120,7 @@ if ( ! function_exists( 'rivendellweb_show_tags' ) ):
 	}
 endif;
 
-if ( ! function_exists( 'rivendellweb_featured_image') ) :
+if ( ! function_exists( 'rivendellweb_featured_image' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
 	 *
@@ -141,35 +142,39 @@ if ( ! function_exists( 'rivendellweb_featured_image') ) :
 			<figure class="post-thumbnail full-bleed">
 				<?php the_post_thumbnail( 'rivendellweb-full-bleed' ); ?>
 			</figure>
-		<?php } else if ( ! is_single() ) {
-		// If we're in an archive page then
-		// wrap it in an image with a link ?>
+			<?php
+		} elseif ( ! is_single() ) {
+			// If we're in an archive page then
+			// wrap it in an image with a link
+			?>
 			<figure class="post-thumbnail full-bleed">
-				<a href="<?php esc_url( get_permalink() ) ?>" rel="bookmark">
+				<a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark">
 					<?php the_post_thumbnail(); ?>
 				</a>
 			</figure>
-		<?php }
+			<?php
+		}
 	}
 endif;
 
-if ( ! function_exists( 'rivendellweb_edit_post' ) ):
+if ( ! function_exists( 'rivendellweb_edit_post' ) ) :
 	/**
 	 * Adds edit post link
 	 */
 	function rivendellweb_edit_post() {
-		edit_post_link( sprintf(
-			wp_kses(
+		edit_post_link(
+			sprintf(
+				wp_kses(
 				// translators: %s: Name of current post.
 				// Only visible to screen readers
-				__( 'Edit <span class="screen-reader-text">%s</span>', 'rivendellweb' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'rivendellweb' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				get_the_title()
 			),
 			'<span class="edit-link">',
 			'</span>'
@@ -180,18 +185,20 @@ endif;
 /*
 Entry metadata contains posted_by, posted_on and last_update and conditionally adds show_categories and show_tags
 */
-if ( ! function_exists( 'rivendellweb_entry_metadata' ) ):
-	function rivendellweb_entry_metadata( $post ) { ?>
+if ( ! function_exists( 'rivendellweb_entry_metadata' ) ) :
+	function rivendellweb_entry_metadata( $post ) {
+		?>
 		<div class="entry-meta">
 			<ul class="entry-meta__content">
 				<li class="entry-meta__item"><?php rivendellweb_posted_by(); ?></li>
 				<li class="entry-meta__item"><?php rivendellweb_posted_on(); ?></li>
-				<!-- <li class="entry-meta__item"><?php //rivendellweb_last_update(); ?></li> -->
-				<li class="entry-meta__item"><?php rivendellweb_show_categories($post); ?></li>
-				<li class="entry-meta__item"><?php rivendellweb_show_tags($post); ?></li>
+				<!-- <li class="entry-meta__item"><?php // rivendellweb_last_update(); ?></li> -->
+				<li class="entry-meta__item"><?php rivendellweb_show_categories( $post ); ?></li>
+				<li class="entry-meta__item"><?php rivendellweb_show_tags( $post ); ?></li>
 			</ul>
 		</div><!-- .entry-meta -->
-<?php }
+		<?php
+	}
 endif;
 
 // Right now the footer only has the edit post link.

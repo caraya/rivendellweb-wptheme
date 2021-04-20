@@ -25,7 +25,7 @@ function rivendellweb_body_classes( $classes ) {
 	// add different classes based on which sidebar is active
 	// and style accordingly.
 	if ( ( ! is_active_sidebar( 'sidebar-1' ) ) ||
-		 	 ( ! is_active_sidebar( 'sidebar-2' ) ) ) {
+			 ( ! is_active_sidebar( 'sidebar-2' ) ) ) {
 		$classes[] = 'no-sidebar';
 	} else {
 		// Otherwise add the has-sidebar class

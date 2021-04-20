@@ -6,8 +6,8 @@
   overflow: hidden;
 
   img {
-    height: auto;
-    width: 100vw;
+	height: auto;
+	width: 100vw;
   }
 }
 
@@ -16,7 +16,7 @@
   padding: 0;
 
   @media screen and (max-width: 24.15em) {
-    padding: 0 1em;
+	padding: 0 1em;
   }
 
   // .nav-menu {
@@ -28,73 +28,73 @@
 
 @media screen and (min-width: 43.75em) {
   .site-header {
-    grid-column: 2/-2;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
+	grid-column: 2/-2;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
   }
 
   .custom-logo-link {
-    height: 100px;
-    width: 100px;
-    margin-right: 1rem;
-    margin-inline-end: 1rem;
+	height: 100px;
+	width: 100px;
+	margin-right: 1rem;
+	margin-inline-end: 1rem;
 
-    img {
-      height: 100px;
-      width: auto;
-    }
+	img {
+	  height: 100px;
+	  width: auto;
+	}
   }
 
   .site-branding {
-    height: 100%;
-    width: 60%;
+	height: 100%;
+	width: 60%;
 
-    display: flex;
-    flex-flow: row;
-    align-items: center;
+	display: flex;
+	flex-flow: row;
+	align-items: center;
   }
 
   .site-branding__text {
-    margin: 0;
-    padding: 0;
-    flex: 1 0 60%;
+	margin: 0;
+	padding: 0;
+	flex: 1 0 60%;
 
-    .site-title {
-      --recursive-casual: 1;
-      --recursive-mono: 1;
-      font-size: 2.1em;
-      font-size: calc(var(--h2-font-size-min) * 1em);
-      font-weight: calc(var(--recursive-weight) * var(--h2-vf-wght-multiplier-l));
-      line-height: var(--h2-line-height-min);
-      margin-bottom: 0;
-    }
+	.site-title {
+	  --recursive-casual: 1;
+	  --recursive-mono: 1;
+	  font-size: 2.1em;
+	  font-size: calc(var(--h2-font-size-min) * 1em);
+	  font-weight: calc(var(--recursive-weight) * var(--h2-vf-wght-multiplier-l));
+	  line-height: var(--h2-line-height-min);
+	  margin-bottom: 0;
+	}
 
-    .site-description {
-      margin-top: 0;
+	.site-description {
+	  margin-top: 0;
 
-    }
+	}
 
   }
 
   .main-navigation {
-    width: 40%;
-    flex: 1 1 auto;
-    align-self: center;
+	width: 40%;
+	flex: 1 1 auto;
+	align-self: center;
 
-    ul {
-      align: end;
-    }
+	ul {
+	  align: end;
+	}
   }
 
   .site-branding {
-    margin-right: 1rem;
+	margin-right: 1rem;
   }
 
   .site-branding__text {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    margin-bottom: 0;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	margin-bottom: 0;
   }
 }

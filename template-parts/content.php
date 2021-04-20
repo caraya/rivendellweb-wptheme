@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php rivendellweb_featured_image() ?>
+	<?php rivendellweb_featured_image(); ?>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -21,24 +21,26 @@
 
 		if ( 'post' === get_post_type() ) :
 			rivendellweb_entry_metadata( $post );
-		endif; ?>
+		endif;
+		?>
 	</header><!-- .entry-header -->
 
 		<div class="entry-content">
 			<?php
-		/**
-		 * We can change to the_excerpt() to use excerpts instead of
-		 * full posts. This will automatically add continue reading
-		 * if the post content is more than 200 characters long
-		 *
-		 * @link https://developer.wordpress.org/reference/functions/the_excerpt/
-		 * @link https://developer.wordpress.org/reference/functions/the_content/
-		 * @link https://developer.wordpress.org/reference/hooks/excerpt_more/
-		 */
-			$length_setting = get_theme_mod('length_setting');
+			/**
+			 * We can change to the_excerpt() to use excerpts instead of
+			 * full posts. This will automatically add continue reading
+			 * if the post content is more than 200 characters long
+			 *
+			 * @link https://developer.wordpress.org/reference/functions/the_excerpt/
+			 * @link https://developer.wordpress.org/reference/functions/the_content/
+			 * @link https://developer.wordpress.org/reference/hooks/excerpt_more/
+			 */
+			$length_setting = get_theme_mod( 'length_setting' );
 
 			if ( 'excerpt' === $length_setting ) {
-				the_excerpt(); ?>
+				the_excerpt();
+				?>
 
 
 				<div class="continue-reading">
@@ -50,14 +52,16 @@
 				);
 				?>
 
-				<a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark">
+				<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 					<?php echo $read_more_link; ?>
 				</a>
 			</div><!-- .continue-reading -->
 
-			<?php } else {
+				<?php
+			} else {
 				the_content();
-			} ?>
+			}
+			?>
 		</div><!-- .entry-content -->
 
 </article><!-- #post-<?php the_ID(); ?> -->

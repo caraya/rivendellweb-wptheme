@@ -53,19 +53,19 @@ table.shop_table_responsive tr td.download-actions .button {
 
 @media screen and (min-width: 48em) {
   table.shop_table_responsive thead {
-    display: table-header-group;
+	display: table-header-group;
   }
   table.shop_table_responsive tbody th {
-    display: table-cell;
+	display: table-cell;
   }
   table.shop_table_responsive tr th, table.shop_table_responsive tr td {
-    text-align: left;
+	text-align: left;
   }
   table.shop_table_responsive tr td {
-    display: table-cell;
+	display: table-cell;
   }
   table.shop_table_responsive tr td:before {
-    display: none;
+	display: none;
   }
 }
 
@@ -103,34 +103,34 @@ ul.products li.product .button {
 
 @media screen and (min-width: 48em) {
   ul.products li.product {
-    width: 30.79667%;
-    float: left;
-    margin-right: 3.8%;
+	width: 30.79667%;
+	float: left;
+	margin-right: 3.8%;
   }
   ul.products li.product.first {
-    clear: both;
+	clear: both;
   }
   ul.products li.product.last {
-    margin-right: 0;
+	margin-right: 0;
   }
   .columns-1 ul.products li.product {
-    float: none;
-    width: 100%;
+	float: none;
+	width: 100%;
   }
   .columns-2 ul.products li.product {
-    width: 48.1%;
+	width: 48.1%;
   }
   .columns-3 ul.products li.product {
-    width: 30.79667%;
+	width: 30.79667%;
   }
   .columns-4 ul.products li.product {
-    width: 22.15%;
+	width: 22.15%;
   }
   .columns-5 ul.products li.product {
-    width: 16.96%;
+	width: 16.96%;
   }
   .columns-6 ul.products li.product {
-    width: 13.49333%;
+	width: 13.49333%;
   }
 }
 
@@ -257,16 +257,16 @@ ul.products li.product .button {
  */
 @media screen and (min-width: 768px) {
   .col2-set .form-row-first {
-    float: left;
-    margin-right: 3.8%;
+	float: left;
+	margin-right: 3.8%;
   }
   .col2-set .form-row-last {
-    float: right;
-    margin-right: 0;
+	float: right;
+	margin-right: 0;
   }
   .col2-set .form-row-first,
   .col2-set .form-row-last {
-    width: 48.1%;
+	width: 48.1%;
   }
 }
 
@@ -498,17 +498,17 @@ p.no-comments {
 	 * Header cart
 	 */
   .site-header-cart .widget_shopping_cart {
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    z-index: 999999;
-    left: -999em;
-    display: block;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	z-index: 999999;
+	left: -999em;
+	display: block;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   }
   .site-header-cart:hover .widget_shopping_cart, .site-header-cart.focus .widget_shopping_cart {
-    left: 0;
-    display: block;
+	left: 0;
+	display: block;
   }
 }
 

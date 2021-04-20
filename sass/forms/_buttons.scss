@@ -12,11 +12,11 @@ input[type='submit'] {
   padding: 0.5em 1em;
 
   &:hover {
-    border-color: #ccc #bbb #aaa;
+	border-color: #ccc #bbb #aaa;
   }
 
   &:active,
   &:focus {
-    border-color: #aaa #bbb #bbb;
+	border-color: #aaa #bbb #bbb;
   }
 }

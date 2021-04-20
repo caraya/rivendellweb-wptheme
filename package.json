@@ -4,6 +4,7 @@
   "description": "This is my first attempt in a while to create a fully customized WordPress theme without using Genesis or other theme frameworks. The idea is to use modern web technologies like CSS Grid, Variable Fonts and others to experiment with what it takes to add these technologies to a WordPress theme using [Underscores](https://underscores.me/) as the starter theme.",
   "main": "index.php",
   "scripts": {
+    "lint:php": "phpcs --standard=WordPress **/*.php",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

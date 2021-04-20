@@ -8,7 +8,7 @@
  */
 // If footer-1 or footer-2 are not active then bail
 // There is nothing to display
-if 	( ( ! is_active_sidebar( 'footer-1' ) ) ||
+if ( ( ! is_active_sidebar( 'footer-1' ) ) ||
 			( ! is_active_sidebar( 'footer-2' ) ) ) {
 	return;
 }

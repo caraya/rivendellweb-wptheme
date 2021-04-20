@@ -7,15 +7,15 @@
   overflow: hidden;
 
   a {
-    display: block;
-    width: 100%;
-    text-decoration: none;
-    padding: 1em;
-    border: 1px solid rgba(0, 0, 0, 60%);
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	padding: 1em;
+	border: 1px solid rgba(0, 0, 0, 60%);
 
-    &:hover,
-    &:focus {
-    }
+	&:hover,
+	&:focus {
+	}
   }
 }
 
@@ -30,110 +30,110 @@
 
 .post-navigation {
   .nav-previous {
-    & a::before {
-      content: 'Previous Post: \A\A';
-      font-size: 1.25em;
-      font-weight: 700;
-      margin-right: 1em;
-      white-space: pre;
-      color: #000;
-    }
+	& a::before {
+	  content: 'Previous Post: \A\A';
+	  font-size: 1.25em;
+	  font-weight: 700;
+	  margin-right: 1em;
+	  white-space: pre;
+	  color: #000;
+	}
   }
 }
 
 .post-navigation {
   .nav-next {
-    & a::before {
-      content: 'Next Post: \A\A';
-      font-size: 1.25em;
-      font-weight: 700;
-      margin-right: 1em;
-      white-space: pre;
-      color: #000;
-    }
+	& a::before {
+	  content: 'Next Post: \A\A';
+	  font-size: 1.25em;
+	  font-weight: 700;
+	  margin-right: 1em;
+	  white-space: pre;
+	  color: #000;
+	}
   }
 }
 
 @media screen and (min-width: 43.75em) {
   .nav-links {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    padding: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	padding: 0;
   }
 
   .comment-navigation,
   .posts-navigation,
   .post-navigation {
-    .nav-previous,
-    .nav-next {
-      float: left;
-      display: flex;
-      align-items: stretch;
-      width: 48%;
-    }
+	.nav-previous,
+	.nav-next {
+	  float: left;
+	  display: flex;
+	  align-items: stretch;
+	  width: 48%;
+	}
 
-    .nav-next {
-      float: right;
-      text-align: right;
-    }
+	.nav-next {
+	  float: right;
+	  text-align: right;
+	}
   }
 
   .nav-previous {
-    padding-bottom: 0;
+	padding-bottom: 0;
   }
 }
 
 .post-navigation {
   .meta-nav {
-    display: block;
+	display: block;
   }
 
   @media screen and (min-width: 30em) {
-    padding-bottom: 1em;
+	padding-bottom: 1em;
   }
 
   .post-title {
-    font-size: 1.2em;
-    font-weight: 700;
-    border-bottom: 3px solid black;
+	font-size: 1.2em;
+	font-weight: 700;
+	border-bottom: 3px solid black;
   }
 
   a:hover .post-title,
   a:focus .post-title {
-    border-bottom-color: black;
+	border-bottom-color: black;
   }
 }
 
 .pagination {
   .nav-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
   }
 
   a,
   span {
-    padding: 0.5em 1em;
+	padding: 0.5em 1em;
   }
 
   a {
-    text-decoration: none;
+	text-decoration: none;
 
-    &:focus,
-    &:hover {
-    }
+	&:focus,
+	&:hover {
+	}
   }
 
   .current {
-    font-weight: 600;
+	font-weight: 600;
   }
 
   .prev .icon {
-    margin-right: 1em;
+	margin-right: 1em;
   }
 
   .next .icon {
-    margin-left: 1em;
+	margin-left: 1em;
   }
 }
