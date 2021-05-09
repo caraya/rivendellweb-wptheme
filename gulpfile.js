@@ -10,12 +10,13 @@ const $ = require('gulp-load-plugins')({
 
 // postcss
 const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
 // SASS
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 // Critical CSS
 const critical = require('critical');
+// Stylelint
+const StyleLint = require('gulp-stylelint');
 
 // Imagemin and Plugins
 const imagemin = require('gulp-imagemin');
@@ -123,6 +124,17 @@ gulp.task('generateCriticalCSS', () => {
       title: 'Critical',
     }))
     .pipe(gulp.dest('dist'));
+})
+
+gulp.task('lint:css', () => {
+  return gulp.src([
+    '**/*.css', '!node_modules/**'
+  ])
+  .pipe(StyleLint({
+    reporters: [
+      {formatter: 'string', console: true}
+    ]
+  }));
 })
 
 /**

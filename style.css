@@ -2072,7 +2072,7 @@ button.dropdown-toggle {
 	align-self: center;
   }
   .main-navigation ul {
-	align: end;
+	text-align: end;
   }
   .site-branding {
 	margin-right: 1rem;
