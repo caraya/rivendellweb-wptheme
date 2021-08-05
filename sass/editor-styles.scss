@@ -17,21 +17,6 @@ body {
   grid-gap: 1em 1em;
 }
 
-/* Main column width */
-.block-editor__typewriter,
-.wp-block {
-  grid-column: 3/7;
-}
-
-/* Width of "wide" blocks */
-.wp-block[data-align="wide"] {
-  grid-column: 2/8
-}
-
-/* Width of "full-wide" blocks */
-.wp-block[data-align="full"] {
-  grid-column: 1/-1;
-}
 
 // Setting the title to matching font with the front end
 .editor-post-title__block,
@@ -57,4 +42,35 @@ h1, h2, h3, h4, h5, h6 {
 // Width of "full-wide" blocks
 .wp-block[data-align="full"] {
   max-width: none;
+}
+
+/* Main column width */
+.block-editor__typewriter,
+.wp-block {
+  grid-column: 3/7;
+}
+
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+  grid-column: 2/8
+}
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+  grid-column: 1/-1;
+}
+
+/* 
+  The next two classses should  handle the layout
+  of the content in the block editor
+*/
+
+.edit-post-visual-editor__post-title-wrapper {
+  grid-column: 2/8;
+  grid-row: 1;
+  height: 10vw;
+}
+
+.block-editor-block-list__layout {
+  grid-column: 2/8;
 }
