@@ -112,3 +112,4 @@ dist
 # project specific crap
 **/.DS_Store
 temp/
+rivendellweb-theme
