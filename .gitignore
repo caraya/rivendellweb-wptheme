@@ -109,5 +109,6 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# .DS_Store Mac crap
+# project specific crap
 **/.DS_Store
+temp/

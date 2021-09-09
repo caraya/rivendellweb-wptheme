@@ -103,3 +103,49 @@ Moved this here because it wasn't working in _footer.scss
 	width: 1.5em;
   }
 }
+
+// Testing a scrolling post scrolling  experiment
+// see https://css-tricks.com/practical-use-cases-for-scroll-linked-animations-in-css-with-scroll-timelines/
+// 
+// This positions the bar at the very top of the page. 
+// This may not always be what we want so I'm researching
+// new way to do it, like under the header image but above
+// the text
+/* linked scrolling reading progress */
+// #progress {
+// 	position: fixed;
+// 	z-index: 10;
+// 	left: 0;
+// 	top: 0;
+// 	width: 100vw;
+// 	height: 1vh;
+// 	transform-origin: 0 50%;
+// 	transform: scaleX(0);
+// 	background: #CB2656;
+// }
+
+// // @supports (animation-timeline: works) {
+// // 	@keyframes progress {
+// // 		to {
+// // 			transform: scaleX(1);
+// // 		}
+// // 	}
+	
+// // 	@scroll-timeline progress-timeline {
+// // 		time-range: 1s;
+// // 	}
+
+// // 	#progress {
+// // 		transform: scaleX(0);
+// // 		animation: 1s linear forwards progress;
+// // 		animation-timeline: progress-timeline;
+// // 	}
+// // }
+
+/* Selectors to accomodate the search engine logo requirement */
+.search-logo {
+	margin: 1em auto;
+	height: 150px;
+	width: 200px;
+}
+

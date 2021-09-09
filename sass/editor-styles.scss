@@ -13,7 +13,7 @@ body {
 
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr 2fr 1fr 1fr 2fr;
-  grid-auto-rows: minmax(200px, auto);
+  // grid-auto-rows: minmax(200px, auto);
   grid-gap: 1em 1em;
 }
 
@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Main column width */
 .block-editor__typewriter,
 .wp-block {
-  grid-column: 3/7;
+  grid-column: 2/8;
 }
 
 /* Width of "wide" blocks */
@@ -68,9 +68,9 @@ h1, h2, h3, h4, h5, h6 {
 .edit-post-visual-editor__post-title-wrapper {
   grid-column: 2/8;
   grid-row: 1;
-  height: 10vw;
 }
 
 .block-editor-block-list__layout {
   grid-column: 2/8;
+  grid-row: 2;
 }
