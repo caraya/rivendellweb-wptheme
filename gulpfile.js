@@ -170,7 +170,7 @@ gulp.task('prepare-artifact', () => {
     {
       base: '.',
     })
-    .pipe(gulp.dest('rivendellweb-theme/'));
+    .pipe(gulp.dest('theme-download/'));
   let cssStream = gulp.src([
     './css/*.css',
     '!./temp',
