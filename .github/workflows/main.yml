@@ -1,5 +1,4 @@
-name: NodeJS with Gulp
-
+name: Build artifact on change
 on:
   push:
     branches: [ main ]
