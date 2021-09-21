@@ -22,8 +22,17 @@ jobs:
         npm install
         gulp
 
-    - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v2
+#     - name: 'Upload Artifact'
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: rivendellweb-theme
+#         path: theme-download/
+        
+    - name: "Publish Release"
+      uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        name: rivendellweb-theme
-        path: theme-download/
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        title: "Development Build"
+        files: |
+          "theme-download/"
