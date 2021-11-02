@@ -2661,6 +2661,10 @@ figure {
   max-width: 60vw;
 }
 
+/*
+  Workaround because the first figure of the page is the header,
+  not the first image in the body
+*/
 figure:not(:first-of-type) {
   counter-increment: figure_count;
 }
