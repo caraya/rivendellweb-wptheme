@@ -1,10 +1,7 @@
 figure {
   margin: 2em auto;
   max-width: 60vw;
-
-  &:not(:first-of-type) {
-    counter-increment: figure_count;
-  }
+  counter-increment: figure_count;
 
   & img {
 	width: 100%;
