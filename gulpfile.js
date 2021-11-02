@@ -11,10 +11,9 @@ const $ = require('gulp-load-plugins')({
 // postcss
 const postcss = require('gulp-postcss');
 // SASS
-const sass = require('gulp-sass');
-sass.compiler = require('node-sass');
-// Stylelint
-const StyleLint = require('gulp-stylelint');
+const sass = require('gulp-sass')(require('node-sass'));
+// const sass = require('gulp-sass');
+// sass.compiler = require('node-sass');
 
 // explicitly require eslint
 const eslint = require('gulp-eslint');

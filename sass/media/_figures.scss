@@ -2,18 +2,21 @@ figure {
   margin: 2em auto;
   max-width: 60vw;
 
-  img {
-	width: 100%;
-	// object-fit: contain;
+  &:not(:first-of-type) {
+    counter-increment: figure_count;
   }
 
-  figcaption {
+  & img {
+	width: 100%;
+	object-fit: contain;
+  }
+
+  & figcaption {
 	color: $color__figure-text;
 	font-size: 0.9em;
   }
 
-  figcaption::before {
-	counter-increment: figure_count;
+  & figcaption::before {
 	content: 'Figure ' counter(figure_count) ': ';
   }
 }

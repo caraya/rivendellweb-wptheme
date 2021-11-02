@@ -2661,8 +2661,13 @@ figure {
   max-width: 60vw;
 }
 
+figure:not(:first-of-type) {
+  counter-increment: figure_count;
+}
+
 figure img {
   width: 100%;
+  object-fit: contain;
 }
 
 figure figcaption {
@@ -2671,7 +2676,6 @@ figure figcaption {
 }
 
 figure figcaption::before {
-  counter-increment: figure_count;
   content: "Figure " counter(figure_count) ": ";
 }
 
@@ -3059,41 +3063,14 @@ Moved this here because it wasn't working in _footer.scss
   width: 1.5em;
 }
 
-/* linked scrolling reading progress */
-#progress {
-  position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 1vh;
-  transform-origin: 0 50%;
-  transform: scaleX(0);
-  background: #CB2656;
-}
-
-@supports (animation-timeline: works) {
-  @keyframes progress {
-    to {
-      transform: scaleX(1);
-    }
-  }
-  @scroll-timeline progress-timeline {
-    time-range: 1s;
-  }
-  #progress {
-    transform: scaleX(0);
-    animation: 1s linear forwards progress;
-    animation-timeline: progress-timeline;
-  }
-}
-
 /* Selectors to accomodate the search engine logo requirement */
 .search-logo {
   margin: 1em auto;
   height: 150px;
   width: 200px;
 }
+
+/* linked scrolling reading progress */
 
 /*# sourceMappingURL=style.css.map */
 

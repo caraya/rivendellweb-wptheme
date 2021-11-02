@@ -104,6 +104,13 @@ Moved this here because it wasn't working in _footer.scss
   }
 }
 
+/* Selectors to accomodate the search engine logo requirement */
+.search-logo {
+	margin: 1em auto;
+	height: 150px;
+	width: 200px;
+}
+
 // Testing a scrolling post scrolling  experiment
 // see https://css-tricks.com/practical-use-cases-for-scroll-linked-animations-in-css-with-scroll-timelines/
 // 
@@ -142,10 +149,4 @@ Moved this here because it wasn't working in _footer.scss
 // // 	}
 // // }
 
-/* Selectors to accomodate the search engine logo requirement */
-.search-logo {
-	margin: 1em auto;
-	height: 150px;
-	width: 200px;
-}
 
