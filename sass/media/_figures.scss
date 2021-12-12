@@ -14,7 +14,8 @@ figure {
   }
 
   & figcaption::before {
-	content: 'Figure ' counter(figure_count) ': ';
+    counter-increment: figure_count;
+	  content: 'Figure ' counter(figure_count) ': ';
   }
 }
 

@@ -17,14 +17,6 @@ li > ol {
   margin-left: 1.5em;
 }
 
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin: 0 1.5em 1.5em;
-}
-
 // TODO:  Evaluate if this is too agressive and
 //        we can dial it down some. It may be an
 //        artifact of WordPress so we'll have to see.
@@ -48,7 +40,7 @@ ol li > ul li {
   ul > li,
   // ul li ul li,
   // ul li ul li ul li,
-  ol > li,
+  ol > li //,
   // ol li ol li,
   // ol li ol li ol li,
   // ul li > ol li,
@@ -68,7 +60,7 @@ ol li > ul li {
   ul > li,
   // ul li ul li,
   // ul li ul li ul li,
-  ol > li,
+  ol > li//,
   // ol li ol li,
   // ol li ol li ol li,
   // ul li > ol li,
@@ -89,7 +81,7 @@ ol li > ul li {
   ul > li,
   // ul li ul li,
   // ul li ul li ul li,
-  ol > li,
+  ol > li//,
   // ol li ol li,
   // ol li ol li ol li,
   // ul li > ol li,
@@ -97,4 +89,19 @@ ol li > ul li {
  {
 	font-size: calc(var(--p-font-size-max) * 1em);
   }
+}
+
+dt {
+  --recursive-weight: 800;
+  font-weight: var(--recursive-weight);
+}
+
+dd {
+  margin: 0 1.5em 1em 1.5em;
+}
+
+dt, dd {
+  font-family: 'Recursive VF', Verdana, sans-serif;
+  font-size: calc(var(--p-font-size-max) * 1em);
+
 }
