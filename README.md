@@ -31,19 +31,19 @@ function rivendell_add_ffo(){
     Promise.all([
       recursive.load(),
     ]).then(() => {
-			sessionStorage.fontsLoaded = true;
+      sessionStorage.fontsLoaded = true;
       console.log('Recursive has loaded.');
     }).catch((err) => {
-			sessionStorage.fontsLoaded = false;
+      sessionStorage.fontsLoaded = false;
       console.log('Recursive failed to load', err);
     });
 
-		// Add a class based on whether the font loaded successfully
-		if (sessionStorage.fontsLoaded) {
-			html.classList.add('fonts-loaded');
-		} else {
-			html.classList.add('fonts-failed');
-		}
+    // Add a class based on whether the font loaded successfully
+    if (sessionStorage.fontsLoaded) {
+      html.classList.add('fonts-loaded');
+    } else {
+      html.classList.add('fonts-failed');
+    }
 
   </script>
 </script>
@@ -130,9 +130,11 @@ Right now the theme and the customizer have little or no relationship. One of th
 
 We do this to make sure that users don't need to tweak the HTML/PHP and CSS directly.
 
-### AMP compatibility
+## TODO List
 
-What, if anything do we need to do to make sure the site is AMP-ready?
+### Convert the SASS code to PostCSS
+
+Most if not all the functionality available to SASS/SCSS is available as PostCSS plugins or directly in browsers. I don't see a reason not to use PostCSS in the build process.
 
 ## Credits
 
