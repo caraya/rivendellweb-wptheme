@@ -128,20 +128,20 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 		/**
 		 * Add support for editor styles and enqueue the styles
 		 */
-		add_theme_support( 'editor-styles' );
-		add_editor_style( '/editor-styles.css' );
+    // add_theme_support( 'editor-styles' );
+    // add_editor_style( '/editor-styles.css' );
 
 		/**
 		* Disable custom colors in Gutenberg
 		* Uncomment the block to enable
 		*/
-		add_theme_support( 'disable-custom-colors' );
+		// add_theme_support( 'disable-custom-colors' );
 
 		/**
 		* Disable the Gutenberg color palette
 		* Uncomment the block to enable
 		*/
-		add_theme_support( 'editor-color-palette' );
+		// add_theme_support( 'editor-color-palette' );
 
 		// /**
 		//  * Add support for default block styles
@@ -395,14 +395,27 @@ add_filter( 'script_loader_tag', 'rivendellweb_js_defer_attr', 10 );
  * 
  * Source: https://smartwp.com/remove-gutenberg-css/
  */
-function rivendellweb_remove_styles_css(){
+function rivendellweb_remove_assets(){
   wp_dequeue_style( 'wp-block-library-css');
   wp_dequeue_style( 'wp-block-library' );
   wp_dequeue_style( 'wp-block-library-theme' );
-  wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
+  wp_dequeue_style( 'wc-blocks-style' );
+  
+  // Conditionally removes additional assets
+  if ( is_home() 
+    || is_single()
+    || is_archive()
+  ) :
+    // Styles to remove
+    wp_dequeue_style( 'admin-bar-css' );
+    wp_dequeue_style( 'noticons-css' );
+    // Scripts to remove
+    wp_dequeue_script( 'wpcom-notes-common-js' );
+    wp_dequeue_script( 'wpcom-notes-admin-bar-js' );
+  endif;
  } 
 
-add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_styles_css', 100 );
+add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_assets', 100 );
  
 /**
  * Sets the length of the excerpt in archives and indexes.
