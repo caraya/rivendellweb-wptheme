@@ -422,11 +422,9 @@ add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_assets', 100 );
  * Removes the generator meta tag
 */
 // hide the meta tag generator from head and rss
-function rivendellweb_disable_version() {
-   return '';
-}
-add_filter('the_generator','rivendellweb_disable_version');
-remove_action('wp_head', 'wp_generator');
+remove_action("wp_head", "wp_generator");
+add_filter( "the_generator", "__return_null" );
+
 /**
  * Sets the length of the excerpt in archives and indexes.
  *
