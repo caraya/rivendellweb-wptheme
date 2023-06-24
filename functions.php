@@ -426,7 +426,8 @@ remove_action( "wp_head", "wp_generator" );
 remove_action( "wp_head", "rsd_link" );
 remove_action( "wp_head", "wlwmanifest_link" );
 remove_action( "wp_head", "wp_generator" );
-
+// remove peformance_lab generator meta tag
+remove_action( 'wp_head', 'perflab_render_generator' );
 add_filter( "the_generator", "__return_null" );
 
 /**
