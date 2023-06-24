@@ -416,7 +416,10 @@ function rivendellweb_remove_assets(){
  } 
 
 add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_assets', 100 );
- 
+
+// Removes generator meta tags
+remove_action('wp_head', 'wp_generator');
+
 /**
  * Sets the length of the excerpt in archives and indexes.
  *
