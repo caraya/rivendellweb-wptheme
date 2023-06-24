@@ -422,7 +422,7 @@ add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_assets', 100 );
  * Removes the generator meta tag
 */
 // hide the meta tag generator from head and rss
-remove_action("wp_head", "wp_generator");
+remove_action( "wp_head", "wp_generator", 9999 );
 add_filter( "the_generator", "__return_null" );
 
 /**
