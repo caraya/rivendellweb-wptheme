@@ -228,10 +228,7 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 		// );
 	}
 
-  // Removes generator meta tags
-  remove_action('wp_head', 'wp_generator');
-
-endif;
+  endif;
 add_action( 'after_setup_theme', 'rivendellweb_setup' );
 
 
@@ -421,6 +418,14 @@ function rivendellweb_remove_assets(){
 
 add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_assets', 100 );
 
+/** 
+ * Removes the generator meta tag
+*/
+function rivendellweb_remove_version() {
+  return '';
+}
+
+add_filter('the_generator', 'rivendellweb_remove_version');
 
 /**
  * Sets the length of the excerpt in archives and indexes.
