@@ -413,22 +413,22 @@ function rivendellweb_remove_assets(){
     // Scripts to remove
     wp_dequeue_script( 'wpcom-notes-common-js' );
     wp_dequeue_script( 'wpcom-notes-admin-bar-js' );
-
-    /** 
- * Removes meta tags from pages' head element
-*/
-// hide the meta tag generator from head and rss
-remove_action( "wp_head", "wp_generator" );
-remove_action( "wp_head", "rsd_link" );
-remove_action( "wp_head", "wlwmanifest_link" );
-remove_action( "wp_head", "wp_generator" );
-// remove peformance_lab generator meta tag
-remove_action( 'wp_head', 'perflab_render_generator' );
-add_filter( "the_generator", "__return_null" );
   endif;
  } 
 
 add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_assets', 100 );
+
+// /** 
+//  * Removes meta tags from pages' head element
+// */
+// // hide the meta tag generator from head and rss
+// remove_action( "wp_head", "wp_generator" );
+// remove_action( "wp_head", "rsd_link" );
+// remove_action( "wp_head", "wlwmanifest_link" );
+// remove_action( "wp_head", "wp_generator" );
+// // remove peformance_lab generator meta tag
+// remove_action( 'wp_head', 'perflab_render_generator' );
+// add_filter( "the_generator", "__return_null" );
 
 /**
  * Sets the length of the excerpt in archives and indexes.
