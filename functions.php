@@ -128,8 +128,8 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 		/**
 		 * Add support for editor styles and enqueue the styles
 		 */
-    // add_theme_support( 'editor-styles' );
-    // add_editor_style( '/editor-styles.css' );
+		// add_theme_support( 'editor-styles' );
+		// add_editor_style( '/editor-styles.css' );
 
 		/**
 		* Disable custom colors in Gutenberg
@@ -228,7 +228,7 @@ if ( ! function_exists( 'rivendellweb_setup' ) ) :
 		// );
 	}
 
-  endif;
+	endif;
 add_action( 'after_setup_theme', 'rivendellweb_setup' );
 
 
@@ -242,7 +242,7 @@ add_action( 'after_setup_theme', 'rivendellweb_setup' );
 function rivendellweb_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['content_width'] = apply_filters( 'rivendellweb_content_width', 960 );
 }
 add_action( 'after_setup_theme', 'rivendellweb_content_width', 0 );
@@ -355,13 +355,13 @@ function rivendellweb_scripts() {
 	wp_add_inline_script(
 		'ffo_script',
 		'const recursive = new FontFaceObserver("Recursive VF"); let html = document.documentElement;
-    Promise.all([recursive.load(),]).then(() => {
-      sessionStorage.fontsLoaded = true;console.log("Recursive has loaded.");
-    }).catch((err) => {sessionStorage.fontsLoaded = false; console.log("Recursive failed to load", err);
-    });
+		Promise.all([recursive.load(),]).then(() => {
+			sessionStorage.fontsLoaded = true;console.log("Recursive has loaded.");
+		}).catch((err) => {sessionStorage.fontsLoaded = false; console.log("Recursive failed to load", err);
+		});
 
-    // Add a class based on whether the font loaded successfully
-    if (sessionStorage.fontsLoaded) {html.classList.add("fonts-loaded");} else { html.classList.add("fonts-failed");}'
+		// Add a class based on whether the font loaded successfully
+		if (sessionStorage.fontsLoaded) {html.classList.add("fonts-loaded");} else { html.classList.add("fonts-failed");}'
 	);
 }
 add_action( 'wp_enqueue_scripts', 'rivendellweb_scripts' );
@@ -396,27 +396,24 @@ add_filter( 'script_loader_tag', 'rivendellweb_js_defer_attr', 10 );
  * 
  * Source: https://smartwp.com/remove-gutenberg-css/
  */
-function rivendellweb_remove_assets(){
-  wp_dequeue_style( 'wp-block-library-css');
-  wp_dequeue_style( 'wp-block-library' );
-  wp_dequeue_style( 'wp-block-library-theme' );
-  wp_dequeue_style( 'wc-blocks-style' );
-  
-  // Conditionally removes additional assets
-  if ( is_home() 
-    || is_single()
-    || is_archive()
-  ) :
-    // Styles to remove
-    wp_dequeue_style( 'admin-bar-css' );
-    wp_dequeue_style( 'noticons-css' );
-    // Scripts to remove
-    wp_dequeue_script( 'wpcom-notes-common-js' );
-    wp_dequeue_script( 'wpcom-notes-admin-bar-js' );
-  endif;
- } 
+// function rivendellweb_remove_assets(){
+// 	wp_dequeue_style( 'wp-block-library-css');
+// 	wp_dequeue_style( 'wp-block-library' );
+// 	wp_dequeue_style( 'wp-block-library-theme' );
+// 	wp_dequeue_style( 'wc-blocks-style' );
+	
+// 	// Conditionally removes additional assets
+// 	// if it's not an admin
+// 	if ( ! is_admin() ) :
+// 		// Styles to remove
+// 		wp_dequeue_style( 'admin-bar-css' );
+// 		// Scripts to remove
+// 		wp_dequeue_script( 'wpcom-notes-common-js' );
+// 		wp_dequeue_script( 'wpcom-notes-admin-bar-js' );
+// 	endif;
+//  } 
 
-add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_assets', 100 );
+// add_action( 'wp_enqueue_scripts', 'rivendellweb_remove_assets', 100 );
 
 // /** 
 //  * Removes meta tags from pages' head element
@@ -648,22 +645,22 @@ function rivendellweb_add_navlinks_to_post_rest( $response, $post, $request ) {
 add_filter( 'rest_prepare_post', 'rivendellweb_add_navlinks_to_post_rest', 10, 3 );
 
 /*
-  * Removes has-sidebar class from body
+	* Removes has-sidebar class from body
 */
 function rivendellweb_remove_body_class( $classes ) {  
-  $remove_classes = ['has-sidebar'];
-  $classes = array_diff($classes, $remove_classes);
-   
-  return $classes;    
+	$remove_classes = ['has-sidebar'];
+	$classes = array_diff($classes, $remove_classes);
+	 
+	return $classes;    
 }
 add_filter( 'body_class', 'rivendellweb_remove_body_class' );
 
 /*
-  * Adds no-sidebar class to body
+	* Adds no-sidebar class to body
 */
 function rivendellweb_add_body_classes( $classes ) {
-    $classes[] = 'no-sidebar';
-    return $classes;
+		$classes[] = 'no-sidebar';
+		return $classes;
 }
 add_filter( 'body_class','rivendellweb_add_body_classes' );
 
